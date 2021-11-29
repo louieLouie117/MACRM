@@ -6,11 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace KcPilot.Models
 {
 
-    public enum AccountType { Admin = 0, ServiceAdvocate = 1, Triage = 2, Tech = 3, FiledCoach = 4, SACoach = 5, HR = 6 }
-    public enum AccountStatus { Active = 0, InActive = 1 }
 
 
-    public class User
+    public class ServiceJob
 
     {
         [Key]
@@ -23,7 +21,6 @@ namespace KcPilot.Models
         [Column(TypeName = "nvarchar(24)")]
         [EnumDataType(typeof(AccountStatus))]
         public AccountStatus AccountStatus { get; set; }
-
 
 
         [Display(Name = "Profile Picture")]
