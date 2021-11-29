@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace KcPilot.Models
 {
 
-    public enum JobStatus { NeedsPreScreen = 0, PreScreenSuccessful = 1, PreScreenUnsuccessful = 2, SentToTriage = 3, PartsOrder = 4, PartsInTransition = 5, Completed = 6, SuccessfullyCompleted = 7, Reschedule = 8 }
+    public enum JobStatus { NeedsPreScreen = 0, PreScreenSuccessful = 1, PreScreenUnsuccessful = 2, SentToTriage = 3, MoreInfoNeedByTriage = 4, PartsOrder = 5, PartsInTransition = 6, Completed = 7, CompletionReviewed = 8, Reschedule = 9 }
 
     public class ServiceJob
 
