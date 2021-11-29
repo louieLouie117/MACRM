@@ -6,51 +6,31 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace KcPilot.Models
 {
 
-
+    public enum JobStatus { NeedsPreScreen = 0, PreScreenSuccessful = 1, PreScreenUnsuccessful = 2, SentToTriage = 3, PartsOrder = 4, PartsInTransition = 5, Completed = 6, SuccessfullyCompleted = 7, Reschedule = 8 }
 
     public class ServiceJob
 
     {
         [Key]
-        public int UserId { get; set; }
+        public int ServiceJobId { get; set; }
+
+        public string SJNumber { get; set; }
 
         [Column(TypeName = "nvarchar(24)")]
-        [EnumDataType(typeof(AccountType))]
-        public AccountType AccountType { get; set; }
-
-        [Column(TypeName = "nvarchar(24)")]
-        [EnumDataType(typeof(AccountStatus))]
-        public AccountStatus AccountStatus { get; set; }
+        [EnumDataType(typeof(JobStatus))]
+        public JobStatus JobStatus { get; set; }
+        public string JobColor { get; set; }
 
 
-        [Display(Name = "Profile Picture")]
-        public string ProfilePic { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerPhoneNumber { get; set; }
 
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string DirectPhoneNumber { get; set; }
-
-        public string TeamLink { get; set; }
-
-        [EmailAddress]
-        [Required]
-        public string Email { get; set; }
-
-        [DataType(DataType.Password)]
-        [Required]
-        [MinLength(8, ErrorMessage = "Password must be 8 characters or longer!")]
-        public string Password { get; set; }
-
-        [NotMapped]
-        [Compare("Password")]
-        [DataType(DataType.Password)]
-        public string Confirm { get; set; }
 
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
+
+        // Relationships
 
     }
 }
