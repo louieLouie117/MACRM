@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace KcPilot.Models
 {
 
-    public enum AccountType { Admin = 0, ServiceAdvocate = 1, Triage = 2, Tech = 3, FiledCoach = 4, SACoach = 5, HR = 6 }
+    public enum AccountType { Admin = 0, ServiceAdvocate = 1, SACoach = 2 }
     public enum AccountStatus { Active = 0, InActive = 1 }
 
 
@@ -24,18 +24,9 @@ namespace KcPilot.Models
         [EnumDataType(typeof(AccountStatus))]
         public AccountStatus AccountStatus { get; set; }
 
-
-
-        [Display(Name = "Profile Picture")]
-        public string ProfilePic { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        public string DirectPhoneNumber { get; set; }
-
-        public string TeamLink { get; set; }
 
         [EmailAddress]
         [Required]
