@@ -7,5 +7,10 @@ namespace KcPilot.Models
         public MyContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<ServiceJob> ServiceJobs { get; set; }
+        public DbSet<Tech> Techs { get; set; }
+        public DbSet<JobStatus> JobStatuss { get; set; }
+
+
     }
 }

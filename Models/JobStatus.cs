@@ -11,11 +11,14 @@ namespace KcPilot.Models
     {
         [Key]
         public int JobStatusId { get; set; }
+
+        public string ColorCode { get; set; }
         public string Outcome { get; set; }
         public string TechName { get; set; }
         public string ServiceJobNumber { get; set; }
         public string SA { get; set; }
         public string Comments { get; set; }
+        public string Market { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
 

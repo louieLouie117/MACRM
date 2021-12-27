@@ -13,6 +13,7 @@ namespace KcPilot.Models
         public int TechId { get; set; }
         public string FullName { get; set; }
 
+        public string Market { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
 

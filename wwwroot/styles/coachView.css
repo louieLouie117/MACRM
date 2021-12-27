@@ -1,0 +1,25 @@
+body{
+    background: whitesmoke;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    background: #8D63A9;
+    padding: 20px;
+    max-width: 450px;
+}
+
+
+form button{
+    font: 1.3em sans-serif;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    border: none;
+}
+
+
+ul{
+    list-style: none;
+}
