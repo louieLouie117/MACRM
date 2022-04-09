@@ -15,6 +15,8 @@ namespace KcPilot.Models
     {
         [Key]
         public int UserId { get; set; }
+        public string Market { get; set; }
+        public string MarketCode { get; set; }
 
         [Column(TypeName = "nvarchar(24)")]
         [EnumDataType(typeof(AccountType))]
@@ -29,8 +31,11 @@ namespace KcPilot.Models
         public OnlineStatus OnlineStatus { get; set; }
 
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
+        public string ProfilePhoto { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Extention { get; set; }
+        public string UserRole { get; set; }
 
         [EmailAddress]
         [Required]
@@ -41,17 +46,13 @@ namespace KcPilot.Models
         [MinLength(8, ErrorMessage = "Password must be 8 characters or longer!")]
         public string Password { get; set; }
 
-
-        public string ProfilePhoto { get; set; }
-        public string PhoneNumber { get; set; }
-
-
         [NotMapped]
         [Compare("Password")]
         [DataType(DataType.Password)]
-        public string Confirm { get; set; }
+        public string ConfirmPassword { get; set; }
 
 
+        public string AppVersion { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
 

@@ -7,21 +7,27 @@ namespace KcPilot.Models
 {
 
 
-    public class NoteComment
+    public class JobComment
 
     {
         [Key]
-        public int NoteCommentId { get; set; }
+        public int JobCommentId { get; set; }
 
         public string Notes { get; set; }
 
-        public string UserAddedNotes { get; set; }
+        public string Job { get; set; }
         public string UserTitle { get; set; }
+        public bool EditComment { get; set; }
+
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
 
         // Relationships
+        // fKey for user
+        public int JobId { get; set; }
+        // navP
+        public Job Jobs { get; set; }
 
     }
 }
