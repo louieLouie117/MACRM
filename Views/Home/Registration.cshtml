@@ -39,13 +39,21 @@
         console.log(jsonData, "JsonData")
 
 
-        @* $.ajax({
-                type: "POST",
-                url: "@Url.Action("RegisterBuyer", "Home")',
-                data: jsonData,
-                success: SuccessBuyerReg,
-                }); *@
-        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("RegisterNewUserMethod", "Home")',
+            data: jsonData,
+            success: RegisterationSucessHandler,
+        });
+    }
+
+
+
+    const RegisterationSucessHandler = (result) => {
+        console.log("success call back");
+    }
+
+
 </script>
 
 <body>

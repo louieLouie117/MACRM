@@ -33,8 +33,8 @@ namespace KcPilot.Controllers
 
 
 
-        [HttpPost("Registration")]
-        public JsonResult Registration(User UserInputData)
+        [HttpPost("RegisterNewUserMethod")]
+        public JsonResult RegisterNewUserMethod(User UserInputData)
         {
 
             System.Console.WriteLine("you reach the backend to register a new user!!");
