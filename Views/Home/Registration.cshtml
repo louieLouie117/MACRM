@@ -24,12 +24,12 @@
         let MakerCode = document.getElementById("regMarketCode").value;
         let Email = document.getElementById("regEmail").value;
         let Password = document.getElementById("regPassword").value;
-        let ConfirmPassword = $("#regConfirmPassword").value;
+        let ConfirmPassword = document.getElementById("regConfirmPassword").value;
 
         let jsonData = {
             firstName: FirstName,
             lastName: LastName,
-            role: Role,
+            userRole: Role,
             maker: Maker,
             maketCode: MakerCode,
             email: Email,

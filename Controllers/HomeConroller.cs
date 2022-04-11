@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using KcPilot.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace KcPilot.Controllers
 {
@@ -39,12 +39,66 @@ namespace KcPilot.Controllers
 
             System.Console.WriteLine("you reach the backend to register a new user!!");
 
-            return Json(new { Status = "User Registered" });
+
+            if (UserInputData.Email == null)
+            {
+                return Json(new { Status = "Email can not be empty!" });
+
+            }
+
+            if (UserInputData.Password == null)
+            {
+                return Json(new { Status = "Password can not be empty!" });
+
+            }
+
+            if (UserInputData.Password != UserInputData.ConfirmPassword)
+            {
+                return Json(new { Status = "Password do not match!" });
+
+            }
+
+
+            if (_context.Users.Any(u => u.Email == UserInputData.Email))
+            {
+                return Json(new { Status = "Email already in use!" });
+
+            }
+            else
+            {
+
+                // Still need these for debugging? Console.Writelines should be removed
+
+                UserInputData.UserRole = UserRole.ServiceAdvocate;
+                // Must have "using Microsoft.AspNetCore.Identity;"
+                PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                UserInputData.Password = Hasher.HashPassword(UserInputData, UserInputData.Password);
+                UserInputData.AccountStatus = AccountStatus.Active;
+                UserInputData.OnlineStatus = OnlineStatus.Active;
+                UserInputData.PhoneNumber = "615-445-1047";
+                UserInputData.ProfilePhoto = "placeholder.png";
+                UserInputData.AppVersion = "1.0";
+                UserInputData.Extention = "none";
+                UserInputData.UserRole = 0;
+                UserInputData.Market = "Kansas City";
+                UserInputData.UserRole = UserRole.ServiceAdvocate;
+                UserInputData.MarketCode = "BF455";
+
+
+
+                _context.Add(UserInputData);
+                _context.SaveChanges();
+                Console.WriteLine("You may contine!");
+
+                return Json(new { Status = "Service Advovate Registered!!" });
+            }
+
         }
 
 
-        [HttpPost("login")]
-        public JsonResult Login(LoginUser UserInputData)
+        [HttpPost("Login")]
+
+        public JsonResult Login(User UserInputData)
         {
 
             System.Console.WriteLine("you reach the backend of sign in!!");
