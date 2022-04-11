@@ -31,7 +31,34 @@ namespace KcPilot.Controllers
         }
 
 
+
+
+        [HttpPost("Registration")]
+        public JsonResult Registration(User UserInputData)
+        {
+
+            System.Console.WriteLine("you reach the backend to register a new user!!");
+
+            return Json(new { Status = "User Registered" });
+        }
+
+
+        [HttpPost("login")]
+        public JsonResult Login(LoginUser UserInputData)
+        {
+
+            System.Console.WriteLine("you reach the backend of sign in!!");
+
+            return Json(new { Status = "User Logged in" });
+
+
+        }
+
+
+
+
     }
+
 
 
 

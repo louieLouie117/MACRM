@@ -12,6 +12,40 @@
     $(document).ready(() => {
         console.log("jQuery/ajax is running in registratoin...")
     });
+
+    const RegistrationHandler = (e) => {
+        e.preventDefault();
+
+        let FirstName = document.querySelector("#regFristName").value;
+        let LastName = document.getElementById("regLastName").value;
+        let Role = document.getElementById("regRole").value;
+
+        let Maker = document.getElementById("regMarket").value;
+        let MakerCode = document.getElementById("regMarketCode").value;
+        let Email = document.getElementById("regEmail").value;
+        let Password = document.getElementById("regPassword").value;
+        let ConfirmPassword = $("#regConfirmPassword").value;
+
+        let jsonData = {
+            firstName: FirstName,
+            lastName: LastName,
+            role: Role,
+            maker: Maker,
+            maketCode: MakerCode,
+            email: Email,
+            password: Password,
+            confirmPassword: ConfirmPassword
+        }
+        console.log(jsonData, "JsonData")
+
+
+        @* $.ajax({
+                type: "POST",
+                url: "@Url.Action("RegisterBuyer", "Home")',
+                data: jsonData,
+                success: SuccessBuyerReg,
+                }); *@
+        }
 </script>
 
 <body>
@@ -29,7 +63,10 @@
             <input type="text" name="" id="regRole" placeholder="Role:">
 
             <label for="">Market</label>
-            <input type="text" name="" id="regMarker" placeholder="Maker:">
+            <input type="text" name="" id="regMarket" placeholder="Maker:">
+
+            <label for="">MarketCode</label>
+            <input type="text" name="" id="regMarketCode" placeholder="Maker Code:">
 
             <label for="">Email</label>
             <input type="text" name="" id="regEmail" placeholder="Email:">
@@ -40,8 +77,10 @@
             <label for="">Confirm Password</label>
             <input type="text" name="" id="regConfirmPassword" placeholder="Confirm Password">
 
-            <button>Creat Account</button>
+            <button type="submit" onclick="RegistrationHandler(event)">Creat Account</button>
+
         </form>
+
     </div>
 
 </body>
