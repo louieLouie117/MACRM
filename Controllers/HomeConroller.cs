@@ -22,6 +22,15 @@ namespace KcPilot.Controllers
         {
             return View("index");
         }
+
+
+        [HttpGet("Dashboard")]
+        public IActionResult Dashboard()
+        {
+            return View("Dashboard");
+        }
+
+
     }
 
 
