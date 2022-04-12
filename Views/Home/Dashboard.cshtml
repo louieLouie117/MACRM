@@ -1,3 +1,6 @@
+@using KcPilot.Models
+@model User
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +22,29 @@
 </script>
 
 <body>
-    <partial name="DashboardAdmin" />
-    <partial name="DashboardSA" />
+
+    @* @if (Model.Role == "Admin")
+        {
+        <partial name="DashboardAdmin" />
+        }
+
+        @if (Model.Role == "Service Advocate")
+        {
+        <partial name="DashboardSA" />
+        }
+
+        @if (Model.Role == "Tech")
+        {
+        <partial name="DashboardTech" />
+        }
+
+        @if (Model.Role == "Triage")
+        {
+        <partial name="DashboardTriage" />
+        } *@
+
     <partial name="DashboardSACoach" />
-    <partial name="DashboardTech" />
-    <partial name="DashboardTriage" />
+
 
 
 </body>

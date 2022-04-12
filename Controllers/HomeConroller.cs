@@ -69,23 +69,15 @@ namespace KcPilot.Controllers
 
                 // Still need these for debugging? Console.Writelines should be removed
 
-                UserInputData.UserRole = UserRole.ServiceAdvocate;
                 // Must have "using Microsoft.AspNetCore.Identity;"
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
                 UserInputData.Password = Hasher.HashPassword(UserInputData, UserInputData.Password);
                 UserInputData.AccountStatus = AccountStatus.Active;
                 UserInputData.OnlineStatus = OnlineStatus.Active;
-                UserInputData.PhoneNumber = "615-445-1047";
+                UserInputData.PhoneNumber = "615-123-4455";
                 UserInputData.ProfilePhoto = "placeholder.png";
                 UserInputData.AppVersion = "1.0";
                 UserInputData.Extention = "none";
-                UserInputData.UserRole = 0;
-                UserInputData.Market = "Kansas City";
-                UserInputData.UserRole = UserRole.ServiceAdvocate;
-                UserInputData.MarketCode = "BF455";
-
-
-
                 _context.Add(UserInputData);
                 _context.SaveChanges();
                 Console.WriteLine("You may contine!");
@@ -96,9 +88,9 @@ namespace KcPilot.Controllers
         }
 
 
-        [HttpPost("Login")]
+        [HttpPost("LoginMethod")]
 
-        public JsonResult Login(User UserInputData)
+        public JsonResult LoginMethod(Login UserInputData)
         {
 
             System.Console.WriteLine("you reach the backend of sign in!!");
@@ -112,6 +104,9 @@ namespace KcPilot.Controllers
 
 
     }
+
+
+
 
 
 

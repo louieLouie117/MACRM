@@ -13,6 +13,9 @@ namespace KcPilot.Models
         public DbSet<JobStatus> JobStatuss { get; set; }
         public DbSet<Market> Markets { get; set; }
 
+        public DbSet<Role> Roles { get; set; }
+
+
 
 
     }

@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace KcPilot.Models
 {
 
-    public enum UserRole { Admin = 0, ServiceAdvocate = 1, SACoach = 2, Triage = 3, Tech = 4 }
     public enum AccountStatus { Active = 0, InActive = 1 }
     public enum OnlineStatus { Active = 0, Away = 1, Offline = 2, NotAvailed = 3 }
 
@@ -18,9 +17,7 @@ namespace KcPilot.Models
         public string Market { get; set; }
         public string MarketCode { get; set; }
 
-        [Column(TypeName = "nvarchar(24)")]
-        [EnumDataType(typeof(UserRole))]
-        public UserRole UserRole { get; set; }
+        public string Role { get; set; }
 
         [Column(TypeName = "nvarchar(24)")]
         [EnumDataType(typeof(AccountStatus))]

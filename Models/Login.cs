@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KcPilot.Models
 {
-    public class LoginUser
+    public class Login
     {
         public int UserId { get; set; }
 

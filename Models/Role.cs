@@ -7,23 +7,23 @@ namespace KcPilot.Models
 {
 
 
-    public class Market
+    public class Role
 
     {
         [Key]
-        public int MarketId { get; set; }
+        public int RoleId { get; set; }
 
-        public string Location { get; set; }
-        public string MarkerCode { get; set; }
+        public string Title { get; set; }
+
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
 
         // Relationships
-
         // fKey for user
         public int UserId { get; set; }
         // navP
-        public User User { get; set; }
+        public User Users { get; set; }
+
     }
 }
