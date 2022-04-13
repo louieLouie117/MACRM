@@ -1,0 +1,65 @@
+@using KcPilot.Models
+@model DashboardWrapper
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+    <title>Dashboard</title>
+</head>
+
+
+
+<script>
+    $(document).ready(() => {
+        console.log("jQuery/ajax is running in the main Dashboard...")
+    });
+</script>
+
+<body>
+    <h1>Dashboard for user</h1>
+    <p>This needs to render Dashboard by the user logged in!</p>
+
+    @if (Model.User.Role == "Admin")
+    {
+        <partial name="DashboardAdmin" />
+    }
+
+    @if (Model.User.Role == "Service Advocate")
+    {
+        <partial name="DashboardSA" />
+    }
+
+    @if (Model.User.Role == "Tech")
+    {
+        <partial name="DashboardTech" />
+    }
+
+    @if (Model.User.Role == "Triage")
+    {
+        <partial name="DashboardTriage" />
+    }
+
+    @if (Model.User.Role == "SACoach")
+    {
+        <partial name="DashboardSACoach" />
+
+    }
+
+    @if (Model.User.Role == "FiledCoach")
+    {
+        <partial name="DashboardSACoach" />
+    }
+
+
+
+
+
+</body>
+
+</html>

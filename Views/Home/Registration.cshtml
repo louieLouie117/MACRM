@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+
+<script>
+    $(document).ready(() => {
+        console.log("jQuery/ajax is running in registratoin...")
+    });
+
+    const RegistrationHandler = (e) => {
+        e.preventDefault();
+
+        let FirstName = document.querySelector("#regFristName").value;
+        let LastName = document.getElementById("regLastName").value;
+        let Role = document.getElementById("regRole").value;
+
+        let Maker = document.getElementById("regMarket").value;
+        let MakerCode = document.getElementById("regMarketCode").value;
+        let Email = document.getElementById("regEmail").value;
+        let Password = document.getElementById("regPassword").value;
+        let ConfirmPassword = document.getElementById("regConfirmPassword").value;
+
+        let jsonData = {
+            firstName: FirstName,
+            lastName: LastName,
+            role: Role,
+            maker: Maker,
+            maketCode: MakerCode,
+            email: Email,
+            password: Password,
+            confirmPassword: ConfirmPassword
+        }
+        console.log(jsonData, "JsonData")
+
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("RegisterNewUserMethod", "Home")',
+            data: jsonData,
+            success: RegisterationSucessHandler,
+        });
+    }
+
+
+
+    const RegisterationSucessHandler = (result) => {
+        console.log("success call back");
+        if (result.status === "User Registered!!") {
+            window.location.href = '@Url.Action("SendToDashboard", "Home")'
+        }
+    }
+
+
+</script>
+
+<body>
+
+    <div class="Registration-Container">
+        <h1>Registration</h1>
+        <form action="">
+            <label for="Frist Name"> Frist Name</label>
+            <input type="" name="" id="regFristName" placeholder="First Name:">
+
+            <label for="">Last Name</label>
+            <input type="text" placeholder="Last Name:" id="regLastName">
+
+            <label for="Role">Role</label>
+            <input type="text" name="" id="regRole" placeholder="Role:">
+
+            <label for="">Market</label>
+            <input type="text" name="" id="regMarket" placeholder="Maker:">
+
+            <label for="">MarketCode</label>
+            <input type="text" name="" id="regMarketCode" placeholder="Maker Code:">
+
+            <label for="">Email</label>
+            <input type="text" name="" id="regEmail" placeholder="Email:">
+
+            <label for="">Password</label>
+            <input type="text" name="" id="regPassword" placeholder="Password:">
+
+            <label for="">Confirm Password</label>
+            <input type="text" name="" id="regConfirmPassword" placeholder="Confirm Password">
+
+            <button type="submit" onclick="RegistrationHandler(event)">Creat Account</button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

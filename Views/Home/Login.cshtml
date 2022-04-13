@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<script>
+    $(document).ready(() => {
+        console.log("jQuery/ajax is running in login...")
+    });
+
+
+    const LoginHandler = (e) => {
+        e.preventDefault();
+
+
+        let Email = document.getElementById("loginEmail").value;
+        let Password = document.getElementById("loginPassword").value;
+
+        let jsonData = {
+            email: Email,
+            password: Password
+        }
+        console.log(jsonData, "JsonData")
+
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("LoginMethod", "Home")',
+            data: jsonData,
+            success: LoginMethodSuccess,
+        });
+    }
+
+
+
+    const LoginMethodSuccess = (result) => {
+        console.log("call back result", result);
+
+        if (result.status === "Logged in successfully!") {
+            window.location.href = '@Url.Action("SendToDashboard", "Home")'
+        }
+
+    }
+</script>
+
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="">
+            <label for="">Email</label>
+            <input type="text" id="loginEmail" placeholder="email:">
+
+            <label for="">Password</label>
+            <input type="text" name="" id="loginPassword" placeholder="password:">
+
+            <button onclick="LoginHandler(event)">Log in</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

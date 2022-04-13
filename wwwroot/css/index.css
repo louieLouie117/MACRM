@@ -1,0 +1,25 @@
+body{
+    background:  whitesmoke;
+    display: grid;
+    row-gap: 20px;
+}
+
+
+
+ul{
+    list-style: none;
+}
+
+form{display: grid;}
+
+label{
+    display: none;
+}
+
+
+
+.Registration-Container, .login-container{
+    display: grid;
+    background: rgb(174, 101, 174);
+    max-width: 35em;
+}
