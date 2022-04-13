@@ -38,7 +38,12 @@
 
 
     const LoginMethodSuccess = (result) => {
-        console.log("success call back");
+        console.log("call back result", result);
+
+        if (result.status === "Logged in successfully!") {
+            window.location.href = '@Url.Action("SendToDashboard", "Home")'
+        }
+
     }
 </script>
 

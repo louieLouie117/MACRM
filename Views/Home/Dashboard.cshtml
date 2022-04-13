@@ -1,5 +1,5 @@
 @using KcPilot.Models
-@model User
+@model DashboardWrapper
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,28 +22,37 @@
 </script>
 
 <body>
+    <h1>Dashboard for user</h1>
+    <p>This needs to render Dashboard by the user logged in!</p>
 
-    @* @if (Model.Role == "Admin")
-        {
+    @if (Model.User.Role == "Admin")
+    {
         <partial name="DashboardAdmin" />
-        }
+    }
 
-        @if (Model.Role == "Service Advocate")
-        {
+    @if (Model.User.Role == "ServiceAdvocate")
+    {
         <partial name="DashboardSA" />
-        }
+    }
 
-        @if (Model.Role == "Tech")
-        {
+    @if (Model.User.Role == "Tech")
+    {
         <partial name="DashboardTech" />
-        }
+    }
 
-        @if (Model.Role == "Triage")
-        {
+    @if (Model.User.Role == "Triage")
+    {
         <partial name="DashboardTriage" />
-        } *@
+    }
 
-    <partial name="DashboardSACoach" />
+    @if (Model.User.Role == "SACoach")
+    {
+        <partial name="DashboardSACoach" />
+
+
+    }
+
+
 
 
 

@@ -4,6 +4,7 @@ using KcPilot.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace KcPilot.Controllers
 {
@@ -27,7 +28,24 @@ namespace KcPilot.Controllers
         [HttpGet("Dashboard")]
         public IActionResult Dashboard()
         {
-            return View("Dashboard");
+            if (HttpContext.Session.GetInt32("UserId") == null)
+            {
+                return RedirectToAction("index");
+            }
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            User UserIndb = _context.Users
+                .FirstOrDefault(u => u.UserId == UserIdInSession);
+
+            DashboardWrapper wMod = new DashboardWrapper();
+            // User wMod = new User();
+            ViewBag.ToDisplay = UserIndb;
+            ViewBag.allUserLogs = _context.Users
+                .Where(ul => ul.UserId == UserIdInSession)
+                .ToList();
+            wMod.User = UserIndb;
+
+
+            return View("Dashboard", wMod);
         }
 
 
@@ -92,12 +110,55 @@ namespace KcPilot.Controllers
 
         public JsonResult LoginMethod(Login UserInputData)
         {
+            DashboardWrapper wMod = new DashboardWrapper();
 
             System.Console.WriteLine("you reach the backend of sign in!!");
 
-            return Json(new { Status = "User Logged in" });
+
+            if (ModelState.IsValid)
+            {
+                User userInDb = _context.Users.FirstOrDefault(u => u.Email == UserInputData.Email);
 
 
+
+                if (userInDb == null)
+                {
+                    Console.WriteLine($"email error");
+                    ModelState.AddModelError("Email", "Invalid Email/Password");
+                    return Json(new { Status = "email error" });
+
+
+                }
+                var hasher = new PasswordHasher<Login>();
+                var result = hasher.VerifyHashedPassword(UserInputData, userInDb.Password, UserInputData.Password);
+                if (result == 0)
+                {
+                    // Still need these for debugging? Console.Writelines should be removed
+                    // something else should happer here besides a WriteLine
+                    Console.WriteLine("Pasword Error");
+                    return Json(new { Status = "password error" });
+
+
+                }
+
+                HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                return Json(new { Status = "Logged in successfully!" });
+
+
+            }
+
+            Console.WriteLine("No access");
+            return Json(new { Status = false });
+
+
+        }
+
+
+        [HttpGet("SendToDashboard")]
+        public IActionResult SendToDashboard()
+        {
+
+            return RedirectToAction("dashboard");
         }
 
 
