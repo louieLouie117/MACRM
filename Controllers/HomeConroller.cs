@@ -37,11 +37,6 @@ namespace KcPilot.Controllers
                 .FirstOrDefault(u => u.UserId == UserIdInSession);
 
             DashboardWrapper wMod = new DashboardWrapper();
-            // User wMod = new User();
-            ViewBag.ToDisplay = UserIndb;
-            ViewBag.allUserLogs = _context.Users
-                .Where(ul => ul.UserId == UserIdInSession)
-                .ToList();
             wMod.User = UserIndb;
 
 
@@ -54,9 +49,14 @@ namespace KcPilot.Controllers
         [HttpPost("RegisterNewUserMethod")]
         public JsonResult RegisterNewUserMethod(User UserInputData)
         {
-
+            DashboardWrapper wMod = new DashboardWrapper();
             System.Console.WriteLine("you reach the backend to register a new user!!");
+            if (_context.Users.Any(u => u.Email == UserInputData.Email))
+            {
+                ModelState.AddModelError("Email", "Email already in use!");
+                return Json(new { Status = "Email already in use!" });
 
+            }
 
             if (UserInputData.Email == null)
             {
@@ -85,7 +85,6 @@ namespace KcPilot.Controllers
             else
             {
 
-                // Still need these for debugging? Console.Writelines should be removed
 
                 // Must have "using Microsoft.AspNetCore.Identity;"
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
@@ -98,10 +97,14 @@ namespace KcPilot.Controllers
                 UserInputData.Extention = "none";
                 _context.Add(UserInputData);
                 _context.SaveChanges();
+
+                // Session needs to be after both _context
+                HttpContext.Session.SetInt32("UserId", _context.Users.FirstOrDefault(i => i.UserId == UserInputData.UserId).UserId);
                 Console.WriteLine("You may contine!");
 
-                return Json(new { Status = "Service Advovate Registered!!" });
+                return Json(new { Status = "User Registered!!" });
             }
+
 
         }
 

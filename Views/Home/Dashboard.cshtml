@@ -30,7 +30,7 @@
         <partial name="DashboardAdmin" />
     }
 
-    @if (Model.User.Role == "ServiceAdvocate")
+    @if (Model.User.Role == "Service Advocate")
     {
         <partial name="DashboardSA" />
     }
@@ -49,7 +49,11 @@
     {
         <partial name="DashboardSACoach" />
 
+    }
 
+    @if (Model.User.Role == "FiledCoach")
+    {
+        <partial name="DashboardSACoach" />
     }
 
 
