@@ -31,8 +31,10 @@ namespace KcPilot.Models
         public DateTime AppointmentTime { get; set; }
         public string AppointmentWindow { get; set; }
         public string SpecialInstructions { get; set; }
-        public int NumberOfConactMede { get; set; }
+        public int NumberOfConacts { get; set; }
         public int NumberOfTimesReschedual { get; set; }
+        public bool ForceBook { get; set; }
+
 
         //  Customer info
         public string Name { get; set; }
