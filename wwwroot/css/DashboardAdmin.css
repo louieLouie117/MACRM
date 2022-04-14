@@ -1,0 +1,10 @@
+body{
+    display: grid;
+}
+
+form{
+    display: grid;
+    max-width: 35em;
+}
+
+button{max-width: 100px;}
