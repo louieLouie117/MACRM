@@ -31,8 +31,20 @@
     })
 
     var ProductOptions = ['Washer', 'Refrigerator', 'Ice Maker', 'Sealed System'];
-     var Window = ProductOptions[Math.floor(Math.random()*ProductOptions.length)];
-     document.getElementById("apiProductLine").value = Window;
+    var Window = ProductOptions[Math.floor(Math.random()*ProductOptions.length)];
+    document.getElementById("apiProductLine").value = Window;
+
+     
+     document.getElementById("apiModelNumber").value = "MC" + Math.floor(100000 + Math.random() * 9000);
+     document.getElementById("apiSerialNumber").value = "0F4" + Math.floor(1300000 + Math.random() * 9000);
+
+     var ReworkOptions = ['Rework', ''];
+     var Rework = ReworkOptions[Math.floor(Math.random()*ReworkOptions.length)];
+     document.getElementById("apiRework").value = Rework;
+
+     var ForceBookOptions = ['True', 'False'];
+     var Rework = ForceBookOptions[Math.floor(Math.random()*ForceBookOptions.length)];
+     document.getElementById("apiForceBook").value = Rework;
 
      var WindowOptions = ['AM', 'PM'];
      var Window = WindowOptions[Math.floor(Math.random()*WindowOptions.length)];
