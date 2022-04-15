@@ -19,7 +19,7 @@
         console.log(data, "data is here")
         document.getElementById("apiAddress").value = data.street_address;
         document.getElementById("apiCity").value = data.city;
-        document.getElementById("apiZipecode").value = data.zip;
+        document.getElementById("apiZipcode").value = data.zip;
     })
 
     

@@ -11,10 +11,106 @@
     <title>Admin Dashboard</title>
 </head>
 
+<script>
+
+    const DataGeneratorHandler = (e) => {
+        e.preventDefault();
+        console.log("GeneratorBTN was click")
+
+        @* Service *@
+            let ServiceJobNumber = document.getElementById("apiServiceJobNumber").value;
+        let SamsungJobNumber = document.getElementById("apiSamsungJobNumber").value;
+        let InWarranty = document.getElementById("apiInWarranty").value;
+        @* Customer Info *@
+            let Name = document.getElementById("apiName").value;
+        let Address = document.getElementById("apiAddress").value;
+        let City = document.getElementById("apiCity").value;
+        let state = document.getElementById("apiState").value;
+        let Zipcode = document.getElementById("apiZipcode").value;
+        let PhoneNumber = document.getElementById("apiPhoneNumber").value;
+        let Email = document.getElementById("apiEmail").value;
+        @* Proudct*@
+            let ProductLine = document.getElementById("apiProductLine").value;
+        let ModelNumber = document.getElementById("apiModelNumber").value;
+        let SerialNumber = document.getElementById("apiSerialNumber").value;
+        @* User Assigned *@
+            let TwoManJob = document.getElementById("apiTwoManJob").value;
+        let TechName = document.getElementById("apiTechName").value;
+        let SAName = document.getElementById("apiSAName").value;
+        let SecondPersonName = document.getElementById("apiSecondPersonName").value;
+        @* Appointment Info *@
+            let AppointmentDay = document.getElementById("apiAppointmentDay").value;
+        let AppointmentTime = document.getElementById("apiAppointmentTime").value;
+        let AppointmentWindow = document.getElementById("apiAppointmentWindow").value;
+        let SpecialInstructions = document.getElementById("apiSpecialInstructions").value;
+        let NumberOfContactMade = document.getElementById("apiNumberOfContactMade").value;
+        let NumberOfTimesReschedual = document.getElementById("apiNumberOfTimesReschedual").value;
+        @* Maket Info *@
+            let Market = document.getElementById("apiMarket").value;
+        let MarketCode = document.getElementById("apiMarketCode").value;
+        @* Job Status *@
+            let ServiceStatus = document.getElementById("apiServiceStatus").value;
+        let JobStatus = document.getElementById("apiJobStatus").value;
+        let JobStatusColor = document.getElementById("apiJobStatusColor").value;
+        let Rework = document.getElementById("apiRework").value;
+        let ForceBook = document.getElementById("apiForceBook").value;
+
+        let jsonData = {
+            serviceJobNumber: ServiceJobNumber,
+            samsungJobNumber: SamsungJobNumber,
+            inWarranty: InWarranty,
+
+            name: Name,
+            address: Address,
+            city: City,
+            State: State,
+            Zipecode: Zipecode,
+            phoneNumber: PhoneNumber,
+
+            productLine: ProductLine,
+            modelNumber: ModelNumber,
+            serialNumber: SerialNumber,
+
+            twoManJob: TwoManJob,
+            techName: TechName,
+            sAName: apiSAName,
+            secondPersonName: SecondPersonName,
+
+            appointmentDay: AppointmentDay,
+            appointmentTime: AppointmentTime,
+            appointmentWindow: AppointmentWindow,
+            specialInstructions: SpecialInstructions,
+            numberOfContactMade: NumberOfContactMade,
+            numberOfTimesReschedual: NumberOfTimesReschedual,
+
+            market: Market,
+            marketCode: MarketCode,
+
+            serviceStatus: ServiceStatus,
+            jobStatus: JobStatus,
+            jobStatusColor: JobStatusColor,
+            rework: Rework,
+            forceBook: ForceBook
+        }
+        console.log(jsonData, "JsonData")
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("LoginMethod", "Home")',
+            data: jsonData,
+            success: DataGeneratorMethodSuccess,
+        });
+
+
+    }
+
+    const DataGeneratorMethodSuccess = (result) => {
+        console.log("call back result", result);
+    }
+
+</script>
 
 <body class="Registration-Contatiner">
-
-
     <h1>Admin Dashboard</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit libero necessitatibus officiis dolorem
         aliquid iure beatae optio delectus natus iusto provident veniam debitis nulla, labore aperiam, voluptate
@@ -22,6 +118,7 @@
     <button onclick="FakeDataGeneratorHandler(event)">Generate Fake Data</button>
 
     <form action="">
+        <button onclick="DataGeneratorHandler(event)">Add Data</button>
         <h2>Service</h2>
         <input type="text" id="apiServiceJobNumber">
         <input type="text" id="apiSamsungJobNumber">
@@ -31,7 +128,7 @@
         <input type="text" id="apiAddress">
         <input type="text" id="apiCity">
         <input type="text" id="apiState" value="Kansas">
-        <input type="text" id="apiZipecode">
+        <input type="text" id="apiZipcode">
         <input type="text" id="apiPhoneNumber">
         <input type="text" id="apiEmail">
         <h2>Product</h2>
@@ -39,7 +136,7 @@
         <input type="text" id="apiModelNumber">
         <input type="text" id="apiSerialNumber">
         <h2>User Assigned</h2>
-        <input type="text" id="apiTwoManJob">
+        <input type="text" id="apiTwoManJob" value="flase">
         <input type="text" id="apiTechName">
         <input type="text" id="apiSAName">
         <input type="text" id="apiSecondPersonName">
@@ -59,10 +156,6 @@
         <input type="text" id="apiJobStatusColor" value="#00A7D1">
         <input type="text" id="apiRework">
         <input type="text" id="apiForceBook">
-
-
-
-
     </form>
 
 </body>
