@@ -166,12 +166,41 @@ namespace KcPilot.Controllers
 
 
         [HttpPost("DataGeneratorMethod")]
-        public JsonResult DataGeneratorMethod()
+        public JsonResult DataGeneratorMethod(ApiGenerator UserInputData)
 
         {
-            System.Console.WriteLine("You have reached the back end of DataGenerator Method");
 
-            return Json(new { Status = "Data Added" });
+
+            System.Console.WriteLine("You have reached the back end of DataGenerator Method");
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+
+            UserInputData.UserId = UserIdInSession;
+
+            //  var Entry = new ApiGenerator
+            // {
+            //     UserId = UserIdInSession,
+            //     StartDate = FromForm.StartDate,
+            //     StartTime = FromForm.StartTime,
+            //     EndTime = FromForm.EndTime,
+            //     Description = FromForm.Description,
+            //     StreetNumber = FromForm.StreetNumber,
+            //     StreetName = FromForm.StreetName,
+            //     City = FromForm.City,
+            //     State = FromForm.State,
+            //     Zipcode = FromForm.Zipcode,
+            //     County = FromForm.County,
+            //     Image = "placeholder.png"
+            // };
+
+            //  System.Console.WriteLine($"Entry to be send to db {Entry}");
+
+
+
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+            return Json(new { Result = UserInputData });
 
         }
 
