@@ -8,7 +8,7 @@ namespace KcPilot.Models
 
     // public enum JobStatus { NeedsPreScreen = 0, PreScreenSuccessful = 1, PreScreenUnsuccessful = 2, SentToTriage = 3, MoreInfoNeedByTriage = 4, PartsOrder = 5, PartsInTransition = 6, Completed = 7, CompletionReviewed = 8, Reschedule = 9 }
 
-    public class API
+    public class ApiGenerator
 
     {
         [Key]
@@ -29,13 +29,16 @@ namespace KcPilot.Models
 
         // Appointment info
         [Display(Name = "Appointment Day")]
-        public DateTime AppointmentDay { get; set; }
-        public DateTime AppointmentTime { get; set; }
+        public string AppointmentDay { get; set; }
+        public string AppointmentTime { get; set; }
         public string AppointmentWindow { get; set; }
         public string SpecialInstructions { get; set; }
         public int NumberOfConacts { get; set; }
         public int NumberOfTimesReschedual { get; set; }
         public bool ForceBook { get; set; }
+        public string Rework { get; set; }
+
+
 
         //  Customer info
         public string Name { get; set; }

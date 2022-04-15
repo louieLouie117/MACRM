@@ -23,6 +23,7 @@ namespace KcPilot.Models
         public string ServiceJobNumber { get; set; }
         public string SamsungJobNumber { get; set; }
         public string InWarranty { get; set; }
+        public string Rework { get; set; }
 
 
         // Appointment info
