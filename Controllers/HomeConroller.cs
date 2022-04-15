@@ -165,14 +165,19 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpPost("DataGeneratorMethod")]
+        public JsonResult DataGeneratorMethod()
+
+        {
+            System.Console.WriteLine("You have reached the back end of DataGenerator Method");
+
+            return Json(new { Status = "Data Added" });
+
+        }
+
+
+
 
 
     }
-
-
-
-
-
-
-
 }

@@ -25,7 +25,7 @@
             let Name = document.getElementById("apiName").value;
         let Address = document.getElementById("apiAddress").value;
         let City = document.getElementById("apiCity").value;
-        let state = document.getElementById("apiState").value;
+        let State = document.getElementById("apiState").value;
         let Zipcode = document.getElementById("apiZipcode").value;
         let PhoneNumber = document.getElementById("apiPhoneNumber").value;
         let Email = document.getElementById("apiEmail").value;
@@ -63,8 +63,8 @@
             name: Name,
             address: Address,
             city: City,
-            State: State,
-            Zipecode: Zipecode,
+            state: State,
+            zipcode: Zipcode,
             phoneNumber: PhoneNumber,
 
             productLine: ProductLine,
@@ -73,7 +73,7 @@
 
             twoManJob: TwoManJob,
             techName: TechName,
-            sAName: apiSAName,
+            sAName: SAName,
             secondPersonName: SecondPersonName,
 
             appointmentDay: AppointmentDay,
@@ -96,7 +96,7 @@
 
         $.ajax({
             type: "POST",
-            url: '@Url.Action("LoginMethod", "Home")',
+            url: '@Url.Action("DataGeneratorMethod", "Home")',
             data: jsonData,
             success: DataGeneratorMethodSuccess,
         });
