@@ -8,3 +8,11 @@ form{
 }
 
 button{max-width: 100px;}
+
+
+.Registration-Container main{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    overflow: scroll;
+
+}

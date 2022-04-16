@@ -105,58 +105,85 @@
     }
 
     const DataGeneratorMethodSuccess = (result) => {
-        console.log("call back result", result);
+        @* console.log("call back result", result); *@
+            APIResult(result);
+        return
     }
+
+
+    const APIResult = (data) => {
+        $('#APIData').empty();
+        console.log("API Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`<h2 id="${i}"> ${v.name}</h2 >`).prependTo("#APIData");
+
+
+
+        }
+
+        )
+    };
 
 </script>
 
-<body class="Registration-Contatiner">
+<body class="Registration-Container">
     <h1>Admin Dashboard</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit libero necessitatibus officiis dolorem
-        aliquid iure beatae optio delectus natus iusto provident veniam debitis nulla, labore aperiam, voluptate
-        dignissimos, dolor amet?</p>
     <button onclick="FakeDataGeneratorHandler(event)">Generate Fake Data</button>
+    <main>
 
-    <form action="">
-        <button onclick="DataGeneratorHandler(event)">Add Data</button>
-        <h2>Service</h2>
-        <input type="text" id="apiServiceJobNumber">
-        <input type="text" id="apiSamsungJobNumber">
-        <input type="text" id="apiInWarranty">
-        <h2>Customer Info</h2>
-        <input type="text" id="apiName">
-        <input type="text" id="apiAddress">
-        <input type="text" id="apiCity">
-        <input type="text" id="apiState" value="Kansas">
-        <input type="text" id="apiZipcode">
-        <input type="text" id="apiPhoneNumber">
-        <input type="text" id="apiEmail">
-        <h2>Product</h2>
-        <input type="text" id="apiProductLine">
-        <input type="text" id="apiModelNumber">
-        <input type="text" id="apiSerialNumber">
-        <h2>User Assigned</h2>
-        <input type="text" id="apiTwoManJob" value="flase">
-        <input type="text" id="apiTechName">
-        <input type="text" id="apiSAName">
-        <input type="text" id="apiSecondPersonName">
-        <h2>Appointment Info</h2>
-        <input type="date" id="apiAppointmentDay">
-        <input type="time" id="apiAppointmentTime">
-        <input type="text" id="apiAppointmentWindow" placeholder="AM PM">
-        <input type="text" id="apiSpecialInstructions" placeholder="Special Instructions">
-        <input type="text" id="apiNumberOfContactMade" value="0">
-        <input type="text" id="apiNumberOfTimesReschedual" value="0">
-        <h2>Market Info</h2>
-        <input type="text" id="apiMarket" value="Kansas City">
-        <input type="text" id="apiMarketCode" value="BF455">
-        <h2>Job Status</h2>
-        <input type="text" id="apiServiceStatus" value="Accepted">
-        <input type="text" id="apiJobStatus" value="unassigned">
-        <input type="text" id="apiJobStatusColor" value="#00A7D1">
-        <input type="text" id="apiRework">
-        <input type="text" id="apiForceBook">
-    </form>
+        <form action="">
+            <button onclick="DataGeneratorHandler(event)">Add Data</button>
+            <h2>Service</h2>
+            <input type="text" id="apiServiceJobNumber">
+            <input type="text" id="apiSamsungJobNumber">
+            <input type="text" id="apiInWarranty">
+            <h2>Customer Info</h2>
+            <input type="text" id="apiName">
+            <input type="text" id="apiAddress">
+            <input type="text" id="apiCity">
+            <input type="text" id="apiState" value="Kansas">
+            <input type="text" id="apiZipcode">
+            <input type="text" id="apiPhoneNumber">
+            <input type="text" id="apiEmail">
+            <h2>Product</h2>
+            <input type="text" id="apiProductLine">
+            <input type="text" id="apiModelNumber">
+            <input type="text" id="apiSerialNumber">
+            <h2>User Assigned</h2>
+            <input type="text" id="apiTwoManJob" value="flase">
+            <input type="text" id="apiTechName">
+            <input type="text" id="apiSAName">
+            <input type="text" id="apiSecondPersonName">
+            <h2>Appointment Info</h2>
+            <input type="date" id="apiAppointmentDay">
+            <input type="time" id="apiAppointmentTime">
+            <input type="text" id="apiAppointmentWindow" placeholder="AM PM">
+            <input type="text" id="apiSpecialInstructions" placeholder="Special Instructions">
+            <input type="text" id="apiNumberOfContactMade" value="0">
+            <input type="text" id="apiNumberOfTimesReschedual" value="0">
+            <h2>Market Info</h2>
+            <input type="text" id="apiMarket" value="Kansas City">
+            <input type="text" id="apiMarketCode" value="BF455">
+            <h2>Job Status</h2>
+            <input type="text" id="apiServiceStatus" value="Accepted">
+            <input type="text" id="apiJobStatus" value="unassigned">
+            <input type="text" id="apiJobStatusColor" value="#00A7D1">
+            <input type="text" id="apiRework">
+            <input type="text" id="apiForceBook">
+        </form>
+
+        <aside>
+            <h1>API Data</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente voluptate perspiciatis ipsum omnis?
+                Asperiores voluptas esse nostrum aut ullam, id, odio architecto provident quam temporibus assumenda
+                quibusdam. Ullam, beatae aliquid!</p>
+
+            <ul id="APIData"></ul>
+        </aside>
+
+    </main>
 
 </body>
 

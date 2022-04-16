@@ -29,8 +29,8 @@ namespace KcPilot.Models
 
         // Appointment info
         [Display(Name = "Appointment Day")]
-        public string AppointmentDay { get; set; }
-        public string AppointmentTime { get; set; }
+        public DateTime AppointmentDay { get; set; }
+        public DateTime AppointmentTime { get; set; }
         public string AppointmentWindow { get; set; }
         public string SpecialInstructions { get; set; }
         public int NumberOfConacts { get; set; }

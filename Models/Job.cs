@@ -35,6 +35,7 @@ namespace KcPilot.Models
         public int NumberOfConacts { get; set; }
         public int NumberOfTimesReschedual { get; set; }
         public bool ForceBook { get; set; }
+        public int RouteOrder { get; set; }
 
 
         //  Customer info
