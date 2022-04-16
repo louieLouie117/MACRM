@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace KcPilot.Controllers
 {
@@ -169,12 +170,26 @@ namespace KcPilot.Controllers
         public JsonResult DataGeneratorMethod(ApiGenerator UserInputData)
 
         {
-
-
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
-            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
 
+            Random rnd = new Random();
+            DateTime datetoday = DateTime.Now;
+            int rndYear = rnd.Next(datetoday.Year, datetoday.Year);
+            int rndMonth = rnd.Next(datetoday.Month, datetoday.Month);
+            int rndDay = rnd.Next(datetoday.Day, 31);
+            DateTime generateDate = new DateTime(rndYear, rndMonth, rndDay);
+            Console.WriteLine(generateDate);
+            UserInputData.AppointmentDay = generateDate;
+
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
+
+
+            if (UserInputData.Rework == null)
+            {
+                UserInputData.Rework = "";
+
+            }
 
             //  var Entry = new ApiGenerator
             // {
@@ -194,13 +209,11 @@ namespace KcPilot.Controllers
 
             //  System.Console.WriteLine($"Entry to be send to db {Entry}");
 
-
-
-
             _context.Add(UserInputData);
             _context.SaveChanges();
+            List<ApiGenerator> ApiGeneratorItems = _context.ApiGenerators.ToList();
 
-            return Json(new { Result = UserInputData });
+            return Json(new { Result = ApiGeneratorItems });
 
         }
 
