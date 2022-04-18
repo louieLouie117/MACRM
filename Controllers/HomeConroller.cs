@@ -101,6 +101,8 @@ namespace KcPilot.Controllers
 
                 // Session needs to be after both _context
                 HttpContext.Session.SetInt32("UserId", _context.Users.FirstOrDefault(i => i.UserId == UserInputData.UserId).UserId);
+                HttpContext.Session.SetString("MarketCode", _context.Users.FirstOrDefault(i => i.UserId == UserInputData.UserId).MarketCode);
+
                 Console.WriteLine("You may contine!");
 
                 return Json(new { Status = "User Registered!!" });
@@ -146,6 +148,9 @@ namespace KcPilot.Controllers
                 }
 
                 HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                // wokring with null error
+                HttpContext.Session.SetString("MarketCode", userInDb.MarketCode);
+
                 return Json(new { Status = "Logged in successfully!" });
 
 
@@ -217,6 +222,21 @@ namespace KcPilot.Controllers
 
         }
 
+        [HttpGet("APIDataMethod")]
+        public JsonResult APIDataMethod(ApiGenerator UserInputData)
+
+        {
+            System.Console.WriteLine("You have reached the back end of DataGenerator Method");
+
+
+            string UserMarketCode = HttpContext.Session.GetString("MarketCode");
+
+            List<ApiGenerator> ApiDataResult = _context.ApiGenerators
+            .Where(mc => mc.MarketCode == UserMarketCode).ToList();
+
+            return Json(new { Result = ApiDataResult });
+
+        }
 
 
 
