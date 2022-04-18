@@ -15,3 +15,9 @@ Today I finish phase 1 with a break-throw. I was able to render a specific dashb
 
 ## Saturday April 16 2022
 This morning I was able to complete phase 2. Phase 2 was fun to program, and completed it in two coding days. With phase 2 complete, I will be able to start using this artificial data for each user.
+
+
+
+# Deployment || Amazon Server
+## Saturday April 17 2022
+This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

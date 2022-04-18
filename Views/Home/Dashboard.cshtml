@@ -31,6 +31,8 @@
     @if (Model.User.Role == "Service Advocate")
     {
         <partial name="DashboardSA" />
+        <partial name="APIData" />
+
     }
 
     @if (Model.User.Role == "Tech")
