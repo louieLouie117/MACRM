@@ -12,7 +12,7 @@
 <script>
 
     const GetUnassignedListHandler = (e) => {
-        alert("button was click");
+        document.getElementById("UnassignedContainer").style.display = "grid";
 
 
         $.ajax({
@@ -35,7 +35,16 @@
         $.each(data.result, function (i, v) {
             console.log(i, v.name);
 
-            $(`<h2 id="${i}"> ${v.name}</h2 >`).prependTo("#UnassignedList");
+            $(` <li>
+                    <h2 id="${i}"> ${v.name}</h2>
+                    <h2 id="${i}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="${i}"> ${v.city}</h2>
+                    <button>Assign</button>
+                    <button>Pre-screen</button>
+
+
+
+                </li>`).prependTo("#UnassignedList");
 
 
         }
@@ -46,10 +55,24 @@
 </script>
 
 <body>
-    <h1>Unassigned</h1>
-    <main>
-        <ul id="UnassignedList"></ul>
-    </main>
+    <div id="UnassignedContainer" class="Unassigned-Container">
+
+        <main>
+            <h1>Unassigned</h1>
+            <header>
+                <h2>Customer</h2>
+                <h2>Job Number</h2>
+                <h2>City</h2>
+                <h2>Options</h2>
+            </header>
+            <ul id="UnassignedList">
+                <li>Customer</li>
+
+
+            </ul>
+        </main>
+    </div>
+
 
 
 </body>
