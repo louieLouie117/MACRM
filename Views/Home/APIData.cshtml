@@ -5,11 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Data</title>
+    <title>Unassigned</title>
 </head>
 
+
+<script>
+
+    const GetUnassignedListHandler = (e) => {
+        alert("button was click");
+
+
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("APIDataMethod", "Home")',
+            success: APIDataMethodSuccess,
+        });
+    }
+
+    const APIDataMethodSuccess = (result) => {
+        console.log("call back result", result);
+        UnassignedResult(result);
+        return
+    }
+
+
+    const UnassignedResult = (data) => {
+        $('#UnassignedList').empty();
+        console.log("API Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`<h2 id="${i}"> ${v.name}</h2 >`).prependTo("#UnassignedList");
+
+
+        }
+
+        )
+    };
+
+</script>
+
 <body>
-    <h1>API Data</h1>
+    <h1>Unassigned</h1>
+    <main>
+        <ul id="UnassignedList"></ul>
+    </main>
+
 
 </body>
 

@@ -20,9 +20,6 @@
 </script>
 
 <body>
-    <h1>Dashboard for user</h1>
-    <p>This needs to render Dashboard by the user logged in!</p>
-
     @if (Model.User.Role == "Admin")
     {
         <partial name="DashboardAdmin" />
