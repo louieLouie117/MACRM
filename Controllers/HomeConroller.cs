@@ -59,6 +59,19 @@ namespace KcPilot.Controllers
 
             }
 
+            if (UserInputData.Market == null)
+            {
+                return Json(new { Status = "Market can not be empty!!" });
+
+            }
+
+            if (UserInputData.MarketCode == null)
+            {
+                return Json(new { Status = "MarketCode can not be empty!!" });
+
+            }
+
+
             if (UserInputData.Email == null)
             {
                 return Json(new { Status = "Email can not be empty!" });
@@ -76,6 +89,8 @@ namespace KcPilot.Controllers
                 return Json(new { Status = "Password do not match!" });
 
             }
+
+
 
 
             if (_context.Users.Any(u => u.Email == UserInputData.Email))
@@ -148,7 +163,6 @@ namespace KcPilot.Controllers
                 }
 
                 HttpContext.Session.SetInt32("UserId", userInDb.UserId);
-                // wokring with null error
                 HttpContext.Session.SetString("MarketCode", userInDb.MarketCode);
 
                 return Json(new { Status = "Logged in successfully!" });

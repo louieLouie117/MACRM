@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unassigned</title>
+</head>
+
+
+<script>
+
+    const GetUnassignedListHandler = (e) => {
+        document.getElementById("UnassignedContainer").style.display = "grid";
+
+
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("APIDataMethod", "Home")',
+            success: APIDataMethodSuccess,
+        });
+    }
+
+    const APIDataMethodSuccess = (result) => {
+        console.log("call back result", result);
+        UnassignedResult(result);
+        return
+    }
+
+
+    const UnassignedResult = (data) => {
+        $('#UnassignedList').empty();
+        console.log("API Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(` <li>
+                    <h2 id="${i}"> ${v.name}</h2>
+                    <h2 id="${i}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="${i}"> ${v.city}</h2>
+                    <button>Assign</button>
+                    <button>Pre-screen</button>
+
+
+
+                </li>`).prependTo("#UnassignedList");
+
+
+        }
+
+        )
+    };
+
+</script>
+
+<body>
+    <div id="UnassignedContainer" class="Unassigned-Container">
+
+        <main>
+            <h1>Unassigned</h1>
+            <header>
+                <h2>Customer</h2>
+                <h2>Job Number</h2>
+                <h2>City</h2>
+                <h2>Options</h2>
+            </header>
+            <ul id="UnassignedList">
+                <li>Customer</li>
+
+
+            </ul>
+        </main>
+    </div>
+
+
+
+</body>
+
+</html>
