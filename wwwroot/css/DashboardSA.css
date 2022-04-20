@@ -57,3 +57,13 @@ ul{
     font: 1em sans-serif;
 }
 
+
+.PreScreenLayout{
+    background: gold;
+    height: 95vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+.PreScreenLayout form{
+    display: grid;
+}
