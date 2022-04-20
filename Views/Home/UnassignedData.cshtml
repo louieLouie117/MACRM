@@ -63,10 +63,6 @@
     const PreScreenHandler = (e) => {
 
         console.log(e.target.id);
-
-
-
-
         if (e.target.innerText === "< Job Details") {
             console.log(e.target)
 
@@ -80,9 +76,6 @@
 
             let name = document.getElementById("APIName" + e.target.id).innerText;
             document.getElementById("NamePreScreenForm").value = name;
-
-
-
             console.log(name)
             return
         }

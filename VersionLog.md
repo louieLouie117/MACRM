@@ -21,7 +21,7 @@ This morning I was able to complete phase 2. Phase 2 was fun to program, and com
 This morning I was able to complete the unassigned component. Service Advocates can know view unassigned when they login. The un assigned are being filter by the user market code and user will only get relevant data. I can not wait till to more and program the pre-screen form.
 
 ## Tuesday April 19 2022
-This morning I was able to develope the user prescreen navigation flow. User can know navigate to the prescreen component.
+This morning I was able to develope the user prescreen navigation flow. User can know navigate to the prescreen component. I was also able to grave the data from the API and render it to the form that will adding all prescreen data that to keep track of.
 
 
 # Deployment || Amazon Server
