@@ -12,6 +12,13 @@
 <script>
 
     const GetUnassignedListHandler = (e) => {
+        console.log(e.target.innerText)
+
+        if (e.target.innerText === "< Unassigned") {
+            document.getElementById("UnassignedContainer").style.display = "none";
+            return
+
+        }
         document.getElementById("UnassignedContainer").style.display = "grid";
 
 
@@ -40,7 +47,7 @@
                     <h2 id="${i}"> ${v.serviceJobNumber}</h2>
                     <h2 id="${i}"> ${v.city}</h2>
                     <button>Assign</button>
-                    <button>Pre-screen</button>
+                    <button onclick="PreScreenHandler(event)">Pre-screen</button>
 
 
 
@@ -52,13 +59,31 @@
         )
     };
 
+
+    const PreScreenHandler = (e) => {
+
+        if (e.target.innerText === "< Job Details") {
+            console.log(e.target)
+
+            document.getElementById("UnassignedContainer").style.display = "grid";
+            document.getElementById("PreScreenContainer").style.display = "none"
+            return
+        }
+        if (e.target.innerText === "Pre-screen") {
+            document.getElementById("UnassignedContainer").style.display = "none";
+            document.getElementById("PreScreenContainer").style.display = "grid";
+            return
+        }
+
+    }
+
 </script>
 
 <body>
     <div id="UnassignedContainer" class="Unassigned-Container">
 
         <main>
-            <h1>Unassigned</h1>
+            <h1 onclick="GetUnassignedListHandler(event)">&#60; Unassigned</h1>
             <header>
                 <h2>Customer</h2>
                 <h2>Job Number</h2>

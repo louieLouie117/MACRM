@@ -1,4 +1,4 @@
-.Unassigned-Container{
+.Unassigned-Container, .PreScreen-Container{
     background: rgba(0, 0, 0, 0.699);
     display: none;
     position: absolute;
@@ -9,7 +9,7 @@
 
 }
 
-.Unassigned-Container>main{
+.Unassigned-Container>main, .PreScreen-Container>main{
     background: white;
     margin: 30px 30px 0px 30px;
     padding: 0 40px;
