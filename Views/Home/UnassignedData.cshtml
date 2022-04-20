@@ -43,11 +43,11 @@
             console.log(i, v.name);
 
             $(` <li>
-                    <h2 id="${i}"> ${v.name}</h2>
-                    <h2 id="${i}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="APIName${i}"> ${v.name}</h2>
+                    <h2 id="APIServiceJobNumber${i}"> ${v.serviceJobNumber}</h2>
                     <h2 id="${i}"> ${v.city}</h2>
                     <button>Assign</button>
-                    <button onclick="PreScreenHandler(event)">Pre-screen</button>
+                    <button id="${i}" onclick="PreScreenHandler(event)">Pre-screen</button>
 
 
 
@@ -62,6 +62,11 @@
 
     const PreScreenHandler = (e) => {
 
+        console.log(e.target.id);
+
+
+
+
         if (e.target.innerText === "< Job Details") {
             console.log(e.target)
 
@@ -72,6 +77,13 @@
         if (e.target.innerText === "Pre-screen") {
             document.getElementById("UnassignedContainer").style.display = "none";
             document.getElementById("PreScreenContainer").style.display = "grid";
+
+            let name = document.getElementById("APIName" + e.target.id).innerText;
+            document.getElementById("NamePreScreenForm").value = name;
+
+
+
+            console.log(name)
             return
         }
 
