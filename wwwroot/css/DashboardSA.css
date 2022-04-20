@@ -1,4 +1,4 @@
-.Unassigned-Container{
+.Unassigned-Container, .PreScreen-Container{
     background: rgba(0, 0, 0, 0.699);
     display: none;
     position: absolute;
@@ -9,10 +9,10 @@
 
 }
 
-.Unassigned-Container>main{
+.Unassigned-Container>main, .PreScreen-Container>main{
     background: white;
     margin: 30px 30px 0px 30px;
-    padding: 0 40px;
+    padding: 20px 40px;
     border-radius: 10px 10px  0 0;
 }
 
@@ -21,6 +21,11 @@ ul{
     padding: 0;
     margin: 0;
     list-style: none;
+}
+
+h1, h2, h3{
+    padding: 0;
+    margin: 0;
 }
 
 .Unassigned-Container>main header{
@@ -55,5 +60,24 @@ ul{
 
 .Unassigned-Container>main ul li h2{
     font: 1em sans-serif;
+}
+
+
+.PreScreenLayout{
+    height: 95vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.PreScreenLayout h2{
+    padding-bottom: 20px;
+}
+.PreScreenLayout form{
+    display: grid;
+    row-gap: 10px;
+}
+
+.PreScreenLayout form input{
+    height: 30px;
 }
 
