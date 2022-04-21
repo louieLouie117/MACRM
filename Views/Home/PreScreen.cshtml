@@ -16,22 +16,57 @@
                     <h2 onclick="PreScreenHandler(event)">&#60; Job Details</h2>
                     <form action="">
                         <h3>Service</h3>
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input id="ServiceJobNumberPSF" type="text">
+                        <input id="SamsungJobNumberPSF" type="text">
+                        <input id="InWarrantyPSF" type="text">
 
                         <h3>Customer Info</h3>
-                        <input id="NamePreScreenForm" type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input id="NamePSF" type="text">
+                        <input id="AddressPSF" type="text">
+                        <input id="CityPSF" type="text">
+                        <input id="StatePSF" type="text">
+                        <input id="ZipcodePSF" type="text">
+                        <input id="PhoneNumberPSF" type="text">
+                        <input id="EmailPSF" type="text">
 
                         <h3>Product</h3>
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input id="ProductLinePSF" type="text">
+                        <input id="ModelNumberPSF" type="text">
+                        <input id="SerialNumberPSF" type="text">
+                        @* <div class="hidden"> *@
+                        <h3>User Assigned</h3>
+                        <input id="TwoManJobPSF" type="text">
+                        <input id="TechNamePSF" type="text">
+                        <input id="SANamePSF" type="text">
+                        <input id="SecondPersonNamePSF" type="text">
+
+                        <h3>Appoinment Info</h3>
+                        <input id="AppointmentDayPSF" type="text">
+                        <input id="AppointmentTimePSF" type="text">
+                        <input id="AppointmentWindowPSF" type="text">
+                        <input id="NumberOfContactMadePSF" type="text">
+                        <input id="NumberOfTimesReschedualPSF" type="text">
+
+                        <h3>Market Info</h3>
+                        <input id="MarketPSF" type="text">
+                        <input id="MarketCodePSF" type="text">
+
+                        <h3>Market Info</h3>
+                        <input id="ServiceStatusPSF" type="text">
+                        <input id="JobStatusPSF" type="text">
+                        <input id="JobStatusColorPSF" type="text">
+                        <input id="ReworkPSF" type="text">
+                        <input id="ForceBookPSF" type="text">
+
+
+
+
+
+                        @* </div> *@
+
+
+
+
                     </form>
 
                 </section>
@@ -42,6 +77,64 @@
 
                 <section>
                     <h2>Pre-screen</h2>
+                    <div class="PreScreenQuestions">
+                        <ul>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Greeted the customer.</h3>
+                                <p id="span2">Hello, my name is SA name with Asurion Appliance Repair regarding
+                                    your Samsung appliance repair. Am I speaking with Customer Name.</p>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Inform cx call maybe recorded for quality and training. </h3>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Confirm customer service and shipping address. </h3>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Confirm customer appliance and warranty .</h3>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Asked proving questions.</h3>
+                            </li>
+                            <aside>
+                                <textarea id="SpecialInstructionsPSF" type="text" cols="30" rows="10"></textarea>
+
+                            </aside>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Confirm Model and serial #.</h3>
+                            </li>
+
+
+                            <li>
+                                <input type="checkbox">
+                                <h3>Set an appointment date.</h3>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <h3>Asked Covid questions.</h3>
+                            </li>
+                            <footer>
+                                <select name="" id="">
+
+                                    <option value="OnsiteDiagnoses">Select Outcome</option>
+                                    <option value="OnsiteDiagnoses">Onsite Diagnoses</option>
+                                    <option value="UnsuccessfulPreScreen">Unsuccessful Pre-Screen</option>
+                                    <option value="OrderParts">Order Parts</option>
+                                    <option value="SentToTriage">Sent To Triage</option>
+                                </select>
+
+                                <button>Submit</button>
+
+                            </footer>
+                        </ul>
+                    </div>
+
                 </section>
             </div>
 

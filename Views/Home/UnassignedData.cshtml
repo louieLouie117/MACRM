@@ -43,14 +43,48 @@
             console.log(i, v.name);
 
             $(` <li>
-                    <h2 id="APIName${i}"> ${v.name}</h2>
-                    <h2 id="APIServiceJobNumber${i}"> ${v.serviceJobNumber}</h2>
-                    <h2 id="${i}"> ${v.city}</h2>
+                @* Render to user *@
+                    <h2 id="NameAPI${i}"> ${v.name}</h2>
+                    <h2 id="ServiceJobNumberAPI${i}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="CityAPI${i}"> ${v.city}</h2>
                     <button>Assign</button>
                     <button id="${i}" onclick="PreScreenHandler(event)">Pre-screen</button>
-
-
-
+                @* Hidden *@
+                @* Service Job *@
+                    <h2 class="hidden" id="SamsungJobNumberAPI${i}"> ${v.samsungJobNumber}</h2>
+                    <h2 class="hidden" id="InWarrantyAPI${i}"> ${v.inWarranty}</h2>
+                @* Customer Info *@
+                    <h2 class="hidden" id="SamsungJobNumberAPI${i}"> ${v.name}</h2>
+                    <h2 class="hidden" id="AddressAPI${i}"> ${v.address}</h2>
+                    <h2 class="hidden" id="StateAPI${i}"> ${v.state}</h2>
+                    <h2 class="hidden" id="ZipcodeAPI${i}"> ${v.zipcode}</h2>
+                    <h2 class="hidden" id="PhoneNumberAPI${i}"> ${v.phoneNumber}</h2>
+                    <h2 class="hidden" id="EmailAPI${i}"> ${v.email}</h2>
+                @* Product*@
+                    <h2 class="hidden" id="ProductLineAPI${i}"> ${v.productLine}</h2>
+                    <h2 class="hidden" id="ModelNumberAPI${i}"> ${v.modelNumber}</h2>
+                    <h2 class="hidden" id="SerialNumberAPI${i}"> ${v.serialNumber}</h2>
+                @* User Assigned *@
+                    <h2 class="hidden" id="TwoManJobAPI${i}"> ${v.twoManJob}</h2>
+                    <h2 class="hidden" id="TechNameAPI${i}"> ${v.techName}</h2>
+                    <h2 class="hidden" id="SANameAPI${i}"> ${v.sAName}</h2>
+                    <h2 class="hidden" id="SecondPersonNameAPI${i}"> ${v.secondPersonName}</h2>
+                @* Appoinment info*@
+                    <h2 class="hidden" id="AppointmentDayAPI${i}"> ${v.appointmentDay}</h2>
+                    <h2 class="hidden" id="AppointmentTimeAPI${i}"> ${v.appointmentTime}</h2>
+                    <h2 class="hidden" id="AppointmentWindowAPI${i}"> ${v.appointmentWindow}</h2>
+                    <h2 class="hidden" id="SpecialInstructionsAPI${i}"> ${v.specialInstructions}</h2>
+                    <h2 class="hidden" id="NumberOfContactMadeAPI${i}"> ${v.numberOfContactMade}</h2>
+                    <h2 class="hidden" id="NumberOfTimesReschedualAPI${i}"> ${v.numberOfTimesReschedual}</h2>
+                @* Markt info*@
+                    <h2 class="hidden" id="MarketAPI${i}"> ${v.market}</h2>
+                    <h2 class="hidden" id="MarketCodeAPI${i}"> ${v.marketCode}</h2>
+                @* Job Satus*@
+                    <h2 class="hidden" id="ServiceStatusAPI${i}"> ${v.serviceStatus}</h2>
+                    <h2 class="hidden" id="JobStatusAPI${i}"> ${v.jobStatus}</h2>
+                    <h2 class="hidden" id="JobStatusColorAPI${i}"> ${v.jobStatusColor}</h2>
+                    <h2 class="hidden" id="ReworkAPI${i}"> ${v.rework}</h2>
+                    <h2 class="hidden" id="ForceBookAPI${i}"> ${v.forceBook}</h2>
                 </li>`).prependTo("#UnassignedList");
 
 
@@ -74,8 +108,51 @@
             document.getElementById("UnassignedContainer").style.display = "none";
             document.getElementById("PreScreenContainer").style.display = "grid";
 
-            let name = document.getElementById("APIName" + e.target.id).innerText;
-            document.getElementById("NamePreScreenForm").value = name;
+            @* Serive *@
+            document.getElementById("ServiceJobNumberPSF").value = document.getElementById("ServiceJobNumberAPI" + e.target.id).innerText;
+            document.getElementById("SamsungJobNumberPSF").value = document.getElementById("SamsungJobNumberAPI" + e.target.id).innerText;
+            document.getElementById("InWarrantyPSF").value = document.getElementById("InWarrantyAPI" + e.target.id).innerText;
+
+            @* Customer info *@
+            document.getElementById("NamePSF").value = document.getElementById("NameAPI" + e.target.id).innerText;
+            document.getElementById("AddressPSF").value = document.getElementById("AddressAPI" + e.target.id).innerText;
+            document.getElementById("CityPSF").value = document.getElementById("CityAPI" + e.target.id).innerText;
+            document.getElementById("StatePSF").value = document.getElementById("StateAPI" + e.target.id).innerText;
+            document.getElementById("ZipcodePSF").value = document.getElementById("ZipcodeAPI" + e.target.id).innerText;
+            document.getElementById("PhoneNumberPSF").value = document.getElementById("PhoneNumberAPI" + e.target.id).innerText;
+            document.getElementById("EmailPSF").value = document.getElementById("EmailAPI" + e.target.id).innerText;
+            @* Product *@
+            document.getElementById("ProductLinePSF").value = document.getElementById("ProductLineAPI" + e.target.id).innerText;
+            document.getElementById("ModelNumberPSF").value = document.getElementById("ModelNumberAPI" + e.target.id).innerText;
+            document.getElementById("SerialNumberPSF").value = document.getElementById("SerialNumberAPI" + e.target.id).innerText;
+            @* Users Assigned *@
+            document.getElementById("TwoManJobPSF").value = document.getElementById("TwoManJobAPI" + e.target.id).innerText;
+            document.getElementById("TechNamePSF").value = document.getElementById("TechNameAPI" + e.target.id).innerText;
+            document.getElementById("SANamePSF").value = document.getElementById("SANameAPI" + e.target.id).innerText;
+            document.getElementById("SecondPersonNamePSF").value = document.getElementById("SecondPersonNameAPI" + e.target.id).innerText;
+            @* Appoinment Info *@
+            document.getElementById("AppointmentDayPSF").value = document.getElementById("AppointmentDayAPI" + e.target.id).innerText;
+            document.getElementById("AppointmentTimePSF").value = document.getElementById("AppointmentTimeAPI" + e.target.id).innerText;
+            document.getElementById("AppointmentWindowPSF").value = document.getElementById("AppointmentWindowAPI" + e.target.id).innerText;
+            document.getElementById("SpecialInstructionsPSF").value = document.getElementById("SpecialInstructionsAPI" + e.target.id).innerText;
+            document.getElementById("NumberOfContactMadePSF").value = document.getElementById("NumberOfContactMadeAPI" + e.target.id).innerText;
+            document.getElementById("NumberOfTimesReschedualPSF").value = document.getElementById("NumberOfTimesReschedualAPI" + e.target.id).innerText;
+            @* Market Info *@
+            document.getElementById("MarketPSF").value = document.getElementById("MarketAPI" + e.target.id).innerText;
+            document.getElementById("MarketCodePSF").value = document.getElementById("MarketCodeAPI" + e.target.id).innerText;
+            @* Job Status *@
+            document.getElementById("ServiceStatusPSF").value = document.getElementById("ServiceStatusAPI" + e.target.id).innerText;
+            document.getElementById("JobStatusPSF").value = document.getElementById("JobStatusAPI" + e.target.id).innerText;
+            document.getElementById("JobStatusColorPSF").value = document.getElementById("JobStatusColorAPI" + e.target.id).innerText;
+            document.getElementById("ReworkPSF").value = document.getElementById("ReworkAPI" + e.target.id).innerText;
+            document.getElementById("ForceBookPSF").value = document.getElementById("ForceBookAPI" + e.target.id).innerText;
+
+
+
+
+
+
+
             console.log(name)
             return
         }
