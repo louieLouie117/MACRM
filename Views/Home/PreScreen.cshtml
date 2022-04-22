@@ -8,6 +8,17 @@
     <title>Pre-Screen</title>
 </head>
 
+<script>
+    const PreScreenOutcomeHandler = (e) => {
+        console.log("button was click")
+        console.log(e.target.options[e.target.selectedIndex].text)
+        if (e.target.options[e.target.selectedIndex].text = "Onsite Diagnoses") {
+            document.getElementById("JobStatusPSF").value = "Onsite Diagnoses";
+            document.getElementById("JobStatusColorPSF").value = "#67DEAA";
+        }
+    }
+</script>
+
 <body>
     <div id="PreScreenContainer" class="PreScreen-Container">
         <main>
@@ -115,12 +126,9 @@
                                 <input type="checkbox">
                                 <h3>Set an appointment date.</h3>
                             </li>
-                            <li>
-                                <input type="checkbox">
-                                <h3>Asked Covid questions.</h3>
-                            </li>
+
                             <footer>
-                                <select name="" id="">
+                                <select name="" id="" onchange="PreScreenOutcomeHandler(event)">
 
                                     <option value="OnsiteDiagnoses">Select Outcome</option>
                                     <option value="OnsiteDiagnoses">Onsite Diagnoses</option>
