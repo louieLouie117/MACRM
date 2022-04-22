@@ -10,12 +10,33 @@
 
 <script>
     const PreScreenOutcomeHandler = (e) => {
-        console.log("button was click")
         console.log(e.target.options[e.target.selectedIndex].text)
-        if (e.target.options[e.target.selectedIndex].text = "Onsite Diagnoses") {
-            document.getElementById("JobStatusPSF").value = "Onsite Diagnoses";
-            document.getElementById("JobStatusColorPSF").value = "#67DEAA";
+
+        console.log(e.target.options)
+
+        document.getElementById("JobStatusPSF").value = e.target.options[e.target.selectedIndex].text;
+
+
+        if (e.target.options[e.target.selectedIndex].text === "Onsite Diagnoses") {
+            document.getElementById("JobStatusColorPSF").value = "#519E8A";
+            return
         }
+
+        if (e.target.options[e.target.selectedIndex].text === "Unsuccessful Pre-Screen") {
+            document.getElementById("JobStatusColorPSF").value = "#8E6C88";
+            return
+        }
+
+        if (e.target.options[e.target.selectedIndex].text === "Order Parts") {
+            document.getElementById("JobStatusColorPSF").value = "#EAC435";
+            return
+        }
+
+        if (e.target.options[e.target.selectedIndex].text === "Sent To Triage") {
+            document.getElementById("JobStatusColorPSF").value = "#E4572E";
+            return
+        }
+
     }
 </script>
 
@@ -130,7 +151,7 @@
                             <footer>
                                 <select name="" id="" onchange="PreScreenOutcomeHandler(event)">
 
-                                    <option value="OnsiteDiagnoses">Select Outcome</option>
+                                    <option value="SelectOutcome">Select Outcome</option>
                                     <option value="OnsiteDiagnoses">Onsite Diagnoses</option>
                                     <option value="UnsuccessfulPreScreen">Unsuccessful Pre-Screen</option>
                                     <option value="OrderParts">Order Parts</option>
