@@ -23,6 +23,17 @@ This morning I was able to complete the unassigned component. Service Advocates 
 ## Tuesday April 19 2022
 This morning I was able to develope the user prescreen navigation flow. User can know navigate to the prescreen component. I was also able to grave the data from the API and render it to the form that will adding all prescreen data that to keep track of.
 
+## Tuesday April 20 2022
+This morning I was able to render the customer name to the for that will be adding to the database. With this test complete next coding I will need to finish graving all the API data and render it to the form. I can wait to code again.
+
+## Tuesday April 21 2022
+This morning I was able to get all the data from the API to render in the form. I was also able to get the pre-screen layout the user will use to submit pre-screen outcome complete. The next coding day I wll have to communicate with the backend server.
+
+## Tuesday April 22 2022
+This morning, I successfully had the user change the data that is needed before submitting.  The correct value is added when the user selects a pre-screen outcome option. When the user changes the date, the new date is added. This will allow the user to select the correct pre-screen outcome before submitting to the data base.
+
+
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

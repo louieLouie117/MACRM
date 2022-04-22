@@ -8,6 +8,130 @@
     <title>Pre-Screen</title>
 </head>
 
+<script>
+    const PreScreenOutcomeHandler = (e) => {
+        console.log(e.target.options[e.target.selectedIndex].text)
+
+        console.log(e.target.options)
+
+        document.getElementById("JobStatusPSF").value = e.target.options[e.target.selectedIndex].text;
+
+
+        if (e.target.options[e.target.selectedIndex].text === "Onsite Diagnoses") {
+            document.getElementById("JobStatusColorPSF").value = "#519E8A";
+            return
+        }
+
+        if (e.target.options[e.target.selectedIndex].text === "Unsuccessful Pre-Screen") {
+            document.getElementById("JobStatusColorPSF").value = "#8E6C88";
+            return
+        }
+
+        if (e.target.options[e.target.selectedIndex].text === "Order Parts") {
+            document.getElementById("JobStatusColorPSF").value = "#EAC435";
+            return
+        }
+
+        if (e.target.options[e.target.selectedIndex].text === "Sent To Triage") {
+            document.getElementById("JobStatusColorPSF").value = "#E4572E";
+            return
+        }
+
+    }
+
+    const NewAptDateHandler = (e) => {
+        console.log(e.target.value)
+        document.getElementById("AppointmentDayPSF").value = e.target.value;
+        let userSeesion = '<%=Session["UserInSeesion"] %>';
+        console.log(userSeesion)
+
+
+    }
+
+    const NewJobHandler = (e) => {
+        e.preventDefault();
+        console.log("NewJobHandler button was click")
+
+        @* Service *@
+            let ServiceJobNumber = document.getElementById("ServiceJobNumberPSF").value;
+        let SamsungJobNumber = document.getElementById("SamsungJobNumberPSF").value;
+        let InWarranty = document.getElementById("InWarrantyPSF").value;
+        @* Customer Info *@
+            let Name = document.getElementById("NamePSF").value;
+        let Address = document.getElementById("AddressPSF").value;
+        let City = document.getElementById("CityPSF").value;
+        let State = document.getElementById("StatePSF").value;
+        let Zipcode = document.getElementById("ZipcodePSF").value;
+        let PhoneNumber = document.getElementById("PhoneNumberPSF").value;
+        let Email = document.getElementById("EmailPSF").value;
+        @* Proudct*@
+            let ProductLine = document.getElementById("ProductLinePSF").value;
+        let ModelNumber = document.getElementById("ModelNumberPSF").value;
+        let SerialNumber = document.getElementById("SerialNumberPSF").value;
+        @* User Assigned *@
+            let TwoManJob = document.getElementById("TwoManJobPSF").value;
+        let TechName = document.getElementById("TechNamePSF").value;
+        let SAName = document.getElementById("SANamePSF").value;
+        let SecondPersonName = document.getElementById("SecondPersonNamePSF").value;
+        @* Appointment Info *@
+            let AppointmentDay = document.getElementById("AppointmentDayPSF").value;
+        let AppointmentTime = document.getElementById("AppointmentTimePSF").value;
+        let AppointmentWindow = document.getElementById("AppointmentWindowPSF").value;
+        let SpecialInstructions = document.getElementById("SpecialInstructionsPSF").value;
+        let NumberOfContactMade = document.getElementById("NumberOfContactMadePSF").value;
+        let NumberOfTimesReschedual = document.getElementById("NumberOfTimesReschedualPSF").value;
+        @* Maket Info *@
+            let Market = document.getElementById("MarketPSF").value;
+        let MarketCode = document.getElementById("MarketCodePSF").value;
+        @* Job Status *@
+            let ServiceStatus = document.getElementById("ServiceStatusPSF").value;
+        let JobStatus = document.getElementById("JobStatusPSF").value;
+        let JobStatusColor = document.getElementById("JobStatusColorPSF").value;
+        let Rework = document.getElementById("ReworkPSF").value;
+        let ForceBook = document.getElementById("ForceBookPSF").value;
+
+        let jsonData = {
+            serviceJobNumber: ServiceJobNumber,
+            samsungJobNumber: SamsungJobNumber,
+            inWarranty: InWarranty,
+
+            name: Name,
+            address: Address,
+            city: City,
+            state: State,
+            zipcode: Zipcode,
+            phoneNumber: PhoneNumber,
+
+            productLine: ProductLine,
+            modelNumber: ModelNumber,
+            serialNumber: SerialNumber,
+
+            twoManJob: TwoManJob,
+            techName: TechName,
+            sAName: SAName,
+            secondPersonName: SecondPersonName,
+
+            appointmentDay: AppointmentDay,
+            appointmentTime: AppointmentTime,
+            appointmentWindow: AppointmentWindow,
+            specialInstructions: SpecialInstructions,
+            numberOfContactMade: NumberOfContactMade,
+            numberOfTimesReschedual: NumberOfTimesReschedual,
+
+            market: Market,
+            marketCode: MarketCode,
+
+            serviceStatus: ServiceStatus,
+            jobStatus: JobStatus,
+            jobStatusColor: JobStatusColor,
+            rework: Rework,
+            forceBook: ForceBook
+        }
+        console.log(jsonData, "JsonData")
+
+    }
+</script>
+
 <body>
     <div id="PreScreenContainer" class="PreScreen-Container">
         <main>
@@ -58,15 +182,7 @@
                         <input id="ReworkPSF" type="text">
                         <input id="ForceBookPSF" type="text">
 
-
-
-
-
                         @* </div> *@
-
-
-
-
                     </form>
 
                 </section>
@@ -113,23 +229,23 @@
 
                             <li>
                                 <input type="checkbox">
-                                <h3>Set an appointment date.</h3>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <h3>Asked Covid questions.</h3>
-                            </li>
-                            <footer>
-                                <select name="" id="">
+                                <h3>Set an appointment date. <input type="date" onchange="NewAptDateHandler(event)">
+                                </h3>
 
-                                    <option value="OnsiteDiagnoses">Select Outcome</option>
+
+                            </li>
+
+                            <footer>
+                                <select name="" id="" onchange="PreScreenOutcomeHandler(event)">
+
+                                    <option value="SelectOutcome">Select Outcome</option>
                                     <option value="OnsiteDiagnoses">Onsite Diagnoses</option>
                                     <option value="UnsuccessfulPreScreen">Unsuccessful Pre-Screen</option>
                                     <option value="OrderParts">Order Parts</option>
                                     <option value="SentToTriage">Sent To Triage</option>
                                 </select>
 
-                                <button>Submit</button>
+                                <button onclick="NewJobHandler(event)">Submit</button>
 
                             </footer>
                         </ul>
