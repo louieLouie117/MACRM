@@ -33,12 +33,17 @@ namespace KcPilot.Controllers
             {
                 return RedirectToAction("index");
             }
+
+
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             User UserIndb = _context.Users
                 .FirstOrDefault(u => u.UserId == UserIdInSession);
 
             DashboardWrapper wMod = new DashboardWrapper();
             wMod.User = UserIndb;
+
+            var UserLoggedIn = HttpContext.Session.GetString("UserInSeesion");
+            System.Console.WriteLine(UserLoggedIn);
 
 
             return View("Dashboard", wMod);
@@ -118,6 +123,10 @@ namespace KcPilot.Controllers
                 HttpContext.Session.SetInt32("UserId", _context.Users.FirstOrDefault(i => i.UserId == UserInputData.UserId).UserId);
                 HttpContext.Session.SetString("MarketCode", _context.Users.FirstOrDefault(i => i.UserId == UserInputData.UserId).MarketCode);
 
+                User userInDb = _context.Users.FirstOrDefault(u => u.Email == UserInputData.Email);
+                HttpContext.Session.SetString("UserInSeesion", userInDb.Role + "||" + userInDb.FirstName + "." + userInDb.LastName);
+
+
                 Console.WriteLine("You may contine!");
 
                 return Json(new { Status = "User Registered!!" });
@@ -163,7 +172,10 @@ namespace KcPilot.Controllers
                 }
 
                 HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                HttpContext.Session.SetString("UserInSeesion", userInDb.Role + "||" + userInDb.FirstName + "." + userInDb.LastName);
                 HttpContext.Session.SetString("MarketCode", userInDb.MarketCode);
+
+                System.Console.WriteLine(userInDb.Role + "||" + userInDb.FirstName + "." + userInDb.LastName);
 
                 return Json(new { Status = "Logged in successfully!" });
 
