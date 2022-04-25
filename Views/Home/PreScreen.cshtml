@@ -140,13 +140,12 @@
 
     const NewJobMethodSuccess = (result) => {
         console.log("call back result", result);
-        NewJobResult(result);
-
+        RenderNewJobResult(result);
         return
     }
 
 
-    const NewJobResult = (data) => {
+    const RenderNewJobResult = (data) => {
         $('#NewJobList').empty();
         console.log("API Data", data.result)
         $.each(data.result, function (i, v) {
