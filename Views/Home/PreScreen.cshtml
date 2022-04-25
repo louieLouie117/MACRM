@@ -129,7 +129,44 @@
         }
         console.log(jsonData, "JsonData")
 
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("NewJobMethod", "Home")',
+            data: jsonData,
+            success: NewJobMethodSuccess,
+        });
+
     }
+
+    const NewJobMethodSuccess = (result) => {
+        console.log("call back result", result);
+        RenderNewJobResult(result);
+        return
+    }
+
+
+    const RenderNewJobResult = (data) => {
+        $('#NewJobList').empty();
+        console.log("API Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`
+            <li>
+                <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
+
+                <h1 id="${i}">${v.jobStatus}</h1>
+                <h2 id="${i}"> ${v.name}</h2>
+            </li>
+
+            `).prependTo("#NewJobList");
+
+
+
+        }
+
+        )
+    };
 </script>
 
 <body>

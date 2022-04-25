@@ -8,10 +8,27 @@
     <title>SA Dashboard</title>
 </head>
 
+<script>
+    $.get("/AllJobListMethod", data => {
+        console.log("All jobs Data:", data)
+        RenderNewJobResult(data);
+        return
+
+    });
+
+
+
+</script>
 
 <body>
     <h1>SA Dashboard</h1>
     <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
+    <div class="AllJobs-Container">
+        <ul id="NewJobList"></ul>
+        <main>
+            Here is the main
+        </main>
+    </div>
 </body>
 
 </html>

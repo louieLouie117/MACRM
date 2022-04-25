@@ -265,6 +265,41 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpPost("NewJobMethod")]
+        public JsonResult NewJobMethod(Job UserInputData)
+
+        {
+
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+            System.Console.WriteLine("You have reached the back end of NewJobMethod");
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+            List<Job> JobList = _context.Jobs.ToList();
+
+            return Json(new { Result = JobList });
+
+        }
+
+
+
+        [HttpGet("AllJobListMethod")]
+        public JsonResult AllJobListMethod(Job UserInputData)
+
+        {
+
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+            System.Console.WriteLine("You have reached the back end of AllJobListMethod");
+            List<Job> JobList = _context.Jobs.ToList();
+
+            return Json(new { Result = JobList });
+
+        }
+
+
+
 
 
     }
