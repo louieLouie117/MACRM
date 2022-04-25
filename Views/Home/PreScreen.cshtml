@@ -129,6 +129,18 @@
         }
         console.log(jsonData, "JsonData")
 
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("NewJobMethod", "Home")',
+            data: jsonData,
+            success: NewJobMethodSuccess,
+        });
+
+    }
+
+    const NewJobMethodSuccess = (result) => {
+        console.log("call back result", result);
+        return
     }
 </script>
 
