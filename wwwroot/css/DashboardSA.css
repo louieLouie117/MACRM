@@ -138,3 +138,31 @@ h1, h2, h3{
 }
 
 
+/* All jobs */
+
+.AllJobs-Container{
+    display: grid;
+    background: rgb(224, 224, 224);
+
+}
+
+.AllJobs-Container ul {
+    display: grid;
+    row-gap: 10px;
+    max-width: 25em;
+    padding: 10px;
+
+}
+
+.AllJobs-Container ul li{
+    display: grid;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.AllJobs-Container ul li h1{
+    font: 1em sans-serif;
+
+}

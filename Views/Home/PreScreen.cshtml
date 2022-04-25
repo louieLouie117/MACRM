@@ -151,7 +151,13 @@
         $.each(data.result, function (i, v) {
             console.log(i, v.name);
 
-            $(`<h2 id="${i}"> ${v.name}</h2 >`).prependTo("#NewJobList");
+            $(`
+            <li>
+                <h1 id="${i}">${v.jobStatus}</h1>
+                <h2 id="${i}"> ${v.name}</h2 >
+            </li>
+
+            `).prependTo("#NewJobList");
 
 
 
