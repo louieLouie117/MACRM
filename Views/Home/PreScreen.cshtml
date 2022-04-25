@@ -140,8 +140,26 @@
 
     const NewJobMethodSuccess = (result) => {
         console.log("call back result", result);
+        NewJobResult(result);
+
         return
     }
+
+
+    const NewJobResult = (data) => {
+        $('#NewJobList').empty();
+        console.log("API Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`<h2 id="${i}"> ${v.name}</h2 >`).prependTo("#NewJobList");
+
+
+
+        }
+
+        )
+    };
 </script>
 
 <body>
