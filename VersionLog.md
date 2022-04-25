@@ -32,6 +32,8 @@ This morning I was able to get all the data from the API to render in the form. 
 ## Tuesday April 22 2022
 This morning, I successfully had the user change the data that is needed before submitting.  The correct value is added when the user selects a pre-screen outcome option. When the user changes the date, the new date is added. This will allow the user to select the correct pre-screen outcome before submitting to the data base.
 
+## Tuesday April 25 2022
+This morning I was able to add the new jobs to the database and render them back to the user. Job Status and Job Status Color is working. This is the visual ques that the user needs. I can not wait to deploy the new version.
 
 
 

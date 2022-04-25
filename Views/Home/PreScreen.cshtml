@@ -153,8 +153,10 @@
 
             $(`
             <li>
+                <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
+
                 <h1 id="${i}">${v.jobStatus}</h1>
-                <h2 id="${i}"> ${v.name}</h2 >
+                <h2 id="${i}"> ${v.name}</h2>
             </li>
 
             `).prependTo("#NewJobList");
