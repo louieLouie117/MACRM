@@ -2,6 +2,8 @@ body{
     background:  whitesmoke;
     display: grid;
     row-gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 

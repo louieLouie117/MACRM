@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 .Unassigned-Container, .PreScreen-Container{
     background: rgba(0, 0, 0, 0.699);
     display: none;
@@ -143,14 +146,17 @@ h1, h2, h3{
 .AllJobs-Container{
     display: grid;
     background: rgb(224, 224, 224);
+    grid-template-columns: 24em 1fr ;
 
 }
 
 .AllJobs-Container ul {
     display: grid;
-    row-gap: 10px;
-    max-width: 25em;
-    padding: 10px;
+    row-gap: 40px;
+    padding: 20px;
+    align-items: flex-start;
+    overflow: scroll;
+    height: 90vh;
 
 }
 
@@ -158,19 +164,61 @@ h1, h2, h3{
     display: grid;
     background: white;
     border-radius: 10px;
-    padding: 10px;
-    
+    padding: 15px;
+    max-width: 20em;
+    min-height: 130px;
+    align-content: flex-start;
 
 }
 
 
 .JobStatusDotIcon{
-    height: 20px;
-    width: 20px;
-    border-radius: 20px;
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+}
+
+.AllJobs-Container ul li header{
+    display: flex;
+    column-gap: 10px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+    grid-row: 1/2;
+    grid-column: 1/2;
+
+}
+
+.AllJobs-Container ul li button{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    border: none;
+    background: none;
+    /* background: rgba(128, 128, 128, 0.215); */
+}
+
+.AllJobs-Container ul li main{
+    /* background: gold; */
+    height: 120px;
+    grid-row: 2/3;
+    grid-column: 1/2;
 }
 
 .AllJobs-Container ul li h1{
     font: 1em sans-serif;
+    padding-bottom: 5px;
+
+}
+
+.AllJobs-Container ul li h2{
+    font: 1em sans-serif;
+
+}
+
+.AllJobs-Container main{
+    display: grid;
+    row-gap: 5px;
+    background: white;
+    height: 100%;
+    width: 95%;
 
 }

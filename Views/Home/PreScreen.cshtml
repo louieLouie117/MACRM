@@ -153,20 +153,35 @@
 
             $(`
             <li>
-                <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
+                <header>
+                    <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
+                    <h1 id="${i}">${v.jobStatus}</h1>
+                </header>
+                <main>
+                    <h2 id="${i}"> ${v.name}</h2>
+                    <h2 id="${i}"> ${v.phoneNumber}</h2>
+                    <h2 id="${i}"> ${v.address}</h2>
+                    <h2 id="${i}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="${i}"> ${v.serviceAdvocateName}</h2>
 
-                <h1 id="${i}">${v.jobStatus}</h1>
-                <h2 id="${i}"> ${v.name}</h2>
+
+                </main>
+                <button onclick="JobSelectedHandler(event)"></button>
+
             </li>
 
             `).prependTo("#NewJobList");
 
 
 
-        }
-
-        )
+        })
     };
+
+
+    const JobSelectedHandler = () => {
+        console.log("Job Selected button was click")
+
+    }
 </script>
 
 <body>
