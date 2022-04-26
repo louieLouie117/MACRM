@@ -21,11 +21,15 @@
 </script>
 
 <body>
-    <h1>SA Dashboard</h1>
+    <p>SA Dashboard</p>
     <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
     <div class="AllJobs-Container">
         <ul id="NewJobList"></ul>
         <main>
+            <div id="DisplayJobStatusColor" class="JobStatusDotIcon">
+            </div>
+            <h2 id="DisplayJobStatus"></h2>
+
             <h2 id="DisplayName"></h2>
             <h2 id="DisplayServiceJobNumber"></h2>
 

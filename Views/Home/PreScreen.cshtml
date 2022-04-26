@@ -155,7 +155,8 @@
             <li>
                 <header>
                     <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
-                    <h1 id="${i}">${v.jobStatus}</h1>
+                    <p  id="SelectedJobStatusColor${i}">${v.jobStatusColor}</p>
+                    <h1 id="SelectedJobStatus${i}">${v.jobStatus}</h1>
                 </header>
                 <main>
                     <h2 id="SelectedName${i}"> ${v.name}</h2>
@@ -181,6 +182,12 @@
     const JobSelectedHandler = (e) => {
         console.log("Job Selected button was click")
         console.log(e.target.id)
+
+        let color = document.getElementById("SelectedJobStatusColor" + e.target.id).innerText;
+        console.log(color);
+        document.getElementById("DisplayJobStatusColor").style.backgroundColor = color;
+        document.getElementById("DisplayJobStatus").innerText = document.getElementById("SelectedJobStatus" + e.target.id).innerText;
+
 
 
         document.getElementById("DisplayName").innerText = document.getElementById("SelectedName" + e.target.id).innerText;
