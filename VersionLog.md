@@ -17,23 +17,26 @@ Today I finish phase 1 with a break-throw. I was able to render a specific dashb
 This morning I was able to complete phase 2. Phase 2 was fun to program, and completed it in two coding days. With phase 2 complete, I will be able to start using this artificial data for each user.
 
 # Phase 3 || Develop each User Dashboard 
-## Tuesday April 19 2022
+## Monday April 18 2022
 This morning I was able to complete the unassigned component. Service Advocates can know view unassigned when they login. The un assigned are being filter by the user market code and user will only get relevant data. I can not wait till to more and program the pre-screen form.
 
 ## Tuesday April 19 2022
 This morning I was able to develope the user prescreen navigation flow. User can know navigate to the prescreen component. I was also able to grave the data from the API and render it to the form that will adding all prescreen data that to keep track of.
 
-## Tuesday April 20 2022
+## Wednesday April 20 2022
 This morning I was able to render the customer name to the for that will be adding to the database. With this test complete next coding I will need to finish graving all the API data and render it to the form. I can wait to code again.
 
-## Tuesday April 21 2022
+## Thursday April 21 2022
 This morning I was able to get all the data from the API to render in the form. I was also able to get the pre-screen layout the user will use to submit pre-screen outcome complete. The next coding day I wll have to communicate with the backend server.
 
-## Tuesday April 22 2022
+## Friday April 22 2022
 This morning, I successfully had the user change the data that is needed before submitting.  The correct value is added when the user selects a pre-screen outcome option. When the user changes the date, the new date is added. This will allow the user to select the correct pre-screen outcome before submitting to the data base.
 
-## Tuesday April 25 2022
+## Monday April 25 2022
 This morning I was able to add the new jobs to the database and render them back to the user. Job Status and Job Status Color is working. This is the visual ques that the user needs. I can not wait to deploy the new version.
+
+## Tuesday April 26 2022
+This morning, I developed the function that it will be rendered back to the user when a user selects a job. This will allow users to know what job they are viewing and get to the information.
 
 
 

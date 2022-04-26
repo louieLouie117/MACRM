@@ -276,8 +276,9 @@ namespace KcPilot.Controllers
 
             _context.Add(UserInputData);
             _context.SaveChanges();
-            List<Job> JobList = _context.Jobs.ToList();
-
+            List<Job> JobList = _context.Jobs
+            .Where(ul => ul.UserId == UserIdInSession)
+            .ToList();
             return Json(new { Result = JobList });
 
         }
@@ -292,7 +293,9 @@ namespace KcPilot.Controllers
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
             System.Console.WriteLine("You have reached the back end of AllJobListMethod");
-            List<Job> JobList = _context.Jobs.ToList();
+            List<Job> JobList = _context.Jobs
+            .Where(ul => ul.UserId == UserIdInSession)
+            .ToList();
 
             return Json(new { Result = JobList });
 
