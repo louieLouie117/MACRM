@@ -158,15 +158,15 @@
                     <h1 id="${i}">${v.jobStatus}</h1>
                 </header>
                 <main>
-                    <h2 id="${i}"> ${v.name}</h2>
+                    <h2 id="SelectedName${i}"> ${v.name}</h2>
                     <h2 id="${i}"> ${v.phoneNumber}</h2>
                     <h2 id="${i}"> ${v.address}</h2>
-                    <h2 id="${i}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="SelectedServiceJobNumber${i}"> ${v.serviceJobNumber}</h2>
                     <h2 id="${i}"> ${v.serviceAdvocateName}</h2>
 
 
                 </main>
-                <button onclick="JobSelectedHandler(event)"></button>
+                <button id="${i}" onclick="JobSelectedHandler(event)"></button>
 
             </li>
 
@@ -178,8 +178,14 @@
     };
 
 
-    const JobSelectedHandler = () => {
+    const JobSelectedHandler = (e) => {
         console.log("Job Selected button was click")
+        console.log(e.target.id)
+
+
+        document.getElementById("DisplayName").innerText = document.getElementById("SelectedName" + e.target.id).innerText;
+        document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById("SelectedServiceJobNumber" + e.target.id).innerText;
+
 
     }
 </script>
