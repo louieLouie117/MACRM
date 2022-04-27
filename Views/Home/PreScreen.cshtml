@@ -141,6 +141,8 @@
     const NewJobMethodSuccess = (result) => {
         console.log("call back result", result);
         RenderNewJobResult(result);
+        document.getElementById("UnassignedContainer").style.display = "none";
+        document.getElementById("PreScreenContainer").style.display = "none"
         return
     }
 
