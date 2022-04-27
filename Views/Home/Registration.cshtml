@@ -51,6 +51,8 @@
 
     const RegisterationSucessHandler = (result) => {
         console.log("success call back");
+        console.log("Reult", result.status);
+
         if (result.status === "User Registered!!") {
             window.location.href = '@Url.Action("SendToDashboard", "Home")'
         }

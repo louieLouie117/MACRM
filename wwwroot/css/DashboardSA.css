@@ -147,16 +147,19 @@ h1, h2, h3{
     display: grid;
     background: rgb(224, 224, 224);
     grid-template-columns: 24em 1fr ;
+   
 
 }
 
 .AllJobs-Container ul {
     display: grid;
-    row-gap: 40px;
+    row-gap: 10px;
     padding: 20px;
-    align-items: flex-start;
-    overflow: scroll;
+    /* align-items: flex-start; */
+    align-content: flex-start;
     height: 90vh;
+    overflow: scroll;
+    overflow-y: scroll;
 
 }
 
@@ -166,7 +169,7 @@ h1, h2, h3{
     border-radius: 10px;
     padding: 15px;
     max-width: 20em;
-    min-height: 130px;
+    min-height: 150px;
     align-content: flex-start;
 
 }

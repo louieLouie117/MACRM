@@ -38,6 +38,9 @@ This morning I was able to add the new jobs to the database and render them back
 ## Tuesday April 26 2022
 This morning, I developed the function that it will be rendered back to the user when a user selects a job. This will allow users to know what job they are viewing and get to the information.
 
+## Wednesday April 27 2022
+This morning I was able to finish the layout of all components. I will be pulling all the changes to the server.
+
 
 
 # Deployment || Amazon Server
