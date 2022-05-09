@@ -3,7 +3,12 @@ body{
     display: grid;
     row-gap: 20px;
     margin: 0;
-    padding: 0;
+    padding: 40px;
+    
+}
+
+#RegForm{
+    display: none;
 }
 
 
@@ -19,9 +24,3 @@ label{
 }
 
 
-
-.Registration-Container, .login-container{
-    display: grid;
-    background: rgb(174, 101, 174);
-    max-width: 35em;
-}

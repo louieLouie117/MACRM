@@ -8,7 +8,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
-    <link rel="stylesheet" href="~/css/DashboardSA.css?version=3.0">
+
+    <link rel="stylesheet" href="~/css/globalStyles.css?version=3.1">
+    <link rel="stylesheet" href="~/css/Forms.css?version=3.1">
+
+    <link rel="stylesheet" href="~/css/DashboardAdmin.css?version=3.1">
+    <link rel="stylesheet" href="~/css/DashboardSA.css?version=3.1">
+    <link rel="stylesheet" href="~/css/DashboardCommandCenter.css?version=3.1">
+
+
+
+
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
 
@@ -34,7 +44,11 @@
         <partial name="UnassignedData" />
         <partial name="PreScreen" />
 
+    }
 
+    @if (Model.User.Role == "Command Center")
+    {
+        <partial name="DashboardCommandCenter" />
     }
 
     @if (Model.User.Role == "Tech")
@@ -46,6 +60,8 @@
     {
         <partial name="DashboardTriage" />
     }
+
+
 
     @if (Model.User.Role == "SACoach")
     {

@@ -2,17 +2,19 @@ body{
     display: grid;
 }
 
-form{
+.AdminDashboard-Container form{
     display: grid;
     max-width: 35em;
 }
 
-button{max-width: 100px;}
+.AdminDashboard-Container button{max-width: 100px;}
 
 
-.Registration-Container main{
+.AdminDashboard-Container main{
     display: grid;
     grid-template-columns: 1fr 2fr;
     overflow: scroll;
+    background: whitesmoke;
+    padding: 20px;
 
 }
