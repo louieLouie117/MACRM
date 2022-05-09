@@ -16,7 +16,7 @@ Today I finish phase 1 with a break-throw. I was able to render a specific dashb
 ## Saturday April 16 2022
 This morning I was able to complete phase 2. Phase 2 was fun to program, and completed it in two coding days. With phase 2 complete, I will be able to start using this artificial data for each user.
 
-# Phase 3 || Develop each User Dashboard 
+# Phase 3 || Develop Service Advocate Software 
 ## Monday April 18 2022
 This morning I was able to complete the unassigned component. Service Advocates can know view unassigned when they login. The un assigned are being filter by the user market code and user will only get relevant data. I can not wait till to more and program the pre-screen form.
 
@@ -39,7 +39,11 @@ This morning I was able to add the new jobs to the database and render them back
 This morning, I developed the function that it will be rendered back to the user when a user selects a job. This will allow users to know what job they are viewing and get to the information.
 
 ## Wednesday April 27 2022
-This morning I was able to finish the layout of all components. I will be pulling all the changes to the server.
+This morning I was able to finish the layout of all components and pull all the changes to the server. This will complete version 3.0 and will now embark on version 3.1, 3.2, and 3.3.
+
+- [ ] Version 3.1 || Filter
+- [ ] Version 3.2 || Search
+- [ ] Version 3.3 || Update JobStatus
 
 
 

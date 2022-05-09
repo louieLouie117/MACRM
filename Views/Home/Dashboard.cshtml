@@ -34,7 +34,11 @@
         <partial name="UnassignedData" />
         <partial name="PreScreen" />
 
+    }
 
+    @if (Model.User.Role == "Command Center")
+    {
+        <partial name="CommandCenter" />
     }
 
     @if (Model.User.Role == "Tech")
@@ -46,6 +50,8 @@
     {
         <partial name="DashboardTriage" />
     }
+
+
 
     @if (Model.User.Role == "SACoach")
     {
