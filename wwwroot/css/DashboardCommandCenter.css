@@ -1,7 +1,16 @@
 .CommandCenter-Container{
+    display: grid;
     background: whitesmoke;
+    padding: 20px;
+}
+
+
+.CommandCenter-Container header nav ul {
+    display: flex;
+    column-gap: 10px;
 }
 
 .CommandCenter-Container form{
     width: 25em;
 }
+
