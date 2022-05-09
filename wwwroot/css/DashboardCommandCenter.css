@@ -1,0 +1,7 @@
+.CommandCenter-Container{
+    background: whitesmoke;
+}
+
+.CommandCenter-Container form{
+    width: 25em;
+}

@@ -26,16 +26,6 @@ body{
 
 
 
-ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-h1, h2, h3{
-    padding: 0;
-    margin: 0;
-}
 
 .Unassigned-Container>main header{
     display: grid;
