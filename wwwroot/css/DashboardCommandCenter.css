@@ -4,13 +4,25 @@
     padding: 20px;
 }
 
-
+.CommandCenter-Container header{
+    padding-bottom: 20px;
+}
 .CommandCenter-Container header nav ul {
     display: flex;
     column-gap: 10px;
+}
+
+.CommandCenter-Container>main{
+    display: grid;
+    row-gap: 20px;
 }
 
 .CommandCenter-Container form{
     width: 25em;
 }
 
+
+.CommandCenter-Container main form button{
+    background: #9062AF;
+    color: white;
+}
