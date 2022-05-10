@@ -45,6 +45,12 @@ This morning I was able to finish the layout of all components and pull all the 
 - [ ] Version 3.2 || Search
 - [ ] Version 3.3 || Update JobStatus
 
+## Monday May 9 2020
+6:30 am: This morning I code for 3.5hr. This time spent was an amazing. I was able to the update the landing page, create a log, and set up the command center dashboard. With the command center dashboard in place user in this role will be able to add new markets, roles, and proving questions.
+
+## Tuesday May 10 2020
+Last night I came up with an amazing idea. Currently, the user has to copy and paste the data to a form this is a very tedious task and slows the production of the user. My idea that solves this would be to develop a program that with one click gathers the data the user needs with the URL. This will have a big impact and the user will be more productive. Today I spent the morning doing reaching and will use the library to create this program. 
+[Puppeteer](https://www.npmjs.com/package/puppeteer)
 
 
 # Deployment || Amazon Server

@@ -8,6 +8,33 @@
     <title>Command Center</title>
 </head>
 
+<script>
+    const CommandCenterNavHandler = (e) => {
+
+        if (e.target.innerText === "Markets") {
+            document.getElementById("MarketWraper").style.display = "grid"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+            document.getElementById("RolesWrapper").style.display = "none"
+            return
+        };
+
+        if (e.target.innerText === "Roles") {
+            document.getElementById("MarketWraper").style.display = "none"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+            document.getElementById("RolesWrapper").style.display = "grid"
+            return
+        };
+
+        if (e.target.innerText === "Triage") {
+            document.getElementById("MarketWraper").style.display = "none"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "grid"
+            document.getElementById("RolesWrapper").style.display = "none"
+            return
+        };
+
+    }
+</script>
+
 <body>
     <div class="CommandCenter-Container">
         <header>
@@ -19,26 +46,26 @@
             <nav>
                 <ul>
                     <li>
-                        <button>Markets</button>
+                        <button onclick="CommandCenterNavHandler(event)">Markets</button>
                     </li>
                     <li>
-                        <button>Roles</button>
+                        <button onclick="CommandCenterNavHandler(event)">Roles</button>
                     </li>
                     <li>
-                        <button>Tirage</button>
+                        <button onclick="CommandCenterNavHandler(event)">Triage</button>
                     </li>
                 </ul>
             </nav>
 
         </header>
         <main>
-            <div>
+            <div id="MarketWraper">
                 <partial name="FormMarket" />
             </div>
-            <div>
+            <div class="hidden" id="ProbingQuestionsWrapper">
                 <partial name="FormProvingQuestions" />
             </div>
-            <div>
+            <div class="hidden" id="RolesWrapper">
                 <partial name="FormRoles" />
             </div>
 
