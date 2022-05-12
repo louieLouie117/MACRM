@@ -52,6 +52,9 @@ This morning I was able to finish the layout of all components and pull all the 
 Last night I came up with an amazing idea. Currently, the user has to copy and paste the data to a form this is a very tedious task and slows the production of the user. My idea that solves this would be to develop a program that with one click gathers the data the user needs with the URL. This will have a big impact and the user will be more productive. Today I spent the morning doing reaching and will use the library to create this program. 
 [Puppeteer](https://www.npmjs.com/package/puppeteer)
 
+## Wednesday May 11 2020
+This morning I started designing the landing page. Although I did not get to code designing will speed up the process of development.
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

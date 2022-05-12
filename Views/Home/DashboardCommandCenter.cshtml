@@ -15,6 +15,7 @@
             document.getElementById("MarketWraper").style.display = "grid"
             document.getElementById("ProbingQuestionsWrapper").style.display = "none"
             document.getElementById("RolesWrapper").style.display = "none"
+            document.getElementById("JobStatusWrapper").style.display = "none"
             return
         };
 
@@ -22,6 +23,7 @@
             document.getElementById("MarketWraper").style.display = "none"
             document.getElementById("ProbingQuestionsWrapper").style.display = "none"
             document.getElementById("RolesWrapper").style.display = "grid"
+            document.getElementById("JobStatusWrapper").style.display = "none"
             return
         };
 
@@ -29,9 +31,17 @@
             document.getElementById("MarketWraper").style.display = "none"
             document.getElementById("ProbingQuestionsWrapper").style.display = "grid"
             document.getElementById("RolesWrapper").style.display = "none"
+            document.getElementById("JobStatusWrapper").style.display = "none"
             return
         };
 
+        if (e.target.innerText === "Job Status") {
+            document.getElementById("MarketWraper").style.display = "none"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+            document.getElementById("RolesWrapper").style.display = "none"
+            document.getElementById("JobStatusWrapper").style.display = "grid"
+            return
+        };
     }
 </script>
 
@@ -54,6 +64,9 @@
                     <li>
                         <button onclick="CommandCenterNavHandler(event)">Triage</button>
                     </li>
+                    <li>
+                        <button onclick="CommandCenterNavHandler(event)">Job Status</button>
+                    </li>
                 </ul>
             </nav>
 
@@ -67,6 +80,10 @@
             </div>
             <div class="hidden" id="RolesWrapper">
                 <partial name="FormRoles" />
+            </div>
+
+            <div class="hidden" id="JobStatusWrapper">
+                <partial name="FormJobStatus" />
             </div>
 
         </main>
