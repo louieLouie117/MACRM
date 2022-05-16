@@ -257,10 +257,13 @@ namespace KcPilot.Controllers
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
 
 
-            string UserMarketCode = HttpContext.Session.GetString("MarketCode");
+            string UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
 
             List<Job> UnassignedList = _context.Jobs
-            .Where(ua => ua.JobStatus == "unassigned").ToList();
+            .Where(ua => ua.JobStatus == "unassigned")
+            .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .ToList();
+
 
             return Json(new { Result = UnassignedList });
 
