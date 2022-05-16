@@ -267,6 +267,22 @@ namespace KcPilot.Controllers
 
             return Json(new { Result = UnassignedList });
 
+
+
+        }
+
+        [HttpPost("JobSelectedMethod")]
+        public JsonResult JobSelectedMethod(Job UserInputData)
+        {
+
+            HttpContext.Session.SetInt32("JobIdSession", UserInputData.JobStatusId);
+
+            System.Console.WriteLine($"You have reach the backend of JobSelected {UserInputData.JobStatusId}");
+
+
+            return Json(new { Status = true });
+
+
         }
 
 
@@ -279,7 +295,7 @@ namespace KcPilot.Controllers
             UserInputData.UserId = UserIdInSession;
             System.Console.WriteLine("You have reached the back end of NewJobMethod");
 
-            _context.Add(UserInputData);
+            _context.Update(UserInputData);
             _context.SaveChanges();
             List<Job> JobList = _context.Jobs
             .Where(ul => ul.UserId == UserIdInSession)
