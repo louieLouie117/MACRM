@@ -242,14 +242,16 @@ namespace KcPilot.Controllers
 
             _context.Add(UserInputData);
             _context.SaveChanges();
-            List<Job> ApiGeneratorItems = _context.Jobs.ToList();
+            List<Job> ApiGeneratorItems = _context.Jobs
+            .Where(mc => mc.JobStatus == "unassigned").ToList();
+
 
             return Json(new { Result = ApiGeneratorItems });
 
         }
 
-        [HttpGet("APIDataMethod")]
-        public JsonResult APIDataMethod(ApiGenerator UserInputData)
+        [HttpGet("UnassignedMethod")]
+        public JsonResult UnassignedMethod(Job UserInputData)
 
         {
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
@@ -257,10 +259,10 @@ namespace KcPilot.Controllers
 
             string UserMarketCode = HttpContext.Session.GetString("MarketCode");
 
-            List<ApiGenerator> ApiDataResult = _context.ApiGenerators
-            .Where(mc => mc.MarketCode == UserMarketCode).ToList();
+            List<Job> UnassignedList = _context.Jobs
+            .Where(ua => ua.JobStatus == "unassigned").ToList();
 
-            return Json(new { Result = ApiDataResult });
+            return Json(new { Result = UnassignedList });
 
         }
 
@@ -284,6 +286,7 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpGet("AllJobListMethod")]
 
         public JsonResult AllJobListMethod(Job UserInputData)
 
@@ -291,10 +294,17 @@ namespace KcPilot.Controllers
 
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
+
+            var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
+
+            System.Console.WriteLine(UserMarketCodeInSession);
+
+
             System.Console.WriteLine("You have reached the back end of AllJobListMethod");
             List<Job> JobList = _context.Jobs
-            .Where(ul => ul.UserId == UserIdInSession)
+            .Where(um => um.MarketCode == UserMarketCodeInSession)
             .ToList();
+
 
             return Json(new { Result = JobList });
 

@@ -24,7 +24,7 @@
 
         $.ajax({
             type: "Get",
-            url: '@Url.Action("APIDataMethod", "Home")',
+            url: '@Url.Action("UnassignedMethod", "Home")',
             success: APIDataMethodSuccess,
         });
     }
@@ -109,12 +109,12 @@
             document.getElementById("PreScreenContainer").style.display = "grid";
 
             @* Serive *@
-            document.getElementById("ServiceJobNumberPSF").value = document.getElementById("ServiceJobNumberAPI" + e.target.id).innerText;
+                document.getElementById("ServiceJobNumberPSF").value = document.getElementById("ServiceJobNumberAPI" + e.target.id).innerText;
             document.getElementById("SamsungJobNumberPSF").value = document.getElementById("SamsungJobNumberAPI" + e.target.id).innerText;
             document.getElementById("InWarrantyPSF").value = document.getElementById("InWarrantyAPI" + e.target.id).innerText;
 
             @* Customer info *@
-            document.getElementById("NamePSF").value = document.getElementById("NameAPI" + e.target.id).innerText;
+                document.getElementById("NamePSF").value = document.getElementById("NameAPI" + e.target.id).innerText;
             document.getElementById("AddressPSF").value = document.getElementById("AddressAPI" + e.target.id).innerText;
             document.getElementById("CityPSF").value = document.getElementById("CityAPI" + e.target.id).innerText;
             document.getElementById("StatePSF").value = document.getElementById("StateAPI" + e.target.id).innerText;
@@ -122,26 +122,26 @@
             document.getElementById("PhoneNumberPSF").value = document.getElementById("PhoneNumberAPI" + e.target.id).innerText;
             document.getElementById("EmailPSF").value = document.getElementById("EmailAPI" + e.target.id).innerText;
             @* Product *@
-            document.getElementById("ProductLinePSF").value = document.getElementById("ProductLineAPI" + e.target.id).innerText;
+                document.getElementById("ProductLinePSF").value = document.getElementById("ProductLineAPI" + e.target.id).innerText;
             document.getElementById("ModelNumberPSF").value = document.getElementById("ModelNumberAPI" + e.target.id).innerText;
             document.getElementById("SerialNumberPSF").value = document.getElementById("SerialNumberAPI" + e.target.id).innerText;
             @* Users Assigned *@
-            document.getElementById("TwoManJobPSF").value = document.getElementById("TwoManJobAPI" + e.target.id).innerText;
+                document.getElementById("TwoManJobPSF").value = document.getElementById("TwoManJobAPI" + e.target.id).innerText;
             document.getElementById("TechNamePSF").value = document.getElementById("TechNameAPI" + e.target.id).innerText;
             document.getElementById("SANamePSF").value = document.getElementById("SANameAPI" + e.target.id).innerText;
             document.getElementById("SecondPersonNamePSF").value = document.getElementById("SecondPersonNameAPI" + e.target.id).innerText;
             @* Appoinment Info *@
-            document.getElementById("AppointmentDayPSF").value = document.getElementById("AppointmentDayAPI" + e.target.id).innerText;
+                document.getElementById("AppointmentDayPSF").value = document.getElementById("AppointmentDayAPI" + e.target.id).innerText;
             document.getElementById("AppointmentTimePSF").value = document.getElementById("AppointmentTimeAPI" + e.target.id).innerText;
             document.getElementById("AppointmentWindowPSF").value = document.getElementById("AppointmentWindowAPI" + e.target.id).innerText;
             document.getElementById("SpecialInstructionsPSF").value = document.getElementById("SpecialInstructionsAPI" + e.target.id).innerText;
             document.getElementById("NumberOfContactMadePSF").value = document.getElementById("NumberOfContactMadeAPI" + e.target.id).innerText;
             document.getElementById("NumberOfTimesReschedualPSF").value = document.getElementById("NumberOfTimesReschedualAPI" + e.target.id).innerText;
             @* Market Info *@
-            document.getElementById("MarketPSF").value = document.getElementById("MarketAPI" + e.target.id).innerText;
+                document.getElementById("MarketPSF").value = document.getElementById("MarketAPI" + e.target.id).innerText;
             document.getElementById("MarketCodePSF").value = document.getElementById("MarketCodeAPI" + e.target.id).innerText;
             @* Job Status *@
-            document.getElementById("ServiceStatusPSF").value = document.getElementById("ServiceStatusAPI" + e.target.id).innerText;
+                document.getElementById("ServiceStatusPSF").value = document.getElementById("ServiceStatusAPI" + e.target.id).innerText;
             document.getElementById("JobStatusPSF").value = document.getElementById("JobStatusAPI" + e.target.id).innerText;
             document.getElementById("JobStatusColorPSF").value = document.getElementById("JobStatusColorAPI" + e.target.id).innerText;
             document.getElementById("ReworkPSF").value = document.getElementById("ReworkAPI" + e.target.id).innerText;
