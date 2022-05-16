@@ -198,7 +198,7 @@ namespace KcPilot.Controllers
 
 
         [HttpPost("DataGeneratorMethod")]
-        public JsonResult DataGeneratorMethod(ApiGenerator UserInputData)
+        public JsonResult DataGeneratorMethod(Job UserInputData)
 
         {
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
@@ -242,7 +242,7 @@ namespace KcPilot.Controllers
 
             _context.Add(UserInputData);
             _context.SaveChanges();
-            List<ApiGenerator> ApiGeneratorItems = _context.ApiGenerators.ToList();
+            List<Job> ApiGeneratorItems = _context.Jobs.ToList();
 
             return Json(new { Result = ApiGeneratorItems });
 
@@ -285,7 +285,6 @@ namespace KcPilot.Controllers
 
 
 
-        [HttpGet("AllJobListMethod")]
         public JsonResult AllJobListMethod(Job UserInputData)
 
         {
@@ -301,6 +300,17 @@ namespace KcPilot.Controllers
 
         }
 
+
+
+        [HttpPost("RoleMethod")]
+
+        public JsonResult RoleMethod(Role UserInputData)
+        {
+            System.Console.WriteLine("You have reached the backend of role");
+            return Json(new { Result = true });
+
+
+        }
 
 
 

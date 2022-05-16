@@ -43,6 +43,65 @@
             return
         };
     }
+
+    const CommandCenterFormHandler = (e) => {
+        e.preventDefault();
+
+
+        const JsonDataFunction = (jsondata, method) => {
+            console.log(jsondata, "AfterJsonData")
+            console.log(method, "is calling the backend")
+
+            $.ajax({
+                accepts: { AjaxMethod },
+                type: "POST",
+                @* url: '@Url.Action($"{AjaxMethod}", "Home")', *@
+                @* data: jsonData, *@
+                @* success: RegisterationSucessHandler, *@
+            });
+
+
+    }
+
+    if (e.target.innerText === "+ Role") {
+        console.log("runnning code for roles ")
+        let CallMethod = "RoleMethod";
+
+        let Role = document.getElementById("UserRole").value;
+        let jsonDataRole = {
+            role: Role,
+
+        }
+        console.log(jsonDataRole, "BeforeJsonData")
+        $.ajax({
+            accepts: { AjaxMethod },
+            type: "POST",
+            url: '@Url.Action("RoleMethod", "Home")',
+                @* data: jsonData, *@
+            @* success: RegisterationSucessHandler, *@
+            });
+
+
+    @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
+        return;
+    };
+
+    if (e.target.innerText === "+ Market") {
+        console.log("runnning code for market ")
+        return
+    };
+
+
+    if (e.target.innerText === "+ Job Status") {
+        console.log("run code for job status ")
+        return
+    };
+
+
+
+
+
+    }
 </script>
 
 <body>
@@ -62,10 +121,11 @@
                         <button onclick="CommandCenterNavHandler(event)">Roles</button>
                     </li>
                     <li>
-                        <button onclick="CommandCenterNavHandler(event)">Triage</button>
-                    </li>
-                    <li>
                         <button onclick="CommandCenterNavHandler(event)">Job Status</button>
+                    </li>
+
+                    <li>
+                        <button onclick="CommandCenterNavHandler(event)">Triage</button>
                     </li>
                 </ul>
             </nav>

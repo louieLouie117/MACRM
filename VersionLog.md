@@ -55,6 +55,12 @@ Last night I came up with an amazing idea. Currently, the user has to copy and p
 ## Wednesday May 11 2020
 This morning I started designing the landing page. Although I did not get to code designing will speed up the process of development.
 
+## Thursday May 12 2020
+This morning I worked at the Command Center and added a section where users will be able to update their job status. With this section I would like to focus on code reusability. The goal is able to use the same function for all 4 different forms.
+
+## Friday May 13 2020
+This morning I mentored Alian and Javier on the frontend development. I know I did not get a code change, but both Alian and Javier can help with the front-end to speed up the product in the long run. 
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022
