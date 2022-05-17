@@ -198,7 +198,7 @@ namespace KcPilot.Controllers
 
 
         [HttpPost("DataGeneratorMethod")]
-        public JsonResult DataGeneratorMethod(ApiGenerator UserInputData)
+        public JsonResult DataGeneratorMethod(Job UserInputData)
 
         {
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
@@ -242,65 +242,138 @@ namespace KcPilot.Controllers
 
             _context.Add(UserInputData);
             _context.SaveChanges();
-            List<ApiGenerator> ApiGeneratorItems = _context.ApiGenerators.ToList();
+            List<Job> ApiGeneratorItems = _context.Jobs
+            .Where(mc => mc.JobStatus == "unassigned").ToList();
+
 
             return Json(new { Result = ApiGeneratorItems });
 
         }
 
-        [HttpGet("APIDataMethod")]
-        public JsonResult APIDataMethod(ApiGenerator UserInputData)
+        [HttpGet("UnassignedMethod")]
+        public JsonResult UnassignedMethod(Job UserInputData)
 
         {
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
 
+            string UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
 
-            string UserMarketCode = HttpContext.Session.GetString("MarketCode");
+            List<Job> UnassignedList = _context.Jobs
+            .Where(ua => ua.JobStatus == "unassigned")
+            .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .ToList();
 
-            List<ApiGenerator> ApiDataResult = _context.ApiGenerators
-            .Where(mc => mc.MarketCode == UserMarketCode).ToList();
 
-            return Json(new { Result = ApiDataResult });
+            return Json(new { Result = UnassignedList });
+
+
+
+        }
+
+        [HttpPost("PreScreenJobSelectedMethod")]
+        public JsonResult PreScreenJobSelectedMethod(Job UserInputData)
+        {
+
+            HttpContext.Session.SetInt32("PreScreenJobSelectedInSession", UserInputData.JobStatusId);
+
+            System.Console.WriteLine($"You have reach the backend of JobSelected!! {UserInputData.JobStatusId}");
+
+
+            return Json(new { Status = true });
+
 
         }
 
 
-        [HttpPost("NewJobMethod")]
-        public JsonResult NewJobMethod(Job UserInputData)
+        [HttpPost("CardJobSelectedMethod")]
+        public JsonResult CardJobSelectedMethod(Job UserInputData)
+        {
+
+            HttpContext.Session.SetInt32("CardJobSelectedInSession", UserInputData.JobStatusId);
+            System.Console.WriteLine($"You have reach the backend of CardJobSelected!! {UserInputData.JobStatusId}");
+            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
+            return Json(new { Status = true });
+
+
+        }
+
+
+        [HttpPost("PreScreenJobMethod")]
+        public JsonResult PreScreenJobMethod(Job UserInputData)
 
         {
 
+
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
-            System.Console.WriteLine("You have reached the back end of NewJobMethod");
 
-            _context.Add(UserInputData);
+            var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
+            int PreScreenJobInSession = (int)HttpContext.Session.GetInt32("PreScreenJobSelectedInSession");
+
+            System.Console.WriteLine("You have reached the back end of PreScreenJobMethod");
+            System.Console.WriteLine($"User in session: {UserIdInSession}");
+
+            System.Console.WriteLine($"Job status: {UserInputData.JobStatus}");
+            System.Console.WriteLine($"Job Color: {UserInputData.JobStatusColor}");
+            System.Console.WriteLine($"Market in session: {UserMarketCodeInSession}");
+            System.Console.WriteLine($"job in session: {PreScreenJobInSession}");
+
+            Job GetJob = _context.Jobs.SingleOrDefault(id => id.JobStatusId == PreScreenJobInSession);
+
+
+            // GetJob.UserId = UserIdInSession;
+            GetJob.JobStatusId = PreScreenJobInSession;
+            GetJob.JobStatus = UserInputData.JobStatus;
+            GetJob.JobStatusColor = UserInputData.JobStatusColor;
+
+
+            // _context.Update(Entry);
             _context.SaveChanges();
+
             List<Job> JobList = _context.Jobs
-            .Where(ul => ul.UserId == UserIdInSession)
+            .Where(ul => ul.MarketCode == UserMarketCodeInSession)
             .ToList();
-            return Json(new { Result = JobList });
+            return Json(new { Result = "success" });
 
         }
 
 
-
         [HttpGet("AllJobListMethod")]
+
         public JsonResult AllJobListMethod(Job UserInputData)
 
         {
 
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
+
+            var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
+
+            System.Console.WriteLine(UserMarketCodeInSession);
+
+
             System.Console.WriteLine("You have reached the back end of AllJobListMethod");
             List<Job> JobList = _context.Jobs
-            .Where(ul => ul.UserId == UserIdInSession)
+            .Where(um => um.MarketCode == UserMarketCodeInSession)
             .ToList();
+
 
             return Json(new { Result = JobList });
 
         }
 
+
+
+        [HttpPost("RoleMethod")]
+
+        public JsonResult RoleMethod(Role UserInputData)
+        {
+            System.Console.WriteLine("You have reached the backend of role");
+            return Json(new { Result = true });
+
+
+        }
 
 
 

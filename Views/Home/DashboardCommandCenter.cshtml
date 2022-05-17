@@ -8,6 +8,102 @@
     <title>Command Center</title>
 </head>
 
+<script>
+    const CommandCenterNavHandler = (e) => {
+
+        if (e.target.innerText === "Markets") {
+            document.getElementById("MarketWraper").style.display = "grid"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+            document.getElementById("RolesWrapper").style.display = "none"
+            document.getElementById("JobStatusWrapper").style.display = "none"
+            return
+        };
+
+        if (e.target.innerText === "Roles") {
+            document.getElementById("MarketWraper").style.display = "none"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+            document.getElementById("RolesWrapper").style.display = "grid"
+            document.getElementById("JobStatusWrapper").style.display = "none"
+            return
+        };
+
+        if (e.target.innerText === "Triage") {
+            document.getElementById("MarketWraper").style.display = "none"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "grid"
+            document.getElementById("RolesWrapper").style.display = "none"
+            document.getElementById("JobStatusWrapper").style.display = "none"
+            return
+        };
+
+        if (e.target.innerText === "Job Status") {
+            document.getElementById("MarketWraper").style.display = "none"
+            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+            document.getElementById("RolesWrapper").style.display = "none"
+            document.getElementById("JobStatusWrapper").style.display = "grid"
+            return
+        };
+    }
+
+    const CommandCenterFormHandler = (e) => {
+        e.preventDefault();
+
+
+        const JsonDataFunction = (jsondata, method) => {
+            console.log(jsondata, "AfterJsonData")
+            console.log(method, "is calling the backend")
+
+            $.ajax({
+                accepts: { AjaxMethod },
+                type: "POST",
+                @* url: '@Url.Action($"{AjaxMethod}", "Home")', *@
+                @* data: jsonData, *@
+                @* success: RegisterationSucessHandler, *@
+            });
+
+
+    }
+
+    if (e.target.innerText === "+ Role") {
+        console.log("runnning code for roles ")
+        let CallMethod = "RoleMethod";
+
+        let Role = document.getElementById("UserRole").value;
+        let jsonDataRole = {
+            role: Role,
+
+        }
+        console.log(jsonDataRole, "BeforeJsonData")
+        $.ajax({
+            accepts: { AjaxMethod },
+            type: "POST",
+            url: '@Url.Action("RoleMethod", "Home")',
+                @* data: jsonData, *@
+            @* success: RegisterationSucessHandler, *@
+            });
+
+
+    @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
+        return;
+    };
+
+    if (e.target.innerText === "+ Market") {
+        console.log("runnning code for market ")
+        return
+    };
+
+
+    if (e.target.innerText === "+ Job Status") {
+        console.log("run code for job status ")
+        return
+    };
+
+
+
+
+
+    }
+</script>
+
 <body>
     <div class="CommandCenter-Container">
         <header>
@@ -19,27 +115,35 @@
             <nav>
                 <ul>
                     <li>
-                        <button>Markets</button>
+                        <button onclick="CommandCenterNavHandler(event)">Markets</button>
                     </li>
                     <li>
-                        <button>Roles</button>
+                        <button onclick="CommandCenterNavHandler(event)">Roles</button>
                     </li>
                     <li>
-                        <button>Tirage</button>
+                        <button onclick="CommandCenterNavHandler(event)">Job Status</button>
+                    </li>
+
+                    <li>
+                        <button onclick="CommandCenterNavHandler(event)">Triage</button>
                     </li>
                 </ul>
             </nav>
 
         </header>
         <main>
-            <div>
+            <div id="MarketWraper">
                 <partial name="FormMarket" />
             </div>
-            <div>
+            <div class="hidden" id="ProbingQuestionsWrapper">
                 <partial name="FormProvingQuestions" />
             </div>
-            <div>
+            <div class="hidden" id="RolesWrapper">
                 <partial name="FormRoles" />
+            </div>
+
+            <div class="hidden" id="JobStatusWrapper">
+                <partial name="FormJobStatus" />
             </div>
 
         </main>

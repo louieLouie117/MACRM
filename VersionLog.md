@@ -45,7 +45,28 @@ This morning I was able to finish the layout of all components and pull all the 
 - [ ] Version 3.2 || Search
 - [ ] Version 3.3 || Update JobStatus
 
+## Monday May 9 2020
+6:30 am: This morning I code for 3.5hr. This time spent was an amazing. I was able to the update the landing page, create a log, and set up the command center dashboard. With the command center dashboard in place user in this role will be able to add new markets, roles, and proving questions.
 
+## Tuesday May 10 2020
+Last night I came up with an amazing idea. Currently, the user has to copy and paste the data to a form this is a very tedious task and slows the production of the user. My idea that solves this would be to develop a program that with one click gathers the data the user needs with the URL. This will have a big impact and the user will be more productive. Today I spent the morning doing reaching and will use the library to create this program. 
+[Puppeteer](https://www.npmjs.com/package/puppeteer)
+
+## Wednesday May 11 2020
+This morning I started designing the landing page. Although I did not get to code designing will speed up the process of development.
+
+## Thursday May 12 2020
+This morning I worked at the Command Center and added a section where users will be able to update their job status. With this section I would like to focus on code reusability. The goal is able to use the same function for all 4 different forms.
+
+## Friday May 13 2020
+This morning I mentored Alian and Javier on the frontend development. I know I did not get a code change, but both Alian and Javier can help with the front-end to speed up the product in the long run. 
+
+
+## Monday May 16 2020
+
+
+## Tuesday May 17 2020
+This morning was a fantastic 3.5hrs of development. I was able to change the user's job status and job color through the pre-screening. I still need to add all data that a user can update, but the logic is working. I also realized the session will play a significant role in the user experience and updating data to the database. 
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

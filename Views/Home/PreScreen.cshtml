@@ -131,72 +131,16 @@
 
         $.ajax({
             type: "POST",
-            url: '@Url.Action("NewJobMethod", "Home")',
+            url: '@Url.Action("PreScreenJobMethod", "Home")',
             data: jsonData,
-            success: NewJobMethodSuccess,
+            @* success: NewJobMethodSuccess, something is breaking here*@
         });
 
     }
 
-    const NewJobMethodSuccess = (result) => {
-        console.log("call back result", result);
-        RenderNewJobResult(result);
-        document.getElementById("UnassignedContainer").style.display = "none";
-        document.getElementById("PreScreenContainer").style.display = "none"
-        return
-    }
-
-
-    const RenderNewJobResult = (data) => {
-        $('#NewJobList').empty();
-        console.log("API Data", data.result)
-        $.each(data.result, function (i, v) {
-            console.log(i, v.name);
-
-            $(`
-            <li>
-                <header>
-                    <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
-                    <p  id="SelectedJobStatusColor${i}">${v.jobStatusColor}</p>
-                    <h1 id="SelectedJobStatus${i}">${v.jobStatus}</h1>
-                </header>
-                <main>
-                    <h2 id="SelectedName${i}"> ${v.name}</h2>
-                    <h2 id="${i}"> ${v.phoneNumber}</h2>
-                    <h2 id="${i}"> ${v.address}</h2>
-                    <h2 id="SelectedServiceJobNumber${i}"> ${v.serviceJobNumber}</h2>
-                    <h2 id="${i}"> ${v.serviceAdvocateName}</h2>
-
-
-                </main>
-                <button id="${i}" onclick="JobSelectedHandler(event)"></button>
-
-            </li>
-
-            `).prependTo("#NewJobList");
 
 
 
-        })
-    };
-
-
-    const JobSelectedHandler = (e) => {
-        console.log("Job Selected button was click")
-        console.log(e.target.id)
-
-        let color = document.getElementById("SelectedJobStatusColor" + e.target.id).innerText;
-        console.log(color);
-        document.getElementById("DisplayJobStatusColor").style.backgroundColor = color;
-        document.getElementById("DisplayJobStatus").innerText = document.getElementById("SelectedJobStatus" + e.target.id).innerText;
-
-
-
-        document.getElementById("DisplayName").innerText = document.getElementById("SelectedName" + e.target.id).innerText;
-        document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById("SelectedServiceJobNumber" + e.target.id).innerText;
-
-
-    }
 </script>
 
 <body>

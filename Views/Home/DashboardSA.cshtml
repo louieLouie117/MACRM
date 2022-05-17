@@ -16,6 +16,98 @@
 
     });
 
+    const NewJobMethodSuccess = (result) => {
+        console.log("call back result", result);
+        RenderNewJobResult(result);
+        document.getElementById("UnassignedContainer").style.display = "none";
+        document.getElementById("PreScreenContainer").style.display = "none"
+        return
+    }
+
+
+    const RenderNewJobResult = (data) => {
+        $('#NewJobList').empty();
+        console.log("API Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`
+            <li>
+                <header>
+                    <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
+                    <p  id="SelectedJobStatusColor${v.jobStatusId}">${v.jobStatusColor}</p>
+                    <h1 id="SelectedJobStatus${v.jobStatusId}">${v.jobStatus}</h1>
+                </header>
+                <main>
+                    <h2 id="SelectedName${v.jobStatusId}"> ${v.name}</h2>
+                    <h2 id="${v.jobStatusId}"> ${v.phoneNumber}</h2>
+                    <h2 id="${v.jobStatusId}"> ${v.address}</h2>
+                    <h2 id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
+                    <h2 id="${v.jobStatusId}"> ${v.serviceAdvocateName}</h2>
+
+
+                </main>
+                <button id="${v.jobStatusId}" onclick="JobSelectedHandler(event)"></button>
+
+            </li>
+
+            `).prependTo("#NewJobList");
+
+
+
+        })
+    };
+
+    const JobSelectedHandler = (e) => {
+        console.log("JobSelectedHandler was called")
+        console.log("SelectedJobStatus" + e.target.id)
+
+
+        @* Session *@
+            let jsonData = {
+                jobStatusId: e.target.id,
+            }
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("CardJobSelectedMethod", "Home")',
+            data: jsonData,
+                    @* success: NewJobMethodSuccess, *@
+                });
+
+    if (document.getElementById("SelectedJobStatus" + e.target.id).innerText === "unassigned") {
+        alert("Needs pre-screening");
+        return
+    }
+
+
+    $('#DisplayJobData').empty();
+    $(`
+                <div id="DisplayJobStatusColor${e.target.id}" class="JobStatusDotIcon">
+                </div>
+                <h2 id="DisplayJobStatus"></h2>
+
+                <h2 id="DisplayName"></h2>
+                <h2 id="DisplayServiceJobNumber"></h2>
+
+            `).prependTo("#DisplayJobData");
+
+
+
+    document.getElementById("DisplayJobStatusColor" + e.target.id).style.backgroundColor = document.getElementById("SelectedJobStatusColor" + e.target.id).innerText;
+
+    document.getElementById("DisplayJobStatus").innerText = document.getElementById("SelectedJobStatus" + e.target.id).innerText;
+
+
+
+    document.getElementById("DisplayName").innerText = document.getElementById("SelectedName" + e.target.id).innerText;
+    document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById("SelectedServiceJobNumber" + e.target.id).innerText;
+
+
+
+
+    }
+
 
 
 </script>
@@ -25,15 +117,8 @@
     <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
     <div class="AllJobs-Container">
         <ul id="NewJobList"></ul>
-        <main>
-            <div id="DisplayJobStatusColor" class="JobStatusDotIcon">
-            </div>
-            <h2 id="DisplayJobStatus"></h2>
+        <main id="DisplayJobData"></main>
 
-            <h2 id="DisplayName"></h2>
-            <h2 id="DisplayServiceJobNumber"></h2>
-
-        </main>
     </div>
 </body>
 

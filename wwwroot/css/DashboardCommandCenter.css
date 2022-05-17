@@ -1,7 +1,10 @@
 .CommandCenter-Container{
     display: grid;
+    grid-template-rows: 200px;
     background: whitesmoke;
     padding: 20px;
+    height: 100vh;
+    justify-content: flex-start;
 }
 
 .CommandCenter-Container header{
@@ -26,3 +29,5 @@
     background: #9062AF;
     color: white;
 }
+
+
