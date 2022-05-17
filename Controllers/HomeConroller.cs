@@ -270,8 +270,8 @@ namespace KcPilot.Controllers
 
         }
 
-        [HttpPost("JobSelectedMethod")]
-        public JsonResult JobSelectedMethod(Job UserInputData)
+        [HttpPost("PreScreenJobSelectedMethod")]
+        public JsonResult PreScreenJobSelectedMethod(Job UserInputData)
         {
 
             HttpContext.Session.SetInt32("JobSelectedInSession", UserInputData.JobStatusId);
@@ -285,8 +285,8 @@ namespace KcPilot.Controllers
         }
 
 
-        [HttpPost("NewJobMethod")]
-        public JsonResult NewJobMethod(Job UserInputData)
+        [HttpPost("PreScreenJobMethod")]
+        public JsonResult PreScreenJobMethod(Job UserInputData)
 
         {
 
@@ -297,7 +297,7 @@ namespace KcPilot.Controllers
             var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
             int JobInSession = (int)HttpContext.Session.GetInt32("JobSelectedInSession");
 
-            System.Console.WriteLine("You have reached the back end of NewJobMethod");
+            System.Console.WriteLine("You have reached the back end of PreScreenJobMethod");
             System.Console.WriteLine($"User in session: {UserIdInSession}");
 
             System.Console.WriteLine($"Job status: {UserInputData.JobStatus}");

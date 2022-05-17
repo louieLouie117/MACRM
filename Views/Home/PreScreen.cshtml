@@ -131,9 +131,9 @@
 
         $.ajax({
             type: "POST",
-            url: '@Url.Action("NewJobMethod", "Home")',
+            url: '@Url.Action("PreScreenJobMethod", "Home")',
             data: jsonData,
-            success: NewJobMethodSuccess,
+            @* success: NewJobMethodSuccess, something is breaking here*@
         });
 
     }
