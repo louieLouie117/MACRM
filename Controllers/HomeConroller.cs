@@ -274,11 +274,25 @@ namespace KcPilot.Controllers
         public JsonResult PreScreenJobSelectedMethod(Job UserInputData)
         {
 
-            HttpContext.Session.SetInt32("JobSelectedInSession", UserInputData.JobStatusId);
+            HttpContext.Session.SetInt32("PreScreenJobSelectedInSession", UserInputData.JobStatusId);
 
             System.Console.WriteLine($"You have reach the backend of JobSelected!! {UserInputData.JobStatusId}");
 
 
+            return Json(new { Status = true });
+
+
+        }
+
+
+        [HttpPost("CardJobSelectedMethod")]
+        public JsonResult CardJobSelectedMethod(Job UserInputData)
+        {
+
+            HttpContext.Session.SetInt32("CardJobSelectedInSession", UserInputData.JobStatusId);
+            System.Console.WriteLine($"You have reach the backend of CardJobSelected!! {UserInputData.JobStatusId}");
+            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
             return Json(new { Status = true });
 
 
@@ -295,7 +309,7 @@ namespace KcPilot.Controllers
             UserInputData.UserId = UserIdInSession;
 
             var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
-            int JobInSession = (int)HttpContext.Session.GetInt32("JobSelectedInSession");
+            int PreScreenJobInSession = (int)HttpContext.Session.GetInt32("PreScreenJobSelectedInSession");
 
             System.Console.WriteLine("You have reached the back end of PreScreenJobMethod");
             System.Console.WriteLine($"User in session: {UserIdInSession}");
@@ -303,13 +317,13 @@ namespace KcPilot.Controllers
             System.Console.WriteLine($"Job status: {UserInputData.JobStatus}");
             System.Console.WriteLine($"Job Color: {UserInputData.JobStatusColor}");
             System.Console.WriteLine($"Market in session: {UserMarketCodeInSession}");
-            System.Console.WriteLine($"job in session: {JobInSession}");
+            System.Console.WriteLine($"job in session: {PreScreenJobInSession}");
 
-            Job GetJob = _context.Jobs.SingleOrDefault(id => id.JobStatusId == JobInSession);
+            Job GetJob = _context.Jobs.SingleOrDefault(id => id.JobStatusId == PreScreenJobInSession);
 
 
             // GetJob.UserId = UserIdInSession;
-            GetJob.JobStatusId = JobInSession;
+            GetJob.JobStatusId = PreScreenJobInSession;
             GetJob.JobStatus = UserInputData.JobStatus;
             GetJob.JobStatusColor = UserInputData.JobStatusColor;
 
