@@ -44,47 +44,47 @@
 
             $(` <li>
                 @* Render to user *@
-                    <h2 id="NameAPI${i}">${v.name}</h2>
-                    <h2 id="ServiceJobNumberAPI${i}">${v.serviceJobNumber}</h2>
-                    <h2 id="CityAPI${i}">${v.city}</h2>
+                    <h2 id="NameAPI${v.jobStatusId}">${v.name}</h2>
+                    <h2 id="ServiceJobNumberAPI${v.jobStatusId}">${v.serviceJobNumber}</h2>
+                    <h2 id="CityAPI${v.jobStatusId}">${v.city}</h2>
                     <button>Assign</button>
-                    <button id="${i}" onclick="PreScreenHandler(event)">Pre-screen</button>
+                    <button id="${v.jobStatusId}" onclick="PreScreenHandler(event)">Pre-screen</button>
                 @* Hidden *@
                 @* Service Job *@
-                    <h2 class="hidden" id="SamsungJobNumberAPI${i}">${v.samsungJobNumber}</h2>
-                    <h2 class="hidden" id="InWarrantyAPI${i}">${v.inWarranty}</h2>
+                    <h2 class="hidden" id="SamsungJobNumberAPI${v.jobStatusId}">${v.samsungJobNumber}</h2>
+                    <h2 class="hidden" id="InWarrantyAPI${v.jobStatusId}">${v.inWarranty}</h2>
                 @* Customer Info *@
-                    <h2 class="hidden" id="SamsungJobNumberAPI${i}"> ${v.name}</h2>
-                    <h2 class="hidden" id="AddressAPI${i}">${v.address}</h2>
-                    <h2 class="hidden" id="StateAPI${i}">${v.state}</h2>
-                    <h2 class="hidden" id="ZipcodeAPI${i}">${v.zipcode}</h2>
-                    <h2 class="hidden" id="PhoneNumberAPI${i}">${v.phoneNumber}</h2>
-                    <h2 class="hidden" id="EmailAPI${i}">${v.email}</h2>
+                    <h2 class="hidden" id="SamsungJobNumberAPI${v.jobStatusId}"> ${v.name}</h2>
+                    <h2 class="hidden" id="AddressAPI${v.jobStatusId}">${v.address}</h2>
+                    <h2 class="hidden" id="StateAPI${v.jobStatusId}">${v.state}</h2>
+                    <h2 class="hidden" id="ZipcodeAPI${v.jobStatusId}">${v.zipcode}</h2>
+                    <h2 class="hidden" id="PhoneNumberAPI${v.jobStatusId}">${v.phoneNumber}</h2>
+                    <h2 class="hidden" id="EmailAPI${v.jobStatusId}">${v.email}</h2>
                 @* Product*@
-                    <h2 class="hidden" id="ProductLineAPI${i}">${v.productLine}</h2>
-                    <h2 class="hidden" id="ModelNumberAPI${i}">${v.modelNumber}</h2>
-                    <h2 class="hidden" id="SerialNumberAPI${i}">${v.serialNumber}</h2>
+                    <h2 class="hidden" id="ProductLineAPI${v.jobStatusId}">${v.productLine}</h2>
+                    <h2 class="hidden" id="ModelNumberAPI${v.jobStatusId}">${v.modelNumber}</h2>
+                    <h2 class="hidden" id="SerialNumberAPI${v.jobStatusId}">${v.serialNumber}</h2>
                 @* User Assigned *@
-                    <h2 class="hidden" id="TwoManJobAPI${i}">${v.twoManJob}</h2>
-                    <h2 class="hidden" id="TechNameAPI${i}">${v.techName}</h2>
-                    <h2 class="hidden" id="SANameAPI${i}">${v.sAName}</h2>
-                    <h2 class="hidden" id="SecondPersonNameAPI${i}"> ${v.secondPersonName}</h2>
+                    <h2 class="hidden" id="TwoManJobAPI${v.jobStatusId}">${v.twoManJob}</h2>
+                    <h2 class="hidden" id="TechNameAPI${v.jobStatusId}">${v.techName}</h2>
+                    <h2 class="hidden" id="SANameAPI${v.jobStatusId}">${v.sAName}</h2>
+                    <h2 class="hidden" id="SecondPersonNameAPI${v.jobStatusId}"> ${v.secondPersonName}</h2>
                 @* Appoinment info*@
-                    <h2 class="hidden" id="AppointmentDayAPI${i}">${v.appointmentDay}</h2>
-                    <h2 class="hidden" id="AppointmentTimeAPI${i}">${v.appointmentTime}</h2>
-                    <h2 class="hidden" id="AppointmentWindowAPI${i}">${v.appointmentWindow}</h2>
-                    <h2 class="hidden" id="SpecialInstructionsAPI${i}">${v.specialInstructions}</h2>
-                    <h2 class="hidden" id="NumberOfContactMadeAPI${i}">${v.numberOfContactMade}</h2>
-                    <h2 class="hidden" id="NumberOfTimesReschedualAPI${i}"> ${v.numberOfTimesReschedual}</h2>
+                    <h2 class="hidden" id="AppointmentDayAPI${v.jobStatusId}">${v.appointmentDay}</h2>
+                    <h2 class="hidden" id="AppointmentTimeAPI${v.jobStatusId}">${v.appointmentTime}</h2>
+                    <h2 class="hidden" id="AppointmentWindowAPI${v.jobStatusId}">${v.appointmentWindow}</h2>
+                    <h2 class="hidden" id="SpecialInstructionsAPI${v.jobStatusId}">${v.specialInstructions}</h2>
+                    <h2 class="hidden" id="NumberOfContactMadeAPI${v.jobStatusId}">${v.numberOfContactMade}</h2>
+                    <h2 class="hidden" id="NumberOfTimesReschedualAPI${v.jobStatusId}"> ${v.numberOfTimesReschedual}</h2>
                 @* Markt info*@
-                    <h2 class="hidden" id="MarketAPI${i}">${v.market}</h2>
-                    <h2 class="hidden" id="MarketCodeAPI${i}">${v.marketCode}</h2>
+                    <h2 class="hidden" id="MarketAPI${v.jobStatusId}">${v.market}</h2>
+                    <h2 class="hidden" id="MarketCodeAPI${v.jobStatusId}">${v.marketCode}</h2>
                 @* Job Satus*@
-                    <h2 class="hidden" id="ServiceStatusAPI${i}">${v.serviceStatus}</h2>
-                    <h2 class="hidden" id="JobStatusAPI${i}">${v.jobStatus}</h2>
-                    <h2 class="hidden" id="JobStatusColorAPI${i}"> ${v.jobStatusColor}</h2>
-                    <h2 class="hidden" id="ReworkAPI${i}">${v.rework}</h2>
-                    <h2 class="hidden" id="ForceBookAPI${i}">${v.forceBook}</h2>
+                    <h2 class="hidden" id="ServiceStatusAPI${v.jobStatusId}">${v.serviceStatus}</h2>
+                    <h2 class="hidden" id="JobStatusAPI${v.jobStatusId}">${v.jobStatus}</h2>
+                    <h2 class="hidden" id="JobStatusColorAPI${v.jobStatusId}"> ${v.jobStatusColor}</h2>
+                    <h2 class="hidden" id="ReworkAPI${v.jobStatusId}">${v.rework}</h2>
+                    <h2 class="hidden" id="ForceBookAPI${v.jobStatusId}">${v.forceBook}</h2>
                 </li>`).prependTo("#UnassignedList");
 
 

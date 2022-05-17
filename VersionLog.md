@@ -62,6 +62,12 @@ This morning I worked at the Command Center and added a section where users will
 This morning I mentored Alian and Javier on the frontend development. I know I did not get a code change, but both Alian and Javier can help with the front-end to speed up the product in the long run. 
 
 
+## Monday May 16 2020
+
+
+## Tuesday May 17 2020
+This morning I was able to get the function that update a job that has been pre-screen
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

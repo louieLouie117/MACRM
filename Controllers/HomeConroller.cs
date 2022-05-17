@@ -256,7 +256,6 @@ namespace KcPilot.Controllers
         {
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
 
-
             string UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
 
             List<Job> UnassignedList = _context.Jobs
@@ -275,9 +274,9 @@ namespace KcPilot.Controllers
         public JsonResult JobSelectedMethod(Job UserInputData)
         {
 
-            HttpContext.Session.SetInt32("JobIdSession", UserInputData.JobStatusId);
+            HttpContext.Session.SetInt32("JobSelectedInSession", UserInputData.JobStatusId);
 
-            System.Console.WriteLine($"You have reach the backend of JobSelected {UserInputData.JobStatusId}");
+            System.Console.WriteLine($"You have reach the backend of JobSelected!! {UserInputData.JobStatusId}");
 
 
             return Json(new { Status = true });
@@ -291,16 +290,37 @@ namespace KcPilot.Controllers
 
         {
 
+
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
-            System.Console.WriteLine("You have reached the back end of NewJobMethod");
 
-            _context.Update(UserInputData);
+            var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
+            int JobInSession = (int)HttpContext.Session.GetInt32("JobSelectedInSession");
+
+            System.Console.WriteLine("You have reached the back end of NewJobMethod");
+            System.Console.WriteLine($"User in session: {UserIdInSession}");
+
+            System.Console.WriteLine($"Job status: {UserInputData.JobStatus}");
+            System.Console.WriteLine($"Job Color: {UserInputData.JobStatusColor}");
+            System.Console.WriteLine($"Market in session: {UserMarketCodeInSession}");
+            System.Console.WriteLine($"job in session: {JobInSession}");
+
+            Job GetJob = _context.Jobs.SingleOrDefault(id => id.JobStatusId == JobInSession);
+
+
+            // GetJob.UserId = UserIdInSession;
+            GetJob.JobStatusId = JobInSession;
+            GetJob.JobStatus = UserInputData.JobStatus;
+            GetJob.JobStatusColor = UserInputData.JobStatusColor;
+
+
+            // _context.Update(Entry);
             _context.SaveChanges();
+
             List<Job> JobList = _context.Jobs
-            .Where(ul => ul.UserId == UserIdInSession)
+            .Where(ul => ul.MarketCode == UserMarketCodeInSession)
             .ToList();
-            return Json(new { Result = JobList });
+            return Json(new { Result = "success" });
 
         }
 
