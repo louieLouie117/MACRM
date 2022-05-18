@@ -376,6 +376,21 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpPost("JobCommentMethod")]
+
+        public JsonResult JobCommentMethod(JobComment UserInputData)
+        {
+            System.Console.WriteLine("You have reached the backend of JobComments");
+            System.Console.WriteLine(UserInputData.Notes);
+
+
+
+            return Json(new { Result = true });
+
+
+        }
+
+
 
 
     }

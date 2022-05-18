@@ -30,20 +30,30 @@
             console.log("SaveCommetHandler on dashboard SA was called");
 
             let Comment = document.getElementById("CommentBox").value;
-            console.log(Comment);
+
+            let jsonData = {
+                notes: Comment,
+
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("JobCommentMethod", "Home")',
+                data: jsonData,
+                    @* success: NewJobMethodSuccess, *@
+                });
 
 
+    }
 
-        }
+    if (e.target.innerText === "Cancel") {
+        console.log("CancelCommetHandler on dashboard SA was called");
+        document.getElementById("CommentSaveBTN").style.display = "none";
+        document.getElementById("CommentCancelBTN").style.display = "none";
+        document.getElementById("CommentBox").style.height = "20px";
+        document.getElementById("CommentBox").value = "";
 
-        if (e.target.innerText === "Cancel") {
-            console.log("CancelCommetHandler on dashboard SA was called");
-            document.getElementById("CommentSaveBTN").style.display = "none";
-            document.getElementById("CommentCancelBTN").style.display = "none";
-            document.getElementById("CommentBox").style.height = "20px";
-            document.getElementById("CommentBox").value = "";
-
-        }
+    }
     }
 
 </script>

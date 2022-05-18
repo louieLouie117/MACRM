@@ -68,6 +68,10 @@ This morning I mentored Alian and Javier on the frontend development. I know I d
 ## Tuesday May 17 2020
 This morning was a fantastic 3.5hrs of development. I was able to change the user's job status and job color through the pre-screening. I still need to add all data that a user can update, but the logic is working. I also realized the session will play a significant role in the user experience and updating data to the database. 
 
+## Wednesday May 18 2020
+
+
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.
