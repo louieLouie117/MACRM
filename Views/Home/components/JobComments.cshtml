@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<script>
+    const CommentBoxHandler = (e) => {
+        console.log("input was selected")
+        document.getElementById("CommentBox").style.height = "140px";
+        @* document.getElementById("CommentSaveBTN").style.display = "block"; *@
+    }
+
+    const CommenSaveBTNHandler = (e) => {
+        console.log("input was selected")
+        document.getElementById("CommentSaveBTN").style.display = "block";
+        document.getElementById("CommentCancelBTN").style.display = "block";
+
+
+    }
+
+    const SaveCommetHandler = (e) => {
+        e.preventDefault();
+        if (e.target.innerText == "Save") {
+            console.log("SaveCommetHandler on dashboard SA was called");
+
+            let Comment = document.getElementById("CommentBox").value;
+
+            let jsonData = {
+                notes: Comment,
+
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("JobCommentMethod", "Home")',
+                data: jsonData,
+                    @* success: NewJobMethodSuccess, *@
+                });
+
+
+    }
+
+    if (e.target.innerText === "Cancel") {
+        console.log("CancelCommetHandler on dashboard SA was called");
+        document.getElementById("CommentSaveBTN").style.display = "none";
+        document.getElementById("CommentCancelBTN").style.display = "none";
+        document.getElementById("CommentBox").style.height = "20px";
+        document.getElementById("CommentBox").value = "";
+
+    }
+    }
+
+</script>
+
+<body>
+
+    <aside>
+        <form action="">
+            <textarea onclick="CommentBoxHandler(event)" onkeydown="CommenSaveBTNHandler()" id="CommentBox" type="text"
+                placeholder="+ comment" cols="30" rows="10"></textarea>
+            <footer>
+                <button id="CommentSaveBTN" onclick="SaveCommetHandler(event)">Save</button>
+                <button id="CommentCancelBTN" onclick="SaveCommetHandler(event)">Cancel</button>
+            </footer>
+
+        </form>
+        <ul id="JobCommitList">
+            <li>
+                <header>
+                    <h1>5/18/2020 7:00AM</h1>
+                </header>
+                <main>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
+                        eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
+                        eos sint.</p>
+                    <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
+
+                </main>
+
+            </li>
+
+            <li>
+                <header>
+                    <h1>5/18/2020 7:00AM</h1>
+                </header>
+                <main>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
+                        eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
+                        eos sint.</p>
+                    <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
+
+                </main>
+
+            </li>
+        </ul>
+    </aside>
+
+</body>
+
+</html>

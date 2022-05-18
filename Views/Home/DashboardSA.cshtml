@@ -32,7 +32,7 @@
             console.log(i, v.name);
 
             $(`
-            <li>
+            <li id="CardItemContainer${v.jobStatusId}">
                 <header>
                     <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
                     <p  id="SelectedJobStatusColor${v.jobStatusId}">${v.jobStatusColor}</p>
@@ -61,6 +61,8 @@
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
+
+        document.getElementById("CardItemContainer" + e.target.id).style.maxWidth = "280px";
 
 
         @* Session *@
@@ -110,6 +112,7 @@
 
 
 
+
 </script>
 
 <body>
@@ -119,6 +122,7 @@
         <ul id="NewJobList"></ul>
         <main id="DisplayJobData"></main>
 
+        <partial name="components/JobComments" />
     </div>
 </body>
 

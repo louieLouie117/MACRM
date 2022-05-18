@@ -291,8 +291,7 @@ namespace KcPilot.Controllers
 
             HttpContext.Session.SetInt32("CardJobSelectedInSession", UserInputData.JobStatusId);
             System.Console.WriteLine($"You have reach the backend of CardJobSelected!! {UserInputData.JobStatusId}");
-            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
-            System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
+
             return Json(new { Status = true });
 
 
@@ -370,6 +369,35 @@ namespace KcPilot.Controllers
         public JsonResult RoleMethod(Role UserInputData)
         {
             System.Console.WriteLine("You have reached the backend of role");
+            return Json(new { Result = true });
+
+
+        }
+
+
+        [HttpPost("JobCommentMethod")]
+
+        public JsonResult JobCommentMethod(JobComment UserInputData)
+        {
+            System.Console.WriteLine("You have reached the backend of JobComments");
+            System.Console.WriteLine(UserInputData.Notes);
+
+            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
+
+            var UserAddingNotes = HttpContext.Session.GetString("UserInSeesion");
+            System.Console.WriteLine($"This is the user leaving notes: {UserAddingNotes}");
+
+
+            UserInputData.UserTitle = UserAddingNotes;
+            UserInputData.JobId = CardJobInSession;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+
+
+
             return Json(new { Result = true });
 
 
