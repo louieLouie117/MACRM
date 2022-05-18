@@ -136,12 +136,28 @@ body{
 .AllJobs-Container{
     display: grid;
     background: rgb(224, 224, 224);
-    grid-template-columns: 24em 1fr ;
+    grid-template-columns: 24em 2fr 1fr;
    
 
 }
 
-.AllJobs-Container ul {
+.AllJobs-Container main{
+    display: grid;
+    row-gap: 5px;
+    align-content: flex-start;
+    background: white;
+
+}
+
+.AllJobs-Container>footer{
+    display: grid;
+    background: white;
+    align-content: flex-start;
+}
+
+
+
+.AllJobs-Container>ul {
     display: grid;
     row-gap: 10px;
     padding: 20px;
@@ -153,7 +169,7 @@ body{
 
 }
 
-.AllJobs-Container ul li{
+.AllJobs-Container>ul li{
     display: grid;
     background: white;
     border-radius: 10px;
@@ -171,7 +187,7 @@ body{
     border-radius: 15px;
 }
 
-.AllJobs-Container ul li header{
+.AllJobs-Container>ul li header{
     display: flex;
     column-gap: 10px;
     border-bottom: 1px solid grey;
@@ -181,11 +197,11 @@ body{
 
 }
 
-.AllJobs-Container ul li header p{
+.AllJobs-Container>ul li header p{
     display: none;
 }
 
-.AllJobs-Container ul li button{
+.AllJobs-Container>ul li button{
     border: none;
     background: none;
     margin: -15px;
@@ -197,31 +213,70 @@ body{
 
 }
 
-.AllJobs-Container ul li main{
+.AllJobs-Container>ul li main{
     /* background: gold; */
     height: 120px;
     grid-row: 2/3;
     grid-column: 1/2;
 }
 
-.AllJobs-Container ul li h1{
+.AllJobs-Container>ul li h1{
     font: 1em sans-serif;
     padding-bottom: 5px;
 
 }
 
-.AllJobs-Container ul li h2{
+.AllJobs-Container>ul li h2{
     font: 1em sans-serif;
 
 }
 
-.AllJobs-Container main{
-    display: grid;
-    row-gap: 5px;
-    align-content: flex-start;
-    background: white;
-    height: 90%;
-    width: 95%;
+/* comments container */
 
+.AllJobs-Container>footer ul {
+    display: grid;
+    row-gap: 20px;
+    align-content: flex-start;
+    padding: 2px;
+    
 }
+
+.AllJobs-Container>footer form textarea{
+    width: 340px;
+    height: 20px;
+    align-self: flex-start;
+    padding: 7px;
+}
+
+.AllJobs-Container>footer form footer{
+    display: flex;
+    column-gap: 3px;
+    padding-bottom: 30px;
+}
+
+
+.AllJobs-Container>footer form footer button:first-of-type {
+    background: linear-gradient( #9062AF,#1C8C9B);
+    /* background: linear-gradient(to right, #9062AF,#1C8C9B); */
+    color: white;
+    width: 120px;
+}
+
+.AllJobs-Container>footer form footer button:last-of-type{
+    background: none;
+    box-shadow: none;
+    color: gray;
+}
+
+
+
+#CommentSaveBTN{
+    display: none;
+}
+
+
+#CommentCancelBTN{
+    display: none;
+}
+
 
