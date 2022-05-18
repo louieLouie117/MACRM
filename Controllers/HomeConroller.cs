@@ -382,12 +382,20 @@ namespace KcPilot.Controllers
             System.Console.WriteLine("You have reached the backend of JobComments");
             System.Console.WriteLine(UserInputData.Notes);
 
-
             int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
             System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
 
             var UserAddingNotes = HttpContext.Session.GetString("UserInSeesion");
             System.Console.WriteLine($"This is the user leaving notes: {UserAddingNotes}");
+
+
+            UserInputData.UserTitle = UserAddingNotes;
+            UserInputData.JobId = CardJobInSession;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+
 
 
             return Json(new { Result = true });

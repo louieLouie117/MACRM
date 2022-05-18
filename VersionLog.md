@@ -69,7 +69,7 @@ This morning I mentored Alian and Javier on the frontend development. I know I d
 This morning was a fantastic 3.5hrs of development. I was able to change the user's job status and job color through the pre-screening. I still need to add all data that a user can update, but the logic is working. I also realized the session will play a significant role in the user experience and updating data to the database. 
 
 ## Wednesday May 18 2020
-
+Today was an amazing day. In the morning I was able to get the frontend code for the job comments. Later in the day after work, I was able to get comments into the database. Users can now add comments to a specific job. Now all I have to do is render the comments back to the user when the user selects a job.
 
 
 # Deployment || Amazon Server
