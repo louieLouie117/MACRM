@@ -137,7 +137,7 @@ body{
     display: grid;
     background: rgb(232, 232, 232);
     grid-template-columns: 24em 2fr 1fr;
-   
+
 
 }
 
@@ -146,9 +146,9 @@ body{
     row-gap: 5px;
     align-content: flex-start;
     background: white;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.402);
-    margin: 5px;
-    padding: 30px;
+    padding: 40px;
+    box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.402);
+    margin-left: 5px;
 
 }
 
@@ -164,6 +164,7 @@ body{
     height: 90vh;
     overflow: scroll;
     overflow-y: scroll;
+    justify-items: center;
 
 }
 
@@ -172,7 +173,7 @@ body{
     background: white;
     border-radius: 10px;
     padding: 15px;
-    max-width: 20em;
+    width: 300px;
     min-height: 150px;
     align-content: flex-start;
     border: solid rgb(177, 177, 177) 1px;
@@ -240,7 +241,8 @@ body{
     display: grid;
     background: white;
     align-content: flex-start;
-    padding: 10px;
+    padding: 40px;
+    /* border-left: solid Grey 1px; */
 }
 
 
