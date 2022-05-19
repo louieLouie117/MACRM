@@ -409,6 +409,28 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpGet("GetAllJobCommentsMethod")]
+
+        public JsonResult GetAllJobCommentsMethod(JobComment UserInputData)
+        {
+            System.Console.WriteLine($"You have reached the backend of JobComments{UserInputData.JobId}");
+
+            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
+
+
+            List<JobComment> allJobCommentsList = _context.JobComments
+            .Where(jc => jc.JobId == CardJobInSession)
+            .ToList();
+
+
+
+            return Json(new { Result = allJobCommentsList });
+
+
+        }
+
+
 
 
     }
