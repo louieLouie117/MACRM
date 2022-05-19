@@ -279,7 +279,10 @@ body{
     row-gap: 30px;
     align-content: flex-start;
     padding: 2px;
-    max-width: 350px;    
+    max-width: 350px;   
+    overflow: scroll; 
+    overflow-y: scroll;
+    height: 75vh;
 }
 
 .AllJobs-Container>aside ul li header{

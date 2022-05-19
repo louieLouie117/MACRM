@@ -57,10 +57,38 @@
         }
     }
 
-    const JobCommentMethodSuccess = (result) => {
-        console.log("JobComments data", result);
+    const JobCommentMethodSuccess = (data) => {
+        console.log("JobComments data from JobCommentMethodSuccess", data.result);
+        RenderJobComments(data);
 
     }
+
+    const RenderJobComments = (data) => {
+        console.log("This is the data that will be reanding", data.result);
+
+        $.each(data.result, function (i, v) {
+            console.log(i, v.notes);
+
+            $(`
+                    <li>
+                        <header>
+                             <h1>${v.createdAt}</h1>
+                        </header>
+                        <main>
+                            <p> ${v.notes} <i>${v.userTitle}</i></h2>
+
+                        </main>
+
+                    </li>
+
+
+                    `).prependTo("#JobCommitList");
+        })
+
+
+    }
+
+
 
 </script>
 
@@ -77,33 +105,33 @@
 
         </form>
         <ul id="JobCommitList">
-            <li>
+            @* <li>
                 <header>
-                    <h1>5/18/2020 7:00AM</h1>
+                <h1>5/18/2020 7:00AM</h1>
                 </header>
                 <main>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
-                        eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
-                        eos sint.</p>
-                    <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
+                eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
+                eos sint.</p>
+                <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
 
                 </main>
 
-            </li>
+                </li>
 
-            <li>
+                <li>
                 <header>
-                    <h1>5/18/2020 7:00AM</h1>
+                <h1>5/18/2020 7:00AM</h1>
                 </header>
                 <main>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
-                        eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
-                        eos sint.</p>
-                    <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
+                eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
+                eos sint.</p>
+                <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
 
                 </main>
 
-            </li>
+                </li> *@
         </ul>
     </aside>
 
