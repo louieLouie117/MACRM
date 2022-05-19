@@ -172,7 +172,7 @@ namespace KcPilot.Controllers
                 }
 
                 HttpContext.Session.SetInt32("UserId", userInDb.UserId);
-                HttpContext.Session.SetString("UserInSeesion", userInDb.Role + "||" + userInDb.FirstName + "." + userInDb.LastName);
+                HttpContext.Session.SetString("UserInSeesion", userInDb.Role + " || " + userInDb.FirstName + "." + userInDb.LastName);
                 HttpContext.Session.SetString("MarketCode", userInDb.MarketCode);
 
                 System.Console.WriteLine(userInDb.Role + "||" + userInDb.FirstName + "." + userInDb.LastName);
