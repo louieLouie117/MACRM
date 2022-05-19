@@ -60,6 +60,10 @@
     const JobCommentMethodSuccess = (data) => {
         console.log("JobComments data from JobCommentMethodSuccess", data.result);
         RenderJobComments(data);
+        document.getElementById("CommentSaveBTN").style.display = "none";
+        document.getElementById("CommentCancelBTN").style.display = "none";
+        document.getElementById("CommentBox").style.height = "20px";
+        document.getElementById("CommentBox").value = "";
 
 
     }

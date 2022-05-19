@@ -241,10 +241,12 @@ body{
     display: grid;
     background: white;
     align-content: flex-start;
-    padding: 0 40px;
+    /* padding: 0 40px; */
     padding-bottom: 0;
     /* border-left: solid Grey 1px; */
     height: 100vh;
+    overflow: scroll;
+
 }
 
 
@@ -253,6 +255,7 @@ body{
     height: 20px;
     align-self: flex-start;
     padding: 7px;
+    display: none;
 }
 
 .AllJobs-Container>aside form footer{
@@ -284,15 +287,17 @@ body{
     /* max-width: 350px;    */
     overflow: scroll; 
     overflow-y: scroll;
-    height: 75vh;
+    height: 85vh;
 }
 
 .AllJobs-Container>aside ul li header{
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px rgb(144, 144, 144);
     margin-bottom: 5px;
 }
 .AllJobs-Container>aside ul li header h1{
     font: 1em sans-serif;
+    color: black;
+    /* text-decoration: underline; */
 }
 .AllJobs-Container>aside ul li main{
     row-gap: 3px;

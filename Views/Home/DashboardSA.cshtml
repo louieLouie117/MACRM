@@ -60,7 +60,12 @@
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
 
-        document.getElementById("CardItemContainer" + e.target.id).style.maxWidth = "280px";
+
+
+        document.getElementById("CardItemContainer" + e.target.id).style.maxWidth = "75%";
+        document.getElementById("CardItemContainer" + e.target.id).style.transform = "smooth";
+        document.getElementById("CardItemContainer" + e.target.id).style.transition = "30s";
+
 
 
         let jsonData = {
@@ -105,7 +110,7 @@
         document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById("SelectedServiceJobNumber" + e.target.id).innerText;
 
 
-
+        document.getElementById("CommentBox").style.display = "block";
         $.ajax({
             type: "GET",
             url: '@Url.Action("GetAllJobCommentsMethod", "Home")',
