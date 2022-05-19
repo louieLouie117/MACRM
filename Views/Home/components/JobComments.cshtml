@@ -40,20 +40,26 @@
                 type: "POST",
                 url: '@Url.Action("JobCommentMethod", "Home")',
                 data: jsonData,
-                    @* success: NewJobMethodSuccess, *@
-                });
+                success: JobCommentMethodSuccess,
+            });
 
 
+        }
+
+
+        if (e.target.innerText === "Cancel") {
+            console.log("CancelCommetHandler on dashboard SA was called");
+            document.getElementById("CommentSaveBTN").style.display = "none";
+            document.getElementById("CommentCancelBTN").style.display = "none";
+            document.getElementById("CommentBox").style.height = "20px";
+            document.getElementById("CommentBox").value = "";
+
+        }
     }
 
-    if (e.target.innerText === "Cancel") {
-        console.log("CancelCommetHandler on dashboard SA was called");
-        document.getElementById("CommentSaveBTN").style.display = "none";
-        document.getElementById("CommentCancelBTN").style.display = "none";
-        document.getElementById("CommentBox").style.height = "20px";
-        document.getElementById("CommentBox").value = "";
+    const JobCommentMethodSuccess = (result) => {
+        console.log("JobComments data", result);
 
-    }
     }
 
 </script>

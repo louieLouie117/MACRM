@@ -391,14 +391,19 @@ namespace KcPilot.Controllers
 
             UserInputData.UserTitle = UserAddingNotes;
             UserInputData.JobId = CardJobInSession;
+            UserInputData.Job = "";
 
             _context.Add(UserInputData);
             _context.SaveChanges();
 
 
+            List<JobComment> jobCommentsList = _context.JobComments
+            .Where(jc => jc.JobId == CardJobInSession)
+            .ToList();
 
 
-            return Json(new { Result = true });
+
+            return Json(new { Result = jobCommentsList });
 
 
         }
