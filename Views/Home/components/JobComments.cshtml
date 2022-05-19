@@ -61,10 +61,12 @@
         console.log("JobComments data from JobCommentMethodSuccess", data.result);
         RenderJobComments(data);
 
+
     }
 
     const RenderJobComments = (data) => {
         console.log("This is the data that will be reanding", data.result);
+        $('#JobCommitList').empty();
 
         $.each(data.result, function (i, v) {
             console.log(i, v.notes);
