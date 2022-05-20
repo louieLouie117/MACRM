@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background: linear-gradient( #9062af62,#1c8c9b);
+    background: linear-gradient( #9062af62,#1c8c9b78);
     height: 100vh;
     overflow: hidden;
     
@@ -174,7 +174,7 @@ body{
     height: 90vh;
     overflow: scroll;
     overflow-y: scroll;
-    justify-items: center;
+    justify-items: flex-end;
     
 
 }
@@ -266,7 +266,6 @@ body{
 
 
 .AllJobs-Container>aside form textarea{
-    width: 340px;
     height: 20px;
     align-self: flex-start;
     padding: 7px;
