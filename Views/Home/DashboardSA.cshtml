@@ -62,28 +62,28 @@
 
 
 
-        let allCookies = document.cookie;
-        console.log("cookies for card selected", allCookies);
+        @* let allCookies = document.cookie;
+                console.log("cookies for card selected", allCookies); *@
 
-        function getCookie() {
-            let lastCardSelected = "lastcardSelected=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+            function getCookie() {
+                let lastCardSelected = "lastcardSelected=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(lastCardSelected) == 0) {
+                        console.log("get lastCardSelected from cookies", c);
+
+                        return c.substring(lastCardSelected.length, c.length);
+                    }
+
                 }
-                if (c.indexOf(lastCardSelected) == 0) {
-                    console.log("get lastCardSelected from cookies", c);
 
-                    return c.substring(lastCardSelected.length, c.length);
-                }
-
+                return "";
             }
-
-            return "";
-        }
 
         let lastcardSelected = getCookie("lastcardSelected");
         console.log("lastcardSelected", lastcardSelected);
@@ -94,14 +94,14 @@
         document.cookie = "lastcardSelected" + "=" + ItemSelected + ";";
 
 
-        document.getElementById("CardItemContainer" + lastcardSelected).style.maxWidth = "380px";
-        document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "smooth";
-        document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".3s";
+        document.getElementById("CardItemContainer" + lastcardSelected).style.width = "300px";
+        document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "ease-in-out";
+        document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".1s";
 
 
-        document.getElementById("CardItemContainer" + e.target.id).style.maxWidth = "75%";
-        document.getElementById("CardItemContainer" + e.target.id).style.transform = "smooth";
-        document.getElementById("CardItemContainer" + e.target.id).style.transition = ".3s";
+        document.getElementById("CardItemContainer" + e.target.id).style.width = "90%";
+        document.getElementById("CardItemContainer" + e.target.id).style.transform = "ease-in-out";
+        document.getElementById("CardItemContainer" + e.target.id).style.transition = ".1s";
 
 
 
