@@ -75,6 +75,9 @@ Today was an amazing day. In the morning I was able to get the frontend code for
 Another great morning. This morning, I developed the ability to render the job comments to the user when the user added a new comment and when a user selects a job. I also test that other users can leave comments, and this is working as it should be. Today's day brings the project close to Alpha testing with the group.Another great morning. This morning, I developed the ability to render the job comments to the user when the user added a new comment and when a user selects a job. I also test that other users can leave comments, and this is working as it should be. Today's day brings the project close to Alpha testing with the group.
 
 
+## Friday May 20 2020
+This morning was another fantastic day. I was able to polish the service advocate dashboard, and now it is easier for the user to navigate and read. I prioritize readability since this will be key in making the user more productive. I also work on designing the default colors for job status. This is the second key to marking it scuffle. Today keeps getting better. I was able to get the card's behavior working. When a user selects a card, the chosen card will resize so that the user can visually see what card they have chosen. I developed this by using cookies that keep track of the last card selected.
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.
