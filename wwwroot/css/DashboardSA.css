@@ -1,5 +1,9 @@
 body{
     margin: 0;
+    background: linear-gradient( #9062af62,#1c8c9b);
+    height: 100vh;
+    overflow: hidden;
+    
 }
 .Unassigned-Container, .PreScreen-Container{
     background: rgba(0, 0, 0, 0.699);
@@ -53,7 +57,7 @@ body{
     background: white;
     color: #6900D1;
     border: solid 1px #6900D1;
-    height: 30px;
+    height: 40px;
 
 }
 
@@ -99,33 +103,33 @@ body{
     grid-column: 1/3;    
 }
 
-.PreScreenQuestions  ul li>input{
+.PreScreenQuestions ul li>input{
     height: 20px;
     width: 20px;
     
 }
-.PreScreenQuestions  ul li h3{
+.PreScreenQuestions ul li h3{
     font: 1.3em sans-serif;
 }
 
-.PreScreenQuestions  ul aside{
+.PreScreenQuestions ul aside{
     padding: 5px;
     height: 100px;
 }
 
-.PreScreenQuestions  ul aside textarea{
+.PreScreenQuestions ul aside textarea{
     height: 100px;
     width: 100%;
     text-align: left;
 }
 
-.PreScreenQuestions  ul footer{
+.PreScreenQuestions ul footer{
     display: grid;
     grid-template-columns: 200px 1fr;
     column-gap: 20px;
 
 }
-.PreScreenQuestions  ul footer button{
+.PreScreenQuestions ul footer button{
     height: 50px;
     width: 150px;
 }
@@ -135,11 +139,13 @@ body{
 
 .AllJobs-Container{
     display: grid;
-    background: rgb(232, 232, 232);
     grid-template-columns: 24em 2fr 1fr;
 
 
 }
+
+
+
 
 .AllJobs-Container>main{
     display: grid;
@@ -147,8 +153,11 @@ body{
     align-content: flex-start;
     background: white;
     padding: 0 40px;
-    box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.402);
+    padding-top: 20px;
     margin-left: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.402);
+    border-radius: 7px 7px 0 0;
+
 
 }
 
@@ -159,12 +168,14 @@ body{
     display: grid;
     row-gap: 10px;
     padding: 20px;
+    padding-right: 0;
     /* align-items: flex-start; */
     align-content: flex-start;
     height: 90vh;
     overflow: scroll;
     overflow-y: scroll;
     justify-items: center;
+    
 
 }
 
@@ -179,7 +190,7 @@ body{
     border: solid rgb(177, 177, 177) 1px;
 }
 
-.AllJobs-Container>ul::-webkit-scrollbar {
+.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar {
     display: none;
     width: 0;
 }
@@ -239,14 +250,18 @@ body{
 
 .AllJobs-Container>aside{
     display: grid;
-    background: white;
     align-content: flex-start;
-    /* padding: 0 40px; */
+    padding-top: 20px;
+    /* box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.402); */
     padding-bottom: 0;
-    /* border-left: solid Grey 1px; */
     height: 100vh;
     overflow: scroll;
+    margin-right: 10px;
+    border-radius: 0 7px 0 0;
+}
 
+.AllJobs-Container>aside form{
+    padding: 10px;
 }
 
 
@@ -261,7 +276,6 @@ body{
 .AllJobs-Container>aside form footer{
     display: flex;
     column-gap: 3px;
-    padding-bottom: 30px;
   
 }
 
@@ -281,13 +295,19 @@ body{
 
 .AllJobs-Container>aside ul {
     display: grid;
-    row-gap: 30px;
+    row-gap: 3px;
     align-content: flex-start;
     padding: 2px;
     /* max-width: 350px;    */
     overflow: scroll; 
     overflow-y: scroll;
     height: 85vh;
+}
+
+.AllJobs-Container>aside ul li{
+    background: white;
+    padding: 20px;
+
 }
 
 .AllJobs-Container>aside ul li header{
