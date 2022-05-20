@@ -281,16 +281,17 @@ body{
 
 
 .AllJobs-Container>aside form footer button:first-of-type {
-    background: linear-gradient( #9062AF,#1C8C9B);
+    color: #1c8c9b;
     /* background: linear-gradient(to right, #9062AF,#1C8C9B); */
-    color: white;
     width: 120px;
+    background: white;
+    box-shadow: none;
 }
 
 .AllJobs-Container>aside form footer button:last-of-type{
     background: none;
     box-shadow: none;
-    color: gray;
+    color: white;
 }
 
 .AllJobs-Container>aside ul {
@@ -307,6 +308,9 @@ body{
 .AllJobs-Container>aside ul li{
     background: white;
     padding: 20px;
+    /* min-height: 150px;
+    max-height: 340px;
+    overflow: scroll; */
 
 }
 
