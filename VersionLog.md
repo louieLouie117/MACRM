@@ -71,6 +71,9 @@ This morning was a fantastic 3.5hrs of development. I was able to change the use
 ## Wednesday May 18 2020
 Today was an amazing day. In the morning I was able to get the frontend code for the job comments. Later in the day after work, I was able to get comments into the database. Users can now add comments to a specific job. Now all I have to do is render the comments back to the user when the user selects a job.
 
+## Thursday May 19 2020
+Another great morning. This morning, I developed the ability to render the job comments to the user when the user added a new comment and when a user selects a job. I also test that other users can leave comments, and this is working as it should be. Today's day brings the project close to Alpha testing with the group.Another great morning. This morning, I developed the ability to render the job comments to the user when the user added a new comment and when a user selects a job. I also test that other users can leave comments, and this is working as it should be. Today's day brings the project close to Alpha testing with the group.
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

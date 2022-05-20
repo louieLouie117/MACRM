@@ -40,21 +40,61 @@
                 type: "POST",
                 url: '@Url.Action("JobCommentMethod", "Home")',
                 data: jsonData,
-                    @* success: NewJobMethodSuccess, *@
-                });
+                success: JobCommentMethodSuccess,
+            });
 
 
+        }
+
+
+        if (e.target.innerText === "Cancel") {
+            console.log("CancelCommetHandler on dashboard SA was called");
+            document.getElementById("CommentSaveBTN").style.display = "none";
+            document.getElementById("CommentCancelBTN").style.display = "none";
+            document.getElementById("CommentBox").style.height = "20px";
+            document.getElementById("CommentBox").value = "";
+
+        }
     }
 
-    if (e.target.innerText === "Cancel") {
-        console.log("CancelCommetHandler on dashboard SA was called");
+    const JobCommentMethodSuccess = (data) => {
+        console.log("JobComments data from JobCommentMethodSuccess", data.result);
+        RenderJobComments(data);
         document.getElementById("CommentSaveBTN").style.display = "none";
         document.getElementById("CommentCancelBTN").style.display = "none";
         document.getElementById("CommentBox").style.height = "20px";
         document.getElementById("CommentBox").value = "";
 
+
     }
+
+    const RenderJobComments = (data) => {
+        console.log("This is the data that will be reanding", data.result);
+        $('#JobCommitList').empty();
+
+        $.each(data.result, function (i, v) {
+            console.log(i, v.notes);
+
+            $(`
+                    <li>
+                        <header>
+                             <h1>${v.createdAt}</h1>
+                        </header>
+                        <main>
+                            <p> ${v.notes}</p>
+                            <p> <i>${v.userTitle}</i></p>
+                        </main>
+
+                    </li>
+
+
+                    `).prependTo("#JobCommitList");
+        })
+
+
     }
+
+
 
 </script>
 
@@ -71,33 +111,33 @@
 
         </form>
         <ul id="JobCommitList">
-            <li>
+            @* <li>
                 <header>
-                    <h1>5/18/2020 7:00AM</h1>
+                <h1>5/18/2020 7:00AM</h1>
                 </header>
                 <main>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
-                        eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
-                        eos sint.</p>
-                    <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
+                eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
+                eos sint.</p>
+                <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
 
                 </main>
 
-            </li>
+                </li>
 
-            <li>
+                <li>
                 <header>
-                    <h1>5/18/2020 7:00AM</h1>
+                <h1>5/18/2020 7:00AM</h1>
                 </header>
                 <main>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
-                        eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
-                        eos sint.</p>
-                    <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor veritatis ab, maxime ullam
+                eius aut pariatur quod mollitia officia dolore ea! Dicta ullam in, quos sit quod explicabo
+                eos sint.</p>
+                <h2>Commet by: <i>SA || Luis.Cardona</i></h2>
 
                 </main>
 
-            </li>
+                </li> *@
         </ul>
     </aside>
 
