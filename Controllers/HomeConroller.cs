@@ -445,9 +445,19 @@ namespace KcPilot.Controllers
             _context.Add(UserInputData);
             _context.SaveChanges();
 
+            List<Market> AllMarkets = _context.Markets.ToList();
 
-            return Json(new { Result = true });
+            return Json(new { Result = AllMarkets });
 
+
+        }
+
+        [HttpGet("AllMarketList")]
+        public JsonResult AllMarketList(Market UserInputData)
+        {
+            List<Market> AllMarkets = _context.Markets.ToList();
+
+            return Json(new { Result = AllMarkets });
 
         }
 

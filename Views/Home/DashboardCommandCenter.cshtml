@@ -9,6 +9,40 @@
 </head>
 
 <script>
+
+    $.get("/AllMarketList", data => {
+        console.log("getting jobs Data:", data)
+        RenderMarketList(data);
+        return
+
+    });
+
+    const RenderMarketList = (data) => {
+
+        $('#AllMarketsList').empty();
+        console.log("Market Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`
+            <li id="${v.marketId}">
+
+                    <p id="${v.marketId}"> ${v.markerCode}</p>
+                    <p id="${v.marketId}"> ${v.location}</p>
+
+            </li>
+
+            `).prependTo("#AllMarketsList");
+
+        })
+
+    }
+
+    const MarketSucessHandler = (result) => {
+        RenderMarketList(result);
+
+        return
+    }
     const CommandCenterNavHandler = (e) => {
 
         if (e.target.innerText === "Markets") {
@@ -88,11 +122,11 @@
             type: "POST",
             url: '@Url.Action("MarketMethod", "Home")',
             data: jsonData,
-                @* success: RegisterationSucessHandler, *@
-            });
+            success: MarketSucessHandler,
+        });
 
 
-    return
+        return
     };
 
 
