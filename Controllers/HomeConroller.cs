@@ -461,6 +461,16 @@ namespace KcPilot.Controllers
 
         }
 
+        [HttpPost("NewJobStatusMethod")]
+        public JsonResult NewJobStatusMethod(JobStatus UserInputData)
+        {
+
+            System.Console.WriteLine($"You reached the backend of job status {UserInputData.Status} and color {UserInputData.StatusColor}");
+
+            return Json(new { Result = true });
+
+        }
+
 
 
 

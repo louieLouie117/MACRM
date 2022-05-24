@@ -132,6 +132,24 @@
 
     if (e.target.innerText === "+ Job Status") {
         console.log("run code for job status ")
+
+        let JobStatusName = document.getElementById("JobStatusName").value;
+        let JobStatusColor = document.getElementById("JobStatusColor").value;
+
+        let jsonData = {
+            status: JobStatusName,
+            statusColor: JobStatusColor,
+
+        }
+        console.log("Job Status added", jsonData);
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("NewJobStatusMethod", "Home")',
+            data: jsonData,
+            success: MarketSucessHandler,
+        });
+
         return
     };
 
