@@ -430,6 +430,17 @@ namespace KcPilot.Controllers
 
         }
 
+        [HttpPost("MarketMethod")]
+        public JsonResult MarketMethod(Market UserInputData)
+        {
+
+            System.Console.WriteLine($"You have reach the backend of Market {UserInputData.Location} Code {UserInputData.MarkerCode} ");
+
+            return Json(new { Result = true });
+
+
+        }
+
 
 
 

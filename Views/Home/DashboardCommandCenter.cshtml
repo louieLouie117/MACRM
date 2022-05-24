@@ -47,48 +47,52 @@
     const CommandCenterFormHandler = (e) => {
         e.preventDefault();
 
+        if (e.target.innerText === "+ Role") {
+            console.log("runnning code for roles ")
+            let CallMethod = "RoleMethod";
 
-        const JsonDataFunction = (jsondata, method) => {
-            console.log(jsondata, "AfterJsonData")
-            console.log(method, "is calling the backend")
+            let Role = document.getElementById("UserRole").value;
+            let jsonDataRole = {
+                role: Role,
 
+            }
+            console.log(jsonDataRole, "BeforeJsonData")
             $.ajax({
                 accepts: { AjaxMethod },
                 type: "POST",
-                @* url: '@Url.Action($"{AjaxMethod}", "Home")', *@
+                url: '@Url.Action("RoleMethod", "Home")',
                 @* data: jsonData, *@
                 @* success: RegisterationSucessHandler, *@
             });
 
 
-    }
-
-    if (e.target.innerText === "+ Role") {
-        console.log("runnning code for roles ")
-        let CallMethod = "RoleMethod";
-
-        let Role = document.getElementById("UserRole").value;
-        let jsonDataRole = {
-            role: Role,
-
-        }
-        console.log(jsonDataRole, "BeforeJsonData")
-        $.ajax({
-            accepts: { AjaxMethod },
-            type: "POST",
-            url: '@Url.Action("RoleMethod", "Home")',
-                @* data: jsonData, *@
-            @* success: RegisterationSucessHandler, *@
-            });
-
-
-    @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
+        @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
         return;
     };
 
     if (e.target.innerText === "+ Market") {
         console.log("runnning code for market ")
-        return
+
+        let MarketLocation = document.getElementById("MarketLocation").value;
+        let MarketCode = document.getElementById("MarketCode").value;
+
+        let jsonData = {
+            location: MarketLocation,
+            markerCode: MarketCode,
+
+        }
+
+        console.log("Market added", jsonData);
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("MarketMethod", "Home")',
+            data: jsonData,
+                @* success: RegisterationSucessHandler, *@
+            });
+
+
+    return
     };
 
 
