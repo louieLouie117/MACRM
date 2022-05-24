@@ -430,6 +430,47 @@ namespace KcPilot.Controllers
 
         }
 
+        [HttpPost("MarketMethod")]
+        public JsonResult MarketMethod(Market UserInputData)
+        {
+
+            int userAddingMarket = (int)HttpContext.Session.GetInt32("UserId");
+
+            System.Console.WriteLine($"This is the user adding Market: {userAddingMarket}");
+
+            System.Console.WriteLine($"You have reach the backend of Market {UserInputData.Location} Code {UserInputData.MarkerCode} ");
+
+            UserInputData.UserId = userAddingMarket;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+            List<Market> AllMarkets = _context.Markets.ToList();
+
+            return Json(new { Result = AllMarkets });
+
+
+        }
+
+        [HttpGet("AllMarketList")]
+        public JsonResult AllMarketList(Market UserInputData)
+        {
+            List<Market> AllMarkets = _context.Markets.ToList();
+
+            return Json(new { Result = AllMarkets });
+
+        }
+
+        [HttpPost("NewJobStatusMethod")]
+        public JsonResult NewJobStatusMethod(JobStatus UserInputData)
+        {
+
+            System.Console.WriteLine($"You reached the backend of job status {UserInputData.Status} and color {UserInputData.StatusColor}");
+
+            return Json(new { Result = true });
+
+        }
+
 
 
 

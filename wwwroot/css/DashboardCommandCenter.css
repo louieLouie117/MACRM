@@ -31,3 +31,8 @@
 }
 
 
+
+.FormMarket aside ul li{
+    display: flex;
+    column-gap: 10px;
+}

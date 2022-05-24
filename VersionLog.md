@@ -45,38 +45,41 @@ This morning I was able to finish the layout of all components and pull all the 
 - [ ] Version 3.2 || Search
 - [ ] Version 3.3 || Update JobStatus
 
-## Monday May 9 2020
+## Monday May 9 2022
 6:30 am: This morning I code for 3.5hr. This time spent was an amazing. I was able to the update the landing page, create a log, and set up the command center dashboard. With the command center dashboard in place user in this role will be able to add new markets, roles, and proving questions.
 
-## Tuesday May 10 2020
+## Tuesday May 10 2022
 Last night I came up with an amazing idea. Currently, the user has to copy and paste the data to a form this is a very tedious task and slows the production of the user. My idea that solves this would be to develop a program that with one click gathers the data the user needs with the URL. This will have a big impact and the user will be more productive. Today I spent the morning doing reaching and will use the library to create this program. 
 [Puppeteer](https://www.npmjs.com/package/puppeteer)
 
-## Wednesday May 11 2020
+## Wednesday May 11 2022
 This morning I started designing the landing page. Although I did not get to code designing will speed up the process of development.
 
-## Thursday May 12 2020
+## Thursday May 12 2022
 This morning I worked at the Command Center and added a section where users will be able to update their job status. With this section I would like to focus on code reusability. The goal is able to use the same function for all 4 different forms.
 
-## Friday May 13 2020
+## Friday May 13 2022
 This morning I mentored Alian and Javier on the frontend development. I know I did not get a code change, but both Alian and Javier can help with the front-end to speed up the product in the long run. 
 
 
-## Monday May 16 2020
+## Monday May 16 2022
 
 
-## Tuesday May 17 2020
+## Tuesday May 17 2022
 This morning was a fantastic 3.5hrs of development. I was able to change the user's job status and job color through the pre-screening. I still need to add all data that a user can update, but the logic is working. I also realized the session will play a significant role in the user experience and updating data to the database. 
 
-## Wednesday May 18 2020
+## Wednesday May 18 2022
 Today was an amazing day. In the morning I was able to get the frontend code for the job comments. Later in the day after work, I was able to get comments into the database. Users can now add comments to a specific job. Now all I have to do is render the comments back to the user when the user selects a job.
 
-## Thursday May 19 2020
+## Thursday May 19 2022
 Another great morning. This morning, I developed the ability to render the job comments to the user when the user added a new comment and when a user selects a job. I also test that other users can leave comments, and this is working as it should be. Today's day brings the project close to Alpha testing with the group.Another great morning. This morning, I developed the ability to render the job comments to the user when the user added a new comment and when a user selects a job. I also test that other users can leave comments, and this is working as it should be. Today's day brings the project close to Alpha testing with the group.
 
 
-## Friday May 20 2020
+## Friday May 20 2022
 This morning was another fantastic day. I was able to polish the service advocate dashboard, and now it is easier for the user to navigate and read. I prioritize readability since this will be key in making the user more productive. I also work on designing the default colors for job status. This is the second key to marking it scuffle. Today keeps getting better. I was able to get the card's behavior working. When a user selects a card, the chosen card will resize so that the user can visually see what card they have chosen. I developed this by using cookies that keep track of the last card selected.
+
+## Tuesday May 24 2022
+This morning I was able to program for 2hr. I was getting the market from the user to the backend into the database and rendered it back to the user. Users can now add markets. I also started on job status and was able to reach the backend. 
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

@@ -15,11 +15,15 @@
         <main>
             <h2>Markets</h2>
             <form action="">
-                <input type="text" placeholder="Market Location">
-                <input type="text" placeholder="Market Code">
+                <input id="MarketLocation" type="text" placeholder="Market Location">
+                <input id="MarketCode" type="text" placeholder="Market Code">
                 <button onclick="CommandCenterFormHandler(event)">+ Market</button>
             </form>
         </main>
+        <aside>
+            <h2>This is a list of all markets</h2>
+            <ul id="AllMarketsList"></ul>
+        </aside>
 
     </div>
 

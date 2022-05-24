@@ -9,6 +9,40 @@
 </head>
 
 <script>
+
+    $.get("/AllMarketList", data => {
+        console.log("getting jobs Data:", data)
+        RenderMarketList(data);
+        return
+
+    });
+
+    const RenderMarketList = (data) => {
+
+        $('#AllMarketsList').empty();
+        console.log("Market Data", data.result)
+        $.each(data.result, function (i, v) {
+            console.log(i, v.name);
+
+            $(`
+            <li id="${v.marketId}">
+
+                    <p id="${v.marketId}"> ${v.markerCode}</p>
+                    <p id="${v.marketId}"> ${v.location}</p>
+
+            </li>
+
+            `).prependTo("#AllMarketsList");
+
+        })
+
+    }
+
+    const MarketSucessHandler = (result) => {
+        RenderMarketList(result);
+
+        return
+    }
     const CommandCenterNavHandler = (e) => {
 
         if (e.target.innerText === "Markets") {
@@ -47,53 +81,75 @@
     const CommandCenterFormHandler = (e) => {
         e.preventDefault();
 
+        if (e.target.innerText === "+ Role") {
+            console.log("runnning code for roles ")
+            let CallMethod = "RoleMethod";
 
-        const JsonDataFunction = (jsondata, method) => {
-            console.log(jsondata, "AfterJsonData")
-            console.log(method, "is calling the backend")
+            let Role = document.getElementById("UserRole").value;
+            let jsonDataRole = {
+                role: Role,
 
+            }
+            console.log(jsonDataRole, "BeforeJsonData")
             $.ajax({
                 accepts: { AjaxMethod },
                 type: "POST",
-                @* url: '@Url.Action($"{AjaxMethod}", "Home")', *@
+                url: '@Url.Action("RoleMethod", "Home")',
                 @* data: jsonData, *@
                 @* success: RegisterationSucessHandler, *@
             });
 
 
-    }
-
-    if (e.target.innerText === "+ Role") {
-        console.log("runnning code for roles ")
-        let CallMethod = "RoleMethod";
-
-        let Role = document.getElementById("UserRole").value;
-        let jsonDataRole = {
-            role: Role,
-
-        }
-        console.log(jsonDataRole, "BeforeJsonData")
-        $.ajax({
-            accepts: { AjaxMethod },
-            type: "POST",
-            url: '@Url.Action("RoleMethod", "Home")',
-                @* data: jsonData, *@
-            @* success: RegisterationSucessHandler, *@
-            });
-
-
-    @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
+        @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
         return;
     };
 
     if (e.target.innerText === "+ Market") {
         console.log("runnning code for market ")
+
+        let MarketLocation = document.getElementById("MarketLocation").value;
+        let MarketCode = document.getElementById("MarketCode").value;
+
+        let jsonData = {
+            location: MarketLocation,
+            markerCode: MarketCode,
+
+        }
+
+        console.log("Market added", jsonData);
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("MarketMethod", "Home")',
+            data: jsonData,
+            success: MarketSucessHandler,
+        });
+
+
         return
     };
 
 
     if (e.target.innerText === "+ Job Status") {
         console.log("run code for job status ")
+
+        let JobStatusName = document.getElementById("JobStatusName").value;
+        let JobStatusColor = document.getElementById("JobStatusColor").value;
+
+        let jsonData = {
+            status: JobStatusName,
+            statusColor: JobStatusColor,
+
+        }
+        console.log("Job Status added", jsonData);
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("NewJobStatusMethod", "Home")',
+            data: jsonData,
+            success: MarketSucessHandler,
+        });
+
         return
     };
 
