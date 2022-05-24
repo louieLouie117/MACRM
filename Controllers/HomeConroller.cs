@@ -434,7 +434,17 @@ namespace KcPilot.Controllers
         public JsonResult MarketMethod(Market UserInputData)
         {
 
+            int userAddingMarket = (int)HttpContext.Session.GetInt32("UserId");
+
+            System.Console.WriteLine($"This is the user adding Market: {userAddingMarket}");
+
             System.Console.WriteLine($"You have reach the backend of Market {UserInputData.Location} Code {UserInputData.MarkerCode} ");
+
+            UserInputData.UserId = userAddingMarket;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
 
             return Json(new { Result = true });
 
