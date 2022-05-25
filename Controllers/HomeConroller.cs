@@ -486,6 +486,13 @@ namespace KcPilot.Controllers
 
             System.Console.WriteLine($"You reached the backend of job status {UserInputData.Status} and color {UserInputData.StatusColor}");
 
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+
             return Json(new { Result = true });
 
         }
