@@ -368,9 +368,28 @@ namespace KcPilot.Controllers
 
         public JsonResult RoleMethod(Role UserInputData)
         {
-            System.Console.WriteLine("You have reached the backend of role");
-            return Json(new { Result = true });
+            System.Console.WriteLine($"You have reached the backend of role {UserInputData.Title}");
 
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+            List<Role> AllRoles = _context.Roles.ToList();
+
+            return Json(new { Result = AllRoles });
+
+
+        }
+
+
+        [HttpGet("AllRoleList")]
+        public JsonResult AllRoleList(Role UserInputData)
+        {
+            List<Role> AllRoles = _context.Roles.ToList();
+
+            return Json(new { Result = AllRoles });
 
         }
 
@@ -467,9 +486,31 @@ namespace KcPilot.Controllers
 
             System.Console.WriteLine($"You reached the backend of job status {UserInputData.Status} and color {UserInputData.StatusColor}");
 
-            return Json(new { Result = true });
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+            List<JobStatus> JobStatusList = _context.JobStatuss.ToList();
+
+
+
+            return Json(new { Result = JobStatusList });
 
         }
+
+
+        [HttpGet("AllJobStatusMethod")]
+        public JsonResult AllJobStatusMethod(Market UserInputData)
+        {
+            List<JobStatus> AllJobStatusList = _context.JobStatuss.ToList();
+
+            return Json(new { Result = AllJobStatusList });
+
+        }
+
+
 
 
 

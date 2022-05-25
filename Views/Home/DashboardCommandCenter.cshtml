@@ -6,159 +6,165 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Command Center</title>
+    <script async>
+
+        $.get("/AllMarketList", data => {
+            console.log("getting jobs Data:", data)
+            RenderMarketList(data);
+            return
+
+        });
+
+
+        const MarketSucessHandler = (result) => {
+            RenderMarketList(result);
+            return
+        }
+
+
+        const RoleSucessHandler = (result) => {
+            RenderRole(result);
+            console.log("Roles", result)
+            return
+        }
+
+
+        const JobStatusSucessHandler = (result) => {
+            console.log("JobStatus", result)
+            RenderJobStatus(result);
+
+            return
+        }
+        const CommandCenterNavHandler = (e) => {
+
+            if (e.target.innerText === "Markets") {
+                document.getElementById("MarketWraper").style.display = "grid"
+                document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+                document.getElementById("RolesWrapper").style.display = "none"
+                document.getElementById("JobStatusWrapper").style.display = "none"
+                return
+            };
+
+            if (e.target.innerText === "Roles") {
+                document.getElementById("MarketWraper").style.display = "none"
+                document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+                document.getElementById("RolesWrapper").style.display = "grid"
+                document.getElementById("JobStatusWrapper").style.display = "none"
+                $.get("/AllRoleList", data => {
+                    console.log("getting jobs Data:", data)
+                    RenderRole(data);
+                    return
+
+                });
+                return
+            };
+
+            if (e.target.innerText === "Triage") {
+                document.getElementById("MarketWraper").style.display = "none"
+                document.getElementById("ProbingQuestionsWrapper").style.display = "grid"
+                document.getElementById("RolesWrapper").style.display = "none"
+                document.getElementById("JobStatusWrapper").style.display = "none"
+                return
+            };
+
+            if (e.target.innerText === "Job Status") {
+                document.getElementById("MarketWraper").style.display = "none"
+                document.getElementById("ProbingQuestionsWrapper").style.display = "none"
+                document.getElementById("RolesWrapper").style.display = "none"
+                document.getElementById("JobStatusWrapper").style.display = "grid"
+                    $.get("/AllJobStatusMethod", data => {
+                    console.log("getting jobs Data:", data)
+                    RenderJobStatus(data);
+                    return
+
+                });
+                return
+            };
+        }
+
+        const CommandCenterFormHandler = (e) => {
+            e.preventDefault();
+
+            if (e.target.innerText === "+ Role") {
+                console.log("runnning code for roles ")
+                let CallMethod = "RoleMethod";
+
+                let Role = document.getElementById("UserRole").value;
+                let jsonData = {
+                    title: Role,
+
+                }
+                console.log(jsonData, "JsonData")
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("RoleMethod", "Home")',
+                    data: jsonData,
+                    success: RoleSucessHandler,
+                });
+
+
+                @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
+        return;
+            };
+
+            if (e.target.innerText === "+ Market") {
+                console.log("runnning code for market ")
+
+                let MarketLocation = document.getElementById("MarketLocation").value;
+                let MarketCode = document.getElementById("MarketCode").value;
+
+                let jsonData = {
+                    location: MarketLocation,
+                    markerCode: MarketCode,
+
+                }
+
+                console.log("Market added", jsonData);
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("MarketMethod", "Home")',
+                    data: jsonData,
+                    success: MarketSucessHandler,
+                });
+
+
+                return
+            };
+
+
+            if (e.target.innerText === "+ Job Status") {
+                console.log("run code for job status ")
+
+                let JobStatusName = document.getElementById("JobStatusName").value;
+                let JobStatusColor = document.getElementById("JobStatusColor").value;
+
+                let jsonData = {
+                    status: JobStatusName,
+                    statusColor: JobStatusColor,
+
+                }
+                console.log("Job Status added", jsonData);
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("NewJobStatusMethod", "Home")',
+                    data: jsonData,
+                    success: JobStatusSucessHandler,
+                });
+
+            return
+        };
+
+
+
+
+
+        }
+    </script>
+
 </head>
 
-<script>
-
-    $.get("/AllMarketList", data => {
-        console.log("getting jobs Data:", data)
-        RenderMarketList(data);
-        return
-
-    });
-
-    const RenderMarketList = (data) => {
-
-        $('#AllMarketsList').empty();
-        console.log("Market Data", data.result)
-        $.each(data.result, function (i, v) {
-            console.log(i, v.name);
-
-            $(`
-            <li id="${v.marketId}">
-
-                    <p id="${v.marketId}"> ${v.markerCode}</p>
-                    <p id="${v.marketId}"> ${v.location}</p>
-
-            </li>
-
-            `).prependTo("#AllMarketsList");
-
-        })
-
-    }
-
-    const MarketSucessHandler = (result) => {
-        RenderMarketList(result);
-
-        return
-    }
-    const CommandCenterNavHandler = (e) => {
-
-        if (e.target.innerText === "Markets") {
-            document.getElementById("MarketWraper").style.display = "grid"
-            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
-            document.getElementById("RolesWrapper").style.display = "none"
-            document.getElementById("JobStatusWrapper").style.display = "none"
-            return
-        };
-
-        if (e.target.innerText === "Roles") {
-            document.getElementById("MarketWraper").style.display = "none"
-            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
-            document.getElementById("RolesWrapper").style.display = "grid"
-            document.getElementById("JobStatusWrapper").style.display = "none"
-            return
-        };
-
-        if (e.target.innerText === "Triage") {
-            document.getElementById("MarketWraper").style.display = "none"
-            document.getElementById("ProbingQuestionsWrapper").style.display = "grid"
-            document.getElementById("RolesWrapper").style.display = "none"
-            document.getElementById("JobStatusWrapper").style.display = "none"
-            return
-        };
-
-        if (e.target.innerText === "Job Status") {
-            document.getElementById("MarketWraper").style.display = "none"
-            document.getElementById("ProbingQuestionsWrapper").style.display = "none"
-            document.getElementById("RolesWrapper").style.display = "none"
-            document.getElementById("JobStatusWrapper").style.display = "grid"
-            return
-        };
-    }
-
-    const CommandCenterFormHandler = (e) => {
-        e.preventDefault();
-
-        if (e.target.innerText === "+ Role") {
-            console.log("runnning code for roles ")
-            let CallMethod = "RoleMethod";
-
-            let Role = document.getElementById("UserRole").value;
-            let jsonDataRole = {
-                role: Role,
-
-            }
-            console.log(jsonDataRole, "BeforeJsonData")
-            $.ajax({
-                accepts: { AjaxMethod },
-                type: "POST",
-                url: '@Url.Action("RoleMethod", "Home")',
-                @* data: jsonData, *@
-                @* success: RegisterationSucessHandler, *@
-            });
-
-
-        @* JsonDataFunction(jsonDataRole, CallMethod); Need to implement later *@
-        return;
-    };
-
-    if (e.target.innerText === "+ Market") {
-        console.log("runnning code for market ")
-
-        let MarketLocation = document.getElementById("MarketLocation").value;
-        let MarketCode = document.getElementById("MarketCode").value;
-
-        let jsonData = {
-            location: MarketLocation,
-            markerCode: MarketCode,
-
-        }
-
-        console.log("Market added", jsonData);
-
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("MarketMethod", "Home")',
-            data: jsonData,
-            success: MarketSucessHandler,
-        });
-
-
-        return
-    };
-
-
-    if (e.target.innerText === "+ Job Status") {
-        console.log("run code for job status ")
-
-        let JobStatusName = document.getElementById("JobStatusName").value;
-        let JobStatusColor = document.getElementById("JobStatusColor").value;
-
-        let jsonData = {
-            status: JobStatusName,
-            statusColor: JobStatusColor,
-
-        }
-        console.log("Job Status added", jsonData);
-
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("NewJobStatusMethod", "Home")',
-            data: jsonData,
-            success: MarketSucessHandler,
-        });
-
-        return
-    };
-
-
-
-
-
-    }
-</script>
 
 <body>
     <div class="CommandCenter-Container">
