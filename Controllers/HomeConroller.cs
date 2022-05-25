@@ -376,8 +376,9 @@ namespace KcPilot.Controllers
             _context.Add(UserInputData);
             _context.SaveChanges();
 
+            List<Role> AllRoles = _context.Roles.ToList();
 
-            return Json(new { Result = true });
+            return Json(new { Result = AllRoles });
 
 
         }

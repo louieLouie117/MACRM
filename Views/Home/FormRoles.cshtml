@@ -6,7 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles</title>
+
+    <script async>
+
+        const RenderRole = (data) => {
+
+            $('#AllRoleList').empty();
+            console.log("Role Data", data.result)
+            $.each(data.result, function (i, v) {
+                console.log(i, v.name);
+
+                $(`
+            <li id="${v.roleId}">
+
+                    <p id="${v.roleId}"> ${v.title}</p>
+
+            </li>
+
+            `).prependTo("#AllRoleList");
+
+            })
+
+        }
+    </script>
 </head>
+
+
 
 <body>
     <div class="FormRoles-Container">
@@ -18,6 +43,11 @@
                 <button onclick="CommandCenterFormHandler(event)">+ Role</button>
             </form>
         </main>
+        <aside>
+            <ul id="AllRoleList">
+
+            </ul>
+        </aside>
 
     </div>
 </body>
