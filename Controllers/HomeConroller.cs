@@ -384,6 +384,16 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpGet("AllRoleList")]
+        public JsonResult AllRoleList(Role UserInputData)
+        {
+            List<Role> AllRoles = _context.Roles.ToList();
+
+            return Json(new { Result = AllRoles });
+
+        }
+
+
         [HttpPost("JobCommentMethod")]
 
         public JsonResult JobCommentMethod(JobComment UserInputData)

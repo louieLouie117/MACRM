@@ -8,6 +8,13 @@
     <title>Command Center</title>
     <script async>
 
+        $.get("/AllMarketList", data => {
+            console.log("getting jobs Data:", data)
+            RenderMarketList(data);
+            return
+
+        });
+
 
         const MarketSucessHandler = (result) => {
             RenderMarketList(result);
@@ -35,6 +42,12 @@
                 document.getElementById("ProbingQuestionsWrapper").style.display = "none"
                 document.getElementById("RolesWrapper").style.display = "grid"
                 document.getElementById("JobStatusWrapper").style.display = "none"
+                $.get("/AllRoleList", data => {
+                    console.log("getting jobs Data:", data)
+                    RenderRole(data);
+                    return
+
+                });
                 return
             };
 
