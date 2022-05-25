@@ -368,7 +368,15 @@ namespace KcPilot.Controllers
 
         public JsonResult RoleMethod(Role UserInputData)
         {
-            System.Console.WriteLine("You have reached the backend of role");
+            System.Console.WriteLine($"You have reached the backend of role {UserInputData.Title}");
+
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+
+            _context.Add(UserInputData);
+            _context.SaveChanges();
+
+
             return Json(new { Result = true });
 
 

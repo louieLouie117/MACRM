@@ -86,16 +86,15 @@
             let CallMethod = "RoleMethod";
 
             let Role = document.getElementById("UserRole").value;
-            let jsonDataRole = {
-                role: Role,
+            let jsonData = {
+                title: Role,
 
             }
-            console.log(jsonDataRole, "BeforeJsonData")
+            console.log(jsonData, "JsonData")
             $.ajax({
-                accepts: { AjaxMethod },
                 type: "POST",
                 url: '@Url.Action("RoleMethod", "Home")',
-                @* data: jsonData, *@
+                data: jsonData,
                 @* success: RegisterationSucessHandler, *@
             });
 
