@@ -72,6 +72,12 @@
                 document.getElementById("ProbingQuestionsWrapper").style.display = "none"
                 document.getElementById("RolesWrapper").style.display = "none"
                 document.getElementById("JobStatusWrapper").style.display = "grid"
+                    $.get("/AllJobStatusMethod", data => {
+                    console.log("getting jobs Data:", data)
+                    RenderJobStatus(data);
+                    return
+
+                });
                 return
             };
         }

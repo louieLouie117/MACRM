@@ -501,6 +501,18 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpGet("AllJobStatusMethod")]
+        public JsonResult AllJobStatusMethod(Market UserInputData)
+        {
+            List<JobStatus> AllJobStatusList = _context.JobStatuss.ToList();
+
+            return Json(new { Result = AllJobStatusList });
+
+        }
+
+
+
+
 
 
     }
