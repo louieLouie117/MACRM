@@ -492,8 +492,11 @@ namespace KcPilot.Controllers
             _context.Add(UserInputData);
             _context.SaveChanges();
 
+            List<JobStatus> JobStatusList = _context.JobStatuss.ToList();
 
-            return Json(new { Result = true });
+
+
+            return Json(new { Result = JobStatusList });
 
         }
 

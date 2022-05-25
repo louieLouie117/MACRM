@@ -27,6 +27,14 @@
             console.log("Roles", result)
             return
         }
+
+
+        const JobStatusSucessHandler = (result) => {
+            console.log("JobStatus", result)
+            RenderJobStatus(result);
+
+            return
+        }
         const CommandCenterNavHandler = (e) => {
 
             if (e.target.innerText === "Markets") {
@@ -136,7 +144,7 @@
                     type: "POST",
                     url: '@Url.Action("NewJobStatusMethod", "Home")',
                     data: jsonData,
-                    @* success: MarketSucessHandler, *@
+                    success: JobStatusSucessHandler,
                 });
 
             return
