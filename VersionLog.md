@@ -81,6 +81,13 @@ This morning was another fantastic day. I was able to polish the service advocat
 ## Tuesday May 24 2022
 This morning I was able to program for 2hr. I was getting the market from the user to the backend into the database and rendered it back to the user. Users can now add markets. I also started on job status and was able to reach the backend. 
 
+## Wednesday May 25 2022
+Today I was able to get the role, market, and job status to the database and render it back to the user. Now that these functions are working I can render the Job status to the user so that they can update the job status base on the default list. Developing the ability for users to change the status of the job will be fun and I am excited to implement this tomorrow.
+
+## Thursday May 26 2022
+This morning I was able to complete the behavior for changing the job status. Users can not see the window that will allow them to change the job status. Tomorrow, I will need to add the logic so that when a user selects a new job, status the database gets change.
+
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.
