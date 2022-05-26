@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script async>
+
+
+        const JobStatusUpdateHandler = (e) => {
+            if (e.target.id === "DisplayJobStatus") {
+                console.log(e.target.id, "Open JobStatus")
+
+                document.getElementById("JobStatusContainer").style.display = "grid"
+
+                $.get("/AllJobStatusMethod", data => {
+                    console.log("getting jobs Data:", data)
+                    RenderJobStatusOptions(data);
+                    return
+
+                });
+
+            }
+
+            if (e.target.id === "CloseJobStatus") {
+                console.log(e.target.id, "Close JobStatus")
+
+                document.getElementById("JobStatusContainer").style.display = "none"
+
+            }
+
+        }
+
+        const RenderJobStatusOptions = (data) => {
+            $('#DisplayJobStatusOptions').empty();
+            console.log("API Data", data.result)
+            $.each(data.result, function (i, v) {
+                console.log(i, v.status);
+
+                $(`
+
+
+                    <li >
+                        <div class="JobStatusIcon"  style="background-color: #${v.statusColor};"></div>
+                        <h3 id="CloseJobStatus"  onclick="JobStatusUpdateHandler(event)"> ${v.status}</h3>
+                    </li>
+
+
+
+
+
+            `).prependTo("#DisplayJobStatusOptions");
+
+            })
+        };
+    </script>
+</head>
+
+<body>
+
+    <div class="JobStatus-Container" id="JobStatusContainer">
+        <ul id="DisplayJobStatusOptions"></ul>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

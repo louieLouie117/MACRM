@@ -130,7 +130,7 @@
         $(`
                     <div id="DisplayJobStatusColor${e.target.id}" class="JobStatusDotIcon">
                     </div>
-                    <h2 id="DisplayJobStatus"></h2>
+                    <h2 id="DisplayJobStatus" onclick="JobStatusUpdateHandler(event)" ></h2>
 
                     <h2 id="DisplayName"></h2>
                     <h2 id="DisplayServiceJobNumber"></h2>
@@ -170,7 +170,14 @@
     <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
     <div class="AllJobs-Container">
         <ul id="NewJobList"></ul>
-        <main id="DisplayJobData"></main>
+        <main>
+
+            <partial name="components/JobStatusOptions" />
+
+
+            <section id="DisplayJobData"></section>
+
+        </main>
 
         <partial name="components/JobComments" />
     </div>
