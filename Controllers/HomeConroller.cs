@@ -523,8 +523,13 @@ namespace KcPilot.Controllers
             int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
             System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
 
-            // _context.Add(UserInputData);
-            // _context.SaveChanges();
+            Job GetJob = _context.Jobs.SingleOrDefault(l => l.JobStatusId == CardJobInSession);
+
+            GetJob.JobStatusId = CardJobInSession;
+            GetJob.JobStatus = UserInputData.JobStatus;
+            GetJob.JobStatusColor = UserInputData.JobStatusColor;
+
+            _context.SaveChanges();
 
             // List<JobStatus> JobStatusList = _context.JobStatuss.ToList();
 
