@@ -34,7 +34,7 @@
             $(`
             <li id="CardItemContainer${v.jobStatusId}">
                 <header>
-                    <div class="JobStatusDotIcon" style="background-color: ${v.jobStatusColor};"></div>
+                    <div class="JobStatusDotIcon" style="background-color: #${v.jobStatusColor};"></div>
                     <p  id="SelectedJobStatusColor${v.jobStatusId}">${v.jobStatusColor}</p>
                     <h1 id="SelectedJobStatus${v.jobStatusId}">${v.jobStatus}</h1>
                 </header>
@@ -97,8 +97,6 @@
         document.getElementById("CardItemContainer" + lastcardSelected).style.width = "300px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".1s";
-
-
         document.getElementById("CardItemContainer" + e.target.id).style.width = "90%";
         document.getElementById("CardItemContainer" + e.target.id).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + e.target.id).style.transition = ".1s";

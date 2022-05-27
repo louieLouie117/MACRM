@@ -88,6 +88,10 @@ Today I was able to get the role, market, and job status to the database and ren
 This morning I was able to complete the behavior for changing the job status. Users can not see the window that will allow them to change the job status. Tomorrow, I will need to add the logic so that when a user selects a new job, status the database gets change.
 
 
+## Friday May 27 2022
+This morning I was able to develop the ability to change my job status. Users can now change any job status with one click. This is getting closer to being able to start the alpha testing with the team. 
+
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

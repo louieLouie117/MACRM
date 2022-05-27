@@ -511,6 +511,35 @@ namespace KcPilot.Controllers
         }
 
 
+        [HttpPost("UpdateJobStatusMethod")]
+        public JsonResult UpdateJobStatusMethod(Job UserInputData)
+        {
+
+            System.Console.WriteLine($"You reached the backend to update the job status {UserInputData.JobStatus} and color {UserInputData.JobStatusColor}");
+
+            int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
+            UserInputData.UserId = UserIdInSession;
+
+            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
+
+            Job GetJob = _context.Jobs.SingleOrDefault(l => l.JobStatusId == CardJobInSession);
+
+            GetJob.JobStatusId = CardJobInSession;
+            GetJob.JobStatus = UserInputData.JobStatus;
+            GetJob.JobStatusColor = UserInputData.JobStatusColor;
+
+            _context.SaveChanges();
+
+            // List<JobStatus> JobStatusList = _context.JobStatuss.ToList();
+
+
+
+            return Json(new { Result = true });
+
+        }
+
+
 
 
 
