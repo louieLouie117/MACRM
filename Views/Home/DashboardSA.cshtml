@@ -166,18 +166,20 @@
 </script>
 
 <body>
-    <p>SA Dashboard</p>
     <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
     <div class="AllJobs-Container">
         <ul id="NewJobList"></ul>
+
         <main>
 
-            <partial name="components/JobStatusOptions" />
-
-
+            @* <div id="JobContentContainer"> *@
             <section id="DisplayJobData"></section>
+            <partial name="components/JobStatusOptions" />
+            @* </div> *@
+
 
         </main>
+
 
         <partial name="components/JobComments" />
     </div>

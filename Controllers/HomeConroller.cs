@@ -531,11 +531,11 @@ namespace KcPilot.Controllers
 
             _context.SaveChanges();
 
-            // List<JobStatus> JobStatusList = _context.JobStatuss.ToList();
+            List<Job> JobList = _context.Jobs.ToList();
 
 
 
-            return Json(new { Result = true });
+            return Json(new { Result = JobList });
 
         }
 
