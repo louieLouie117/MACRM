@@ -137,8 +137,10 @@
 
 
 
-        document.getElementById("DisplayJobStatusColor" + e.target.id).style.backgroundColor = document.getElementById("SelectedJobStatusColor" + e.target.id).innerText;
+        let colorSelect = document.getElementById("SelectedJobStatusColor" + e.target.id).innerText;
+        console.log("Color value", colorSelect)
 
+        document.getElementById("DisplayJobStatusColor" + e.target.id).style.backgroundColor = "#" + colorSelect;
         document.getElementById("DisplayJobStatus").innerText = document.getElementById("SelectedJobStatus" + e.target.id).innerText;
 
 
