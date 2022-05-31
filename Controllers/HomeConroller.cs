@@ -531,11 +531,15 @@ namespace KcPilot.Controllers
 
             _context.SaveChanges();
 
+            Job GetJobColor = _context.Jobs.SingleOrDefault(l => l.JobStatusId == CardJobInSession);
+
+
+
             List<Job> JobList = _context.Jobs.ToList();
 
 
 
-            return Json(new { Result = JobList });
+            return Json(new { result = JobList, cardId = CardJobInSession, jobInfo = GetJobColor });
 
         }
 
