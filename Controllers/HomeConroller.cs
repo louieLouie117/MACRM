@@ -523,6 +523,9 @@ namespace KcPilot.Controllers
             int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
             System.Console.WriteLine($"This is the card id in session: {CardJobInSession}");
 
+            var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
+
+
             Job GetJob = _context.Jobs.SingleOrDefault(l => l.JobStatusId == CardJobInSession);
 
             GetJob.JobStatusId = CardJobInSession;
@@ -531,11 +534,17 @@ namespace KcPilot.Controllers
 
             _context.SaveChanges();
 
-            // List<JobStatus> JobStatusList = _context.JobStatuss.ToList();
+            Job GetJobColor = _context.Jobs.SingleOrDefault(l => l.JobStatusId == CardJobInSession);
 
 
 
-            return Json(new { Result = true });
+            List<Job> JobList = _context.Jobs
+            .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .ToList();
+
+
+
+            return Json(new { result = JobList, cardId = CardJobInSession, jobInfo = GetJobColor });
 
         }
 

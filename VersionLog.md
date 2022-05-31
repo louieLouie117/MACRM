@@ -91,6 +91,9 @@ This morning I was able to complete the behavior for changing the job status. Us
 ## Friday May 27 2022
 This morning I was able to develop the ability to change my job status. Users can now change any job status with one click. This is getting closer to being able to start the alpha testing with the team. 
 
+## Tuesday May 31 2022
+This morning has been incredible. I was able to get the updated job status feature working. Users can now edit the job status. This will allow me to move on to the next feature, with is the ability to filter jobs by job status. I can not wait to start developing the job filter.
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

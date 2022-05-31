@@ -10,10 +10,25 @@
     <script async>
 
 
+        const UpdateJobStatusMethodSuccess = (result) => {
+
+            console.log("Result Data", result)
+            console.log("CardID", result.cardId)
+            console.log("JobStatusColor", result.jobInfo.jobStatusColor)
+
+            RenderNewJobResult(result);
+
+            let colorSelect = result.jobInfo.jobStatusColor;
+            console.log("Color value", colorSelect)
+
+            document.getElementById("DisplayJobStatusColor" + result.cardId).style.backgroundColor = "#" + colorSelect;
+            document.getElementById("DisplayJobStatus").innerText = result.jobInfo.jobStatus;
+
+
+        }
+
         const JobStatusUpdateHandler = (e) => {
             if (e.target.id === "DisplayJobStatus") {
-
-
 
                 document.getElementById("JobStatusContainer").style.display = "grid"
 
@@ -37,12 +52,12 @@
                     type: "Post",
                     url: '@Url.Action("UpdateJobStatusMethod", "Home")',
                     data: jsonData,
-            @* success: APIDataMethodSuccess, *@
-        });
-            console.log("Data", jsonData)
-            document.getElementById("JobStatusContainer").style.display = "none"
+                    success: UpdateJobStatusMethodSuccess,
+                });
+                console.log("Data", jsonData)
+                document.getElementById("JobStatusContainer").style.display = "none"
 
-        }
+            }
 
 
 
