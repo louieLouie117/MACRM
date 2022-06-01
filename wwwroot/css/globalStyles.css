@@ -87,12 +87,22 @@ button{
 
 .JobStatus-Container> ul li{
     display: flex;
-    column-gap: 5px;
+    column-gap: 15px;
     /* border: solid 1px black; */
-    padding: 5px;
     background: white;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.303);
+    justify-content: left;
+    align-items: center;
+    height: 50px;
+    padding-left: 20px;
+
+}
+
+.JobStatus-Container> ul li h3{
+    height: 100%;
+    width: 100%;
+    line-height: 50px;
 
 }

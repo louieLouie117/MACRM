@@ -94,6 +94,8 @@ This morning I was able to develop the ability to change my job status. Users ca
 ## Tuesday May 31 2022
 This morning has been incredible. I was able to get the updated job status feature working. Users can now edit the job status. This will allow me to move on to the next feature, with is the ability to filter jobs by job status. I can not wait to start developing the job filter.
 
+## Wednesday Jun 01 2022
+Today after work, I developed a reusable function that will keep the width of the card a user has selected larger than all other cards. I developed this function as reusable so that when a user updates the job status or any data, the card chosen by the user stays the same. The reusable function will allow the user to stay focused and not break concentration. The user will subconsciously know what job they are working on.
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022
