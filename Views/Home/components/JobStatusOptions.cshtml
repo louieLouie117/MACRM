@@ -17,6 +17,7 @@
             console.log("JobStatusColor", result.jobInfo.jobStatusColor)
 
             RenderNewJobResult(result);
+            CardClickedHandler(result.cardId)
 
             let colorSelect = result.jobInfo.jobStatusColor;
             console.log("Color value", colorSelect)
@@ -35,6 +36,7 @@
                 $.get("/AllJobStatusMethod", data => {
                     console.log("getting jobs Data:", data)
                     RenderJobStatusOptions(data);
+
                     return
 
                 });

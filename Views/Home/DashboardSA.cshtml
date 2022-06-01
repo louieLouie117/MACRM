@@ -56,39 +56,32 @@
         })
     };
 
-    const JobSelectedHandler = (e) => {
-        console.log("JobSelectedHandler was called")
-        console.log("SelectedJobStatus" + e.target.id)
+    const CardClickedHandler = (cardId) => {
+        console.log("CardClickedHandler was called and running", cardId)
+        function getCookie() {
+            let lastCardSelected = "lastcardSelected=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(lastCardSelected) == 0) {
+                    console.log("get lastCardSelected from cookies", c);
 
-
-
-        @* let allCookies = document.cookie;
-                console.log("cookies for card selected", allCookies); *@
-
-            function getCookie() {
-                let lastCardSelected = "lastcardSelected=";
-                let decodedCookie = decodeURIComponent(document.cookie);
-                let ca = decodedCookie.split(';');
-                for (let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                    }
-                    if (c.indexOf(lastCardSelected) == 0) {
-                        console.log("get lastCardSelected from cookies", c);
-
-                        return c.substring(lastCardSelected.length, c.length);
-                    }
-
+                    return c.substring(lastCardSelected.length, c.length);
                 }
 
-                return "";
             }
+
+            return "";
+        }
 
         let lastcardSelected = getCookie("lastcardSelected");
         console.log("lastcardSelected", lastcardSelected);
 
-        const ItemSelected = e.target.id
+        const ItemSelected = cardId
         console.log("Current Item:", ItemSelected);
 
         document.cookie = "lastcardSelected" + "=" + ItemSelected + ";";
@@ -97,17 +90,25 @@
         document.getElementById("CardItemContainer" + lastcardSelected).style.width = "300px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".1s";
-        document.getElementById("CardItemContainer" + e.target.id).style.width = "90%";
-        document.getElementById("CardItemContainer" + e.target.id).style.transform = "ease-in-out";
-        document.getElementById("CardItemContainer" + e.target.id).style.transition = ".1s";
+        document.getElementById("CardItemContainer" + cardId).style.width = "90%";
+        document.getElementById("CardItemContainer" + cardId).style.transform = "ease-in-out";
+        document.getElementById("CardItemContainer" + cardId).style.transition = ".1s";
+        return
+    }
+
+    const JobSelectedHandler = (e) => {
+        console.log("JobSelectedHandler was called")
+        console.log("SelectedJobStatus" + e.target.id)
+
+        CardClickedHandler(e.target.id);
+
+        @* let allCookies = document.cookie;
+                console.log("cookies for card selected", allCookies); *@
 
 
-
-
-
-        let jsonData = {
-            jobStatusId: e.target.id,
-        }
+            let jsonData = {
+                jobStatusId: e.target.id,
+            }
 
         $.ajax({
             type: "POST",
