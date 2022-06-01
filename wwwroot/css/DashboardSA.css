@@ -139,7 +139,7 @@ body{
 
 .AllJobs-Container{
     display: grid;
-    grid-template-columns: 24em 2fr 1fr;
+    grid-template-columns: 24em 2fr 1.1fr;
 }
 
 
@@ -152,11 +152,12 @@ body{
     row-gap: 5px;
     align-content: flex-start;
     background: white;
-    padding: 0 40px;
+    /* padding: 0 40px; */
+    padding-left: 40px;
     padding-top: 20px;
     margin-left: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.402);
-    border-radius: 7px 7px 0 0;
+    border-radius: 7px 0px 0 0;
     margin-top: -35px;
     
 
@@ -260,11 +261,12 @@ body{
     overflow: scroll;
     margin-right: 10px;
     border-radius: 0 7px 0 0;
+    background: white;
+    margin-top: -35px;
+    padding-right: 40px;
 }
 
-.AllJobs-Container>aside form{
-    padding: 10px;
-}
+
 
 
 .AllJobs-Container>aside form textarea{
@@ -285,14 +287,15 @@ body{
     color: #1c8c9b;
     /* background: linear-gradient(to right, #9062AF,#1C8C9B); */
     width: 120px;
-    background: white;
+    background: #1c8c9b;
     box-shadow: none;
+    color: white;
 }
 
 .AllJobs-Container>aside form footer button:last-of-type{
     background: none;
     box-shadow: none;
-    color: white;
+    color: gray;
 }
 
 .AllJobs-Container>aside ul {
@@ -308,7 +311,7 @@ body{
 
 .AllJobs-Container>aside ul li{
     background: white;
-    padding: 20px;
+    padding-bottom: 20px;
     /* min-height: 150px;
     max-height: 340px;
     overflow: scroll; */
