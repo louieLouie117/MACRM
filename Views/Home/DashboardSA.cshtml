@@ -87,12 +87,17 @@
         document.cookie = "lastcardSelected" + "=" + ItemSelected + ";";
 
 
+
         document.getElementById("CardItemContainer" + lastcardSelected).style.width = "300px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".1s";
+        document.getElementById("CardItemContainer" + lastcardSelected).style.borderRadius = "0px";
+
         document.getElementById("CardItemContainer" + cardId).style.width = "90%";
         document.getElementById("CardItemContainer" + cardId).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + cardId).style.transition = ".1s";
+        document.getElementById("CardItemContainer" + cardId).style.borderRadius = "7px 0 0 7px";
+
         return
     }
 
