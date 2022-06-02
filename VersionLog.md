@@ -100,6 +100,8 @@ Today after work, I developed a reusable function that will keep the width of th
 ## Thursday Jun 01 2022
 This morning was fantastic. I developed the front and reached the back end of the job status filter method. Users will soon be able to filter the jobs by the job status. Tomorrow, I will be developing the logic that will get the database base on the user job status selection. One thing I would say is my focus is code reusability. 
 
+Today after work, I was able to finish developing the filter logic. Users can not filter jobs by job status. Which completes one of the major components functionality. 
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

@@ -19,7 +19,7 @@
             $(`
                     <li>
                         <div class="JobStatusIcon"  style="background-color: #${v.statusColor};"></div>
-                        <h3 id="${v.statusColor}"  onclick="JobStatusFilterHandler(event)"> ${v.status}</h3>
+                        <h3 id="${v.statusColor}"  onclick="JobStatusFilterHandler(event)">${v.status}</h3>
                     </li>
 
             `).prependTo("#DisplayJobStatusFilter");
@@ -27,15 +27,28 @@
         })
     };
 
+    const JobStatusFilterMethodSuccess = (result) => {
+        RenderNewJobResult(result);
+
+
+    }
+
     const JobStatusFilterHandler = (e) => {
         document.getElementById("JobStatusFilterContainer").style.display = "none";
+
+        let jsonData = {
+            jobStatus: e.target.innerText,
+        }
+
+        console.log("User slected filter", jsonData);
+
+
         $.ajax({
             type: "Post",
             url: '@Url.Action("JobStatusFilterMethod", "Home")',
-            @* data: jsonData, *@
-            @* success: UpdateJobStatusMethodSuccess, *@
-                });
-
+            data: jsonData,
+            success: JobStatusFilterMethodSuccess,
+        });
 
     }
 
