@@ -36,6 +36,7 @@
                 $.get("/AllJobStatusMethod", data => {
                     console.log("getting jobs Data:", data)
                     RenderJobStatusOptions(data);
+                    RenderJobStatusFilter(data);
 
                     return
 
@@ -87,6 +88,8 @@
 
             })
         };
+
+
     </script>
 </head>
 
