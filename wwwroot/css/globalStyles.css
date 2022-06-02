@@ -62,7 +62,7 @@ button{
     border-radius: 15px;
 }
 
-.JobStatus-Container {
+.JobStatus-Container, .JobStatusFilter-Container {
     display: none;
     position: absolute;
     top: 0;
@@ -73,7 +73,7 @@ button{
 }
 
 
-.JobStatus-Container ul {
+.JobStatus-Container ul, .JobStatusFilter-Container ul {
     display: grid;
     row-gap: 10px;
     background: whitesmoke;
@@ -85,7 +85,7 @@ button{
     align-content: flex-start;
 }
 
-.JobStatus-Container> ul li{
+.JobStatus-Container> ul li, .JobStatusFilter-Container> ul li{
     display: flex;
     column-gap: 15px;
     /* border: solid 1px black; */
@@ -106,3 +106,4 @@ button{
     line-height: 50px;
 
 }
+
