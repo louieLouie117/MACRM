@@ -97,6 +97,9 @@ This morning has been incredible. I was able to get the updated job status featu
 ## Wednesday Jun 01 2022
 Today after work, I developed a reusable function that will keep the width of the card a user has selected larger than all other cards. I developed this function as reusable so that when a user updates the job status or any data, the card chosen by the user stays the same. The reusable function will allow the user to stay focused and not break concentration. The user will subconsciously know what job they are working on.
 
+## Thursday Jun 01 2022
+This morning was fantastic. I developed the front and reached the back end of the job status filter method. Users will soon be able to filter the jobs by the job status. Tomorrow, I will be developing the logic that will get the database base on the user job status selection. One thing I would say is my focus is code reusability. 
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

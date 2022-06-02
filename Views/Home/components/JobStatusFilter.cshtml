@@ -29,6 +29,12 @@
 
     const JobStatusFilterHandler = (e) => {
         document.getElementById("JobStatusFilterContainer").style.display = "none";
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("JobStatusFilterMethod", "Home")',
+            @* data: jsonData, *@
+            @* success: UpdateJobStatusMethodSuccess, *@
+                });
 
 
     }

@@ -548,6 +548,13 @@ namespace KcPilot.Controllers
 
         }
 
+        [HttpPost("JobStatusFilterMethod")]
+        public JsonResult JobStatusFilterMethod(Job UserInputData)
+        {
+            System.Console.WriteLine("reach backend of filter");
+
+            return Json(new {result = "reach backend of filter"});
+        }
 
 
 
