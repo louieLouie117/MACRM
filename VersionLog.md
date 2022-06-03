@@ -103,7 +103,7 @@ This morning was fantastic. I developed the front and reached the back end of th
 Today after work, I was able to finish developing the filter logic. Users can not filter jobs by job status. Which completes one of the major components functionality. 
 
 ## Friday Jun 03 2022
-This morning I was able to get the front end of the search completed. I am now graving what the user has enter to search and will need to send it to the backend.
+This morning I was able to get the front end of the search completed. I am now graving what the user has entered to search and will need to send it to the backend. After work, I was able to get the search logic working for a single search type. Users can now get results when searching by service job number. However, I need to find a way to have the user search any type of data.
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

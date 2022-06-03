@@ -14,7 +14,20 @@
             e.preventDefault();
             let UserSearch = document.getElementById("SearchInput").value
             console.log("running jobSearchHandler", UserSearch)
-            return
+            console.log(typeof (UserSearch));
+
+            let jsonData = {
+                serviceJobNumber: UserSearch,
+                phoneNumber: UserSearch,
+            }
+
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("JobSearchMethod", "Home")',
+                data: jsonData,
+                @* success: UpdateJobStatusMethodSuccess, *@
+                });
+        return
         }
 
 
