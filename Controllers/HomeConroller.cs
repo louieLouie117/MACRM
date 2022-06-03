@@ -570,6 +570,14 @@ namespace KcPilot.Controllers
 
         }
 
+        [HttpGet("JobSearchMethod")]
+        public JsonResult JobSearchMethod(Job UserInputData)
+        {
+            System.Console.WriteLine("reach the backend of the search method");
+
+            return Json(new {result = true});
+        }
+
 
     }
 }
