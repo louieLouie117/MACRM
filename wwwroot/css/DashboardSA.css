@@ -168,14 +168,14 @@ body{
 
 
 
-.AllJobs-Container>ul {
+.AllJobs-Container>header ul {
     display: grid;
     /* row-gap: 10px; */
     padding: 20px;
     padding-right: 0;
     /* align-items: flex-start; */
     align-content: flex-start;
-    height: 97vh;
+    height: 87vh;
     overflow: scroll;
     overflow-y: scroll;
     justify-items: flex-end;
@@ -183,7 +183,19 @@ body{
 
 }
 
-.AllJobs-Container>ul li{
+.Search-Container{
+    display: grid;
+    justify-content: right;
+    margin-right: 20px;
+
+}
+
+
+.Search-Container form{
+    display: flex;
+}
+
+.AllJobs-Container>header ul li{
     display: grid;
     background: white;
     /* border-radius: 7px 0 0 7PX; */
@@ -206,7 +218,7 @@ body{
     border-radius: 15px;
 }
 
-.AllJobs-Container>ul li header{
+.AllJobs-Container>header ul li header{
     display: flex;
     column-gap: 10px;
     border-bottom: 1px solid grey;
@@ -216,11 +228,11 @@ body{
     
 }
 
-.AllJobs-Container>ul li header p{
+.AllJobs-Container>header ul li header p{
     display: none;
 }
 
-.AllJobs-Container>ul li button{
+.AllJobs-Container>header ul li button{
     border: none;
     background: none;
     margin: -15px;
@@ -232,20 +244,20 @@ body{
 
 }
 
-.AllJobs-Container>ul li main{
+.AllJobs-Container>header ul li main{
     /* background: gold; */
     height: 120px;
     grid-row: 2/3;
     grid-column: 1/2;
 }
 
-.AllJobs-Container>ul li h1{
+.AllJobs-Container>header ul li h1{
     font: 1em sans-serif;
     padding-bottom: 5px;
 
 }
 
-.AllJobs-Container>ul li h2{
+.AllJobs-Container>header ul li h2{
     font: 1em sans-serif;
 
 }
@@ -359,5 +371,10 @@ body{
 #CommentCancelBTN{
     display: none;
 }
+
+.NavOptions-Container{
+    display: flex;
+}
+
 
 
