@@ -573,9 +573,16 @@ namespace KcPilot.Controllers
         [HttpGet("JobSearchMethod")]
         public JsonResult JobSearchMethod(Job UserInputData)
         {
-            System.Console.WriteLine("reach the backend of the search method");
+            System.Console.WriteLine($"Service Job number {UserInputData.ServiceJobNumber}");
+            System.Console.WriteLine($"Cx phone number {UserInputData.PhoneNumber}");
+            
+            List<Job> SearchResults = _context.Jobs
+            .Where(sjn => sjn.ServiceJobNumber == UserInputData.ServiceJobNumber)
+            // .Where(cpn => cpn.PhoneNumber == UserInputData.PhoneNumber)
+            .ToList();
 
-            return Json(new {result = true});
+
+            return Json(new {result = SearchResults});
         }
 
 
