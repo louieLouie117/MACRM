@@ -552,21 +552,23 @@ namespace KcPilot.Controllers
         public JsonResult JobStatusFilterMethod(Job UserInputData)
         {
             System.Console.WriteLine($"reach backend of filter {UserInputData.JobStatus}");
-            
+
+            // Session
+            // int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
             var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
+
+
 
             List<Job> JobFilterList = _context.Jobs
             .Where(f => f.JobStatus == UserInputData.JobStatus)
             .Where(um => um.MarketCode == UserMarketCodeInSession)
             .ToList();
 
-
-
             return Json(new {result = JobFilterList});
+            // return Json(new {result = JobFilterList, cardId = CardJobInSession});
+
+
         }
-
-
-
 
 
     }

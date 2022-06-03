@@ -102,6 +102,9 @@ This morning was fantastic. I developed the front and reached the back end of th
 
 Today after work, I was able to finish developing the filter logic. Users can not filter jobs by job status. Which completes one of the major components functionality. 
 
+## Friday Jun 03 2022
+This morning I was able to get the front end of the search completed. I am now graving what the user has enter to search and will need to send it to the backend.
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

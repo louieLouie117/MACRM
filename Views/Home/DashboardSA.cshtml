@@ -184,13 +184,21 @@
 </script>
 
 <body>
-    <nav>
+
+    <nav class="NavOptions-Container">
         <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
         <button onclick="GetFiltertHandler(event)">Filter</button>
 
     </nav>
+
+
     <div class="AllJobs-Container">
-        <ul id="NewJobList"></ul>
+
+        <header>
+            <ul id="NewJobList"></ul>
+            <partial name="components/JobSearch" />
+
+        </header>
 
         <main>
 
