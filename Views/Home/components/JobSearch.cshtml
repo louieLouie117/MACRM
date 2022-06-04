@@ -10,6 +10,12 @@
 
     <script>
 
+        const JobSearchMethodSuccess = (result) => {
+            console.log("Search Results", result);
+            RenderNewJobResult(result);
+
+        }
+
         const JobSearchHandlerTest = (e) => {
             e.preventDefault();
             let UserSearch = document.getElementById("SearchInput").value
@@ -25,9 +31,9 @@
                 type: "Get",
                 url: '@Url.Action("JobSearchMethod", "Home")',
                 data: jsonData,
-                @* success: UpdateJobStatusMethodSuccess, *@
-                });
-        return
+                success: JobSearchMethodSuccess,
+            });
+            return
         }
 
 
