@@ -50,13 +50,27 @@
 
     const PreScreeenMethodSuccess = (result) => {
         console.log("Results after pre-screen", result);
+        console.log("Last Job Id PreScreen", result.lastMarketPreScreen);
+        console.log("Last Market PreScreen", result.lastJobPreScreen);
+
         RenderNewJobResult(result);
         document.getElementById("PreScreenContainer").style.display = "none";
         document.getElementById("UserInMarketContainer").style.display = "grid";
 
+        let jsonData = {
+            market: result.lastMarketPreScreen,
 
+        }
 
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("GetUserInMarket", "Home")',
+            data: jsonData,
+            @* success: GetUserInMarketSuccess, *@
+        });
     }
+
+
 
     const NewJobHandler = (e) => {
         e.preventDefault();
