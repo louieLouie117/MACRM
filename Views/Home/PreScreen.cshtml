@@ -18,22 +18,22 @@
 
 
         if (e.target.options[e.target.selectedIndex].text === "Onsite Diagnoses") {
-            document.getElementById("JobStatusColorPSF").value = "#519E8A";
+            document.getElementById("JobStatusColorPSF").value = "519E8A";
             return
         }
 
         if (e.target.options[e.target.selectedIndex].text === "Unsuccessful Pre-Screen") {
-            document.getElementById("JobStatusColorPSF").value = "#8E6C88";
+            document.getElementById("JobStatusColorPSF").value = "8E6C88";
             return
         }
 
         if (e.target.options[e.target.selectedIndex].text === "Order Parts") {
-            document.getElementById("JobStatusColorPSF").value = "#EAC435";
+            document.getElementById("JobStatusColorPSF").value = "EAC435";
             return
         }
 
         if (e.target.options[e.target.selectedIndex].text === "Sent To Triage") {
-            document.getElementById("JobStatusColorPSF").value = "#E4572E";
+            document.getElementById("JobStatusColorPSF").value = "E4572E";
             return
         }
 
@@ -44,6 +44,16 @@
         document.getElementById("AppointmentDayPSF").value = e.target.value;
         let userSeesion = '<%=Session["UserInSeesion"] %>';
         console.log(userSeesion)
+
+
+    }
+
+    const PreScreeenMethodSuccess = (result) => {
+        console.log("Results after pre-screen", result);
+        RenderNewJobResult(result);
+        document.getElementById("PreScreenContainer").style.display = "none";
+        document.getElementById("UserInMarketContainer").style.display = "grid";
+
 
 
     }
@@ -133,7 +143,7 @@
             type: "POST",
             url: '@Url.Action("PreScreenJobMethod", "Home")',
             data: jsonData,
-            @* success: NewJobMethodSuccess, something is breaking here*@
+            success: PreScreeenMethodSuccess,
         });
 
     }

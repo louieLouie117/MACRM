@@ -105,6 +105,9 @@ Today after work, I was able to finish developing the filter logic. Users can no
 ## Friday Jun 03 2022
 This morning I was able to get the front end of the search completed. I am now graving what the user has entered to search and will need to send it to the backend. After work, I was able to get the search logic working for a single search type. Users can now get results when searching by service job number. However, I need to find a way to have the user search any type of data.
 
+## Monday Jun 06 2022
+This morning I started the features that will allow a user to assign a Service Advocate after pre-screening. I was able to do the behavior so that after pre-screening the user will be rendered a component that will have a list of all the users in the job that was just pre-screen. Next, I will have to program the logic that will get all the users in the market after pre-screening.
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.
