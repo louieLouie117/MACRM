@@ -48,6 +48,14 @@
 
     }
 
+    const PreScreeenMethodSuccess = (result) => {
+        console.log("Results after pre-screen", result);
+        RenderNewJobResult(result);
+        document.getElementById("PreScreenContainer").style.display = "none";
+
+
+    }
+
     const NewJobHandler = (e) => {
         e.preventDefault();
         console.log("NewJobHandler button was click")
@@ -133,7 +141,7 @@
             type: "POST",
             url: '@Url.Action("PreScreenJobMethod", "Home")',
             data: jsonData,
-            @* success: NewJobMethodSuccess, something is breaking here*@
+            success: PreScreeenMethodSuccess,
         });
 
     }

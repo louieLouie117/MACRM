@@ -333,7 +333,7 @@ namespace KcPilot.Controllers
             List<Job> JobList = _context.Jobs
             .Where(ul => ul.MarketCode == UserMarketCodeInSession)
             .ToList();
-            return Json(new { Result = "success" });
+            return Json(new { result = JobList });
 
         }
 
