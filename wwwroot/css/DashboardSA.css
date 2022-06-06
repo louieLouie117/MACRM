@@ -376,5 +376,26 @@ body{
     display: flex;
 }
 
+/* User in market */
+.UserInMarket-Container{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.54);
+    justify-content: center;
+    align-content: center;
+}
+
+.UserInMarket-Container main{
+    background: whitesmoke;
+    width: 25em;
+    height: 400px;
+    padding: 20px;
+    border-radius: 7px;
+}
+
 
 

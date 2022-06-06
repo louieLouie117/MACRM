@@ -333,6 +333,12 @@ namespace KcPilot.Controllers
             List<Job> JobList = _context.Jobs
             .Where(ul => ul.MarketCode == UserMarketCodeInSession)
             .ToList();
+
+                 var MarketOfJobPreScreen = GetJob.MarketCode;
+
+            System.Console.WriteLine($"This is the market {MarketOfJobPreScreen} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
+
+
             return Json(new { result = JobList });
 
         }
