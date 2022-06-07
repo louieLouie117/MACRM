@@ -336,12 +336,13 @@ namespace KcPilot.Controllers
 
             var lastMarketPreScreen = GetJob.MarketCode;
             // JobID needs to go into session.
-            var lastJobIdPreScreens = GetJob.JobStatusId;
-
-            System.Console.WriteLine($"This is the market {lastMarketPreScreen} and Id {lastJobIdPreScreens} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
+            HttpContext.Session.SetInt32("IdOfLastJobPreScreens", GetJob.JobStatusId);
 
 
-            return Json(new { result = JobList, LastMarketPreScreen = lastMarketPreScreen, LastJobPreScreen = lastJobIdPreScreens });
+            System.Console.WriteLine($"This is the market {lastMarketPreScreen} and Id {GetJob.JobStatusId} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
+
+
+            return Json(new { result = JobList, LastMarketPreScreen = lastMarketPreScreen, LastJobPreScreen = GetJob.JobStatusId });
 
         }
 

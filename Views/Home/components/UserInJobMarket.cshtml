@@ -6,6 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User in the market</title>
+    <script>
+        const RenderUserInMarket = (data) => {
+            console.log("This is the user in market that will be reanding", data.result);
+            $('#DisplayUserInMarket').empty();
+
+            $.each(data.result, function (i, v) {
+                console.log(i, v.notes);
+
+                $(`
+                    <li>
+                        <h2>LC</h2>
+                        <h2>${v.firstName} ${v.lastName}</h2>
+                        <button>Assign</button>
+                    </li>
+
+
+                    `).prependTo("#DisplayUserInMarket");
+            })
+
+
+        }
+
+
+    </script>
 </head>
 
 <body>
@@ -15,11 +39,7 @@
             <header>
                 <h1>Select a user</h1>
             </header>
-            <ul>
-                <li>
-                    <h2>Luis.Cardona</h2>
-                </li>
-            </ul>
+            <ul id="DisplayUserInMarket"></ul>
         </main>
     </div>
 </body>

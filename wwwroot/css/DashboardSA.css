@@ -397,5 +397,13 @@ body{
     border-radius: 7px;
 }
 
+.UserInMarket-Container main ul{
+    display: grid;
+}
+
+.UserInMarket-Container main ul li{
+    display: flex;
+    column-gap: 5px;
+}
 
 
