@@ -338,10 +338,10 @@ namespace KcPilot.Controllers
             HttpContext.Session.SetInt32("IdOfLastJobPreScreens", GetJob.JobStatusId);
 
 
-            System.Console.WriteLine($"This is the market {GetJob.MarketCode} and Id {GetJob.JobStatusId} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
+            System.Console.WriteLine($"This is the market {GetJob.Market} code is {GetJob.MarketCode} and Id {GetJob.JobStatusId} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
 
 
-            return Json(new { result = JobList, LastMarketCodePreScreen = GetJob.MarketCode});
+            return Json(new { result = JobList, LastMarketCodePreScreen = GetJob.MarketCode, MarketName = GetJob.Market});
 
         }
 

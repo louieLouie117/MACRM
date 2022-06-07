@@ -56,8 +56,9 @@
 
     const PreScreeenMethodSuccess = (result) => {
         console.log("Results after pre-screen", result);
-        console.log("Last Job Id PreScreen", result.lastMarketCodePreScreen);
-        console.log("Last Market PreScreen", result.lastJobPreScreen);
+        console.log("Last Market Code Screen", result.lastMarketCodePreScreen);
+        console.log("Last Market name", result.marketName);
+        document.getElementById("UsersMarket").innerText = result.marketName;
 
         RenderNewJobResult(result);
         document.getElementById("PreScreenContainer").style.display = "none";
