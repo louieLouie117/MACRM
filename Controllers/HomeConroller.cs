@@ -334,14 +334,14 @@ namespace KcPilot.Controllers
             .Where(ul => ul.MarketCode == UserMarketCodeInSession)
             .ToList();
 
-            var lastMarketPreScreen = GetJob.MarketCode;
             // JobID needs to go into session.
-            var lastJobIdPreScreens = GetJob.JobStatusId;
-
-            System.Console.WriteLine($"This is the market {lastMarketPreScreen} and Id {lastJobIdPreScreens} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
+            HttpContext.Session.SetInt32("IdOfLastJobPreScreens", GetJob.JobStatusId);
 
 
-            return Json(new { result = JobList, LastMarketPreScreen = lastMarketPreScreen, LastJobPreScreen = lastJobIdPreScreens });
+            System.Console.WriteLine($"This is the market {GetJob.Market} code is {GetJob.MarketCode} and Id {GetJob.JobStatusId} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
+
+
+            return Json(new { result = JobList, LastMarketCodePreScreen = GetJob.MarketCode, MarketName = GetJob.Market});
 
         }
 
@@ -349,10 +349,10 @@ namespace KcPilot.Controllers
         [HttpGet("GetUserInMarket")]
         public JsonResult GetUserInMarket(User UserInputData){
 
-            System.Console.WriteLine($"Market form last preScreen{UserInputData.Market}");
+            System.Console.WriteLine($"Market form last preScreen{UserInputData.MarketCode}");
 
             List<User> UserInMarket = _context.Users
-            .Where(um => um.MarketCode == UserInputData.Market)
+            .Where(um => um.MarketCode == UserInputData.MarketCode)
             .ToList();
 
             return Json(new { result = UserInMarket});

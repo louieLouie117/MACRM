@@ -111,6 +111,9 @@ This morning I started the features that will allow a user to assign a Service A
 After work, I was able to get the user in the market of the last job that was pre-screened. I just need to render the list of Service Advocates to the component so that a user can select and assign a Service Advocate. I will do this tomorrow.
 
 
+## Tuesday Jun 07 2022
+This morning I was able to render the user in the market and the market name after a user pre-screens. This is is a crucial step so that the job is assigned to a Service Advocate. Currently, jobs are not being assigned and jobs are being missed. This necessary step will solve this problem. Now that users in the market are rendering I have to program the ability of a user to assign the job to a SA in the market.
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022
