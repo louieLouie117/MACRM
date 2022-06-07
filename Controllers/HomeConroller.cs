@@ -341,7 +341,7 @@ namespace KcPilot.Controllers
             System.Console.WriteLine($"This is the market {GetJob.MarketCode} and Id {GetJob.JobStatusId} of the job just pre-screen to need to add this to Session so that I can get all user in this market after pre-screening");
 
 
-            return Json(new { result = JobList, LastMarketCodePreScreen = GetJob.MarketCode, LastJobPreScreen = GetJob.JobStatusId });
+            return Json(new { result = JobList, LastMarketCodePreScreen = GetJob.MarketCode});
 
         }
 
@@ -349,10 +349,10 @@ namespace KcPilot.Controllers
         [HttpGet("GetUserInMarket")]
         public JsonResult GetUserInMarket(User UserInputData){
 
-            System.Console.WriteLine($"Market form last preScreen{UserInputData.Market}");
+            System.Console.WriteLine($"Market form last preScreen{UserInputData.MarketCode}");
 
             List<User> UserInMarket = _context.Users
-            .Where(um => um.MarketCode == UserInputData.Market)
+            .Where(um => um.MarketCode == UserInputData.MarketCode)
             .ToList();
 
             return Json(new { result = UserInMarket});
