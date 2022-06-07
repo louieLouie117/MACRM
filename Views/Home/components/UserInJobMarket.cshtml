@@ -16,18 +16,19 @@
 
                 $(`
                     <li>
-                        <h2>LC</h2>
+                        <button  onclick="AssignUserToJobHandler(event)">Assign</button>
                         <h2>${v.firstName} ${v.lastName}</h2>
-                        <button>Assign</button>
                     </li>
 
 
                     `).prependTo("#DisplayUserInMarket");
             })
-
-
         }
 
+        const AssignUserToJobHandler = (e) => {
+            console.log("Assigned button was click");
+
+        }
 
     </script>
 </head>
@@ -37,7 +38,7 @@
 
         <main>
             <header>
-                <h1>Select a user</h1>
+                <h1 id="UsersMarket">Select a user</h1>
             </header>
             <ul id="DisplayUserInMarket"></ul>
         </main>

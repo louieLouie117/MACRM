@@ -56,7 +56,7 @@
 
     const PreScreeenMethodSuccess = (result) => {
         console.log("Results after pre-screen", result);
-        console.log("Last Job Id PreScreen", result.lastMarketPreScreen);
+        console.log("Last Job Id PreScreen", result.lastMarketCodePreScreen);
         console.log("Last Market PreScreen", result.lastJobPreScreen);
 
         RenderNewJobResult(result);
@@ -64,7 +64,7 @@
         document.getElementById("UserInMarketContainer").style.display = "grid";
 
         let jsonData = {
-            market: result.lastMarketPreScreen,
+            market: result.lastMarketCodePreScreen,
 
         }
 

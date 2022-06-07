@@ -52,7 +52,7 @@ body{
 
 }
 
-.Unassigned-Container>main ul li button{
+.Unassigned-Container>main ul li button, .UserInMarket-Container main ul li button{
     width: 120px;
     background: white;
     color: #6900D1;
@@ -399,11 +399,15 @@ body{
 
 .UserInMarket-Container main ul{
     display: grid;
+    row-gap: 25px;
 }
 
 .UserInMarket-Container main ul li{
     display: flex;
-    column-gap: 5px;
+    column-gap: 25px;
+    row-gap: 10px;
+    padding: 10px;
+    align-items: center;
 }
 
 
