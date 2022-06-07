@@ -358,6 +358,15 @@ namespace KcPilot.Controllers
             return Json(new { result = UserInMarket});
         }
 
+        [HttpPost("AssignUserToJobMethod")]
+        public JsonResult AssignUserToJobMethod(Job UserInputData){
+
+            System.Console.WriteLine($"You have reach the backend to assign user to a job");
+
+
+            return Json(new { result = "Reach back end of assigning a user to a job"});
+        }
+
 
 
         [HttpGet("AllJobListMethod")]

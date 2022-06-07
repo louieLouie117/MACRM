@@ -27,6 +27,12 @@
 
         const AssignUserToJobHandler = (e) => {
             console.log("Assigned button was click");
+            $.ajax({
+            type: "Post",
+            url: '@Url.Action("AssignUserToJobMethod", "Home")',
+            @* data: jsonData, *@
+            @* success: UserInMarketSuccess, *@
+        });
 
         }
 
