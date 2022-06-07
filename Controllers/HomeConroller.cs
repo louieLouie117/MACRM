@@ -358,6 +358,24 @@ namespace KcPilot.Controllers
             return Json(new { result = UserInMarket});
         }
 
+        [HttpPost("AssignUserToJobMethod")]
+        public JsonResult AssignUserToJobMethod(Job UserInputData){
+
+            int LastJobPreScreen = (int)HttpContext.Session.GetInt32("IdOfLastJobPreScreens");
+            System.Console.WriteLine($"Assign SA to a job {UserInputData.ServiceAdvocateName}");
+            System.Console.WriteLine($"Last job prescreen {LastJobPreScreen}");
+
+            Job GetLastJobPreScreen = _context.Jobs
+                .FirstOrDefault(ljp => ljp.JobStatusId == LastJobPreScreen);
+
+
+            GetLastJobPreScreen.ServiceAdvocateName = UserInputData.ServiceAdvocateName;
+            _context.SaveChanges();
+
+
+            return Json(new { result = GetLastJobPreScreen});
+        }
+
 
 
         [HttpGet("AllJobListMethod")]
