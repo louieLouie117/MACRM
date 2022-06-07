@@ -114,6 +114,8 @@ After work, I was able to get the user in the market of the last job that was pr
 ## Tuesday Jun 07 2022
 This morning I was able to render the user in the market and the market name after a user pre-screens. This is is a crucial step so that the job is assigned to a Service Advocate. Currently, jobs are not being assigned and jobs are being missed. This necessary step will solve this problem. Now that users in the market are rendering I have to program the ability of a user to assign the job to a SA in the market.
 
+During lunch, I was able to reach the database and update the jobs service advocate name so that it can be rendered back to the user. Next I will have to render all jobs back.
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022
