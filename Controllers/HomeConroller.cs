@@ -361,10 +361,19 @@ namespace KcPilot.Controllers
         [HttpPost("AssignUserToJobMethod")]
         public JsonResult AssignUserToJobMethod(Job UserInputData){
 
-            System.Console.WriteLine($"You have reach the backend to assign user to a job");
+            int LastJobPreScreen = (int)HttpContext.Session.GetInt32("IdOfLastJobPreScreens");
+            System.Console.WriteLine($"Assign SA to a job {UserInputData.ServiceAdvocateName}");
+            System.Console.WriteLine($"Last job prescreen {LastJobPreScreen}");
+
+            Job GetLastJobPreScreen = _context.Jobs
+                .FirstOrDefault(ljp => ljp.JobStatusId == LastJobPreScreen);
 
 
-            return Json(new { result = "Reach back end of assigning a user to a job"});
+            GetLastJobPreScreen.ServiceAdvocateName = UserInputData.ServiceAdvocateName;
+            _context.SaveChanges();
+
+
+            return Json(new { result = GetLastJobPreScreen});
         }
 
 

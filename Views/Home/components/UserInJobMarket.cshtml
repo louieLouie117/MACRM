@@ -16,7 +16,7 @@
 
                 $(`
                     <li>
-                        <button  onclick="AssignUserToJobHandler(event)">Assign</button>
+                        <button  onclick="AssignUserToJobHandler(event)" id="${v.firstName}.${v.lastName}">Assign</button>
                         <h2>${v.firstName} ${v.lastName}</h2>
                     </li>
 
@@ -26,11 +26,17 @@
         }
 
         const AssignUserToJobHandler = (e) => {
-            console.log("Assigned button was click");
+            console.log("Assigned button was click", e.target.id);
+
+            let jsonData ={
+                serviceAdvocateName: e.target.id,
+            };
+            console.log("JsonData Assigned user", jsonData);
+
             $.ajax({
             type: "Post",
             url: '@Url.Action("AssignUserToJobMethod", "Home")',
-            @* data: jsonData, *@
+            data: jsonData,
             @* success: UserInMarketSuccess, *@
         });
 
