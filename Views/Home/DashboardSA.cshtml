@@ -129,15 +129,35 @@
             return
         }
 
-
+        document.getElementById("DisplayJobData").style.display = "grid";
         $('#DisplayJobData').empty();
         $(`
-                    <div id="DisplayJobStatusColor${e.target.id}" class="JobStatusDotIcon">
-                    </div>
-                    <h2 id="DisplayJobStatus" onclick="JobStatusUpdateHandler(event)" ></h2>
 
-                    <h2 id="DisplayName"></h2>
+                <header>
+                    <aside>
+                        <div id="DisplayJobStatusColor${e.target.id}" class="JobStatusDotIcon"></div>
+                        <h2 id="DisplayJobStatus" onclick="JobStatusUpdateHandler(event)" ></h2>
+                    </aside>
                     <h2 id="DisplayServiceJobNumber"></h2>
+                </header>
+
+                <section>
+                    <h1>Service</h1>
+                    <h2 id="DisplayName"></h2>
+                </section>
+
+                <section>
+                    <h1>Parts</h1>
+                </section>
+
+                <section>
+                    <h1>Job Status History</h1>
+                </section>
+
+                <section>
+                    <h1>escalation Team</h1>
+                </section>
+
 
                 `).prependTo("#DisplayJobData");
 
@@ -203,7 +223,9 @@
         <main>
 
             @* <div id="JobContentContainer"> *@
-            <section id="DisplayJobData"></section>
+            <div class="DisplayJobData-Container" id="DisplayJobData">
+
+            </div>
             <partial name="components/JobStatusOptions" />
             @* </div> *@
 

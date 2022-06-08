@@ -275,7 +275,6 @@ namespace KcPilot.Controllers
         {
 
             HttpContext.Session.SetInt32("PreScreenJobSelectedInSession", UserInputData.JobStatusId);
-
             System.Console.WriteLine($"You have reach the backend of JobSelected!! {UserInputData.JobStatusId}");
 
 
@@ -302,8 +301,6 @@ namespace KcPilot.Controllers
         public JsonResult PreScreenJobMethod(Job UserInputData)
 
         {
-
-
             int UserIdInSession = (int)HttpContext.Session.GetInt32("UserId");
             UserInputData.UserId = UserIdInSession;
 
@@ -332,6 +329,7 @@ namespace KcPilot.Controllers
 
             List<Job> JobList = _context.Jobs
             .Where(ul => ul.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
             // JobID needs to go into session.
@@ -379,7 +377,6 @@ namespace KcPilot.Controllers
 
 
         [HttpGet("AllJobListMethod")]
-
         public JsonResult AllJobListMethod(Job UserInputData)
 
         {
@@ -388,14 +385,15 @@ namespace KcPilot.Controllers
             UserInputData.UserId = UserIdInSession;
 
             var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
-
             System.Console.WriteLine(UserMarketCodeInSession);
 
 
             System.Console.WriteLine("You have reached the back end of AllJobListMethod");
             List<Job> JobList = _context.Jobs
             .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
+
 
 
             return Json(new { Result = JobList });
@@ -405,7 +403,6 @@ namespace KcPilot.Controllers
 
 
         [HttpPost("RoleMethod")]
-
         public JsonResult RoleMethod(Role UserInputData)
         {
             System.Console.WriteLine($"You have reached the backend of role {UserInputData.Title}");
@@ -580,6 +577,7 @@ namespace KcPilot.Controllers
 
             List<Job> JobList = _context.Jobs
             .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
 
@@ -602,6 +600,7 @@ namespace KcPilot.Controllers
             List<Job> JobFilterList = _context.Jobs
             .Where(f => f.JobStatus == UserInputData.JobStatus)
             .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
             return Json(new {result = JobFilterList});
