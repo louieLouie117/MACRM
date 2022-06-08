@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User in the market</title>
     <script>
+
+        const AssignUserToJobHandlerSuccess = (result) =>{
+            console.log("User in market", result);
+            document.getElementById("UserInMarketContainer").style.display = "none"
+
+        };
         const RenderUserInMarket = (data) => {
             console.log("This is the user in market that will be reanding", data.result);
             $('#DisplayUserInMarket').empty();
@@ -23,7 +29,7 @@
 
                     `).prependTo("#DisplayUserInMarket");
             })
-        }
+        };
 
         const AssignUserToJobHandler = (e) => {
             console.log("Assigned button was click", e.target.id);
@@ -37,10 +43,10 @@
             type: "Post",
             url: '@Url.Action("AssignUserToJobMethod", "Home")',
             data: jsonData,
-            @* success: UserInMarketSuccess, *@
+            success: AssignUserToJobHandlerSuccess,
         });
 
-        }
+        };
 
     </script>
 </head>
