@@ -117,6 +117,10 @@ This morning I was able to render the user in the market and the market name aft
 During lunch, I was able to reach the database and update the jobs service advocate name so that it can be rendered back to the user. Next I will have to render all jobs back.
 
 
+## Wednesday Jun 08 2022
+This morning I was able to complete the behavior and logic of the assign user feature. SA user can now be assigned after pre-screening. This will increase productivity. I was also able to filter out any job that has a status of unassigned. 
+
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

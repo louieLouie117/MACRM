@@ -39,8 +39,16 @@ body{
 .Unassigned-Container>main ul{
     display: grid;
     row-gap: 10px;
+    overflow: scroll;
+    height: 87vh;
+    padding: 10px;
 
 }
+
+.Unassigned-Container>main ul li:last-of-type{
+    margin-bottom: 50px;
+}
+
 
 .Unassigned-Container>main ul li{
     display: grid;
@@ -165,9 +173,6 @@ body{
 
 }
 
-
-
-
 .AllJobs-Container>header ul {
     display: grid;
     /* row-gap: 10px; */
@@ -240,8 +245,6 @@ body{
     grid-column: 1/2;
     max-width: none;
     box-shadow: none;
-
-
 }
 
 .AllJobs-Container>header ul li main{
