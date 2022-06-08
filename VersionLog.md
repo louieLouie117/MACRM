@@ -118,7 +118,7 @@ During lunch, I was able to reach the database and update the jobs service advoc
 
 
 ## Wednesday Jun 08 2022
-This morning I was able to complete the behavior and logic of the assign user feature. SA user can now be assigned after pre-screening. This will increase productivity. I was also able to filter out any job that has a status of unassigned. 
+This morning, I completed the behavior and logic of the assigned user feature. SA users can now be assigned after pre-screening. This will increase productivity. I was also able to filter out any job that has a status of unassigned. Afterwork I was able to get the start coding the layout for where the job data will be displayed. Tomorrow I will working on the behavior.
 
 
 # Deployment || Amazon Server
