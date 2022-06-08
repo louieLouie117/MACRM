@@ -329,6 +329,7 @@ namespace KcPilot.Controllers
 
             List<Job> JobList = _context.Jobs
             .Where(ul => ul.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
             // JobID needs to go into session.
@@ -576,6 +577,7 @@ namespace KcPilot.Controllers
 
             List<Job> JobList = _context.Jobs
             .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
 
@@ -598,6 +600,7 @@ namespace KcPilot.Controllers
             List<Job> JobFilterList = _context.Jobs
             .Where(f => f.JobStatus == UserInputData.JobStatus)
             .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
             return Json(new {result = JobFilterList});

@@ -161,7 +161,7 @@ body{
     align-content: flex-start;
     background: white;
     /* padding: 0 40px; */
-    padding-left: 40px;
+    padding: 40px;
     padding-top: 20px;
     margin-left: 5px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.402);
@@ -169,8 +169,6 @@ body{
     margin-top: -35px;
     margin-left: -10px;
     
-
-
 }
 
 .AllJobs-Container>header ul {
@@ -414,3 +412,34 @@ body{
 }
 
 
+/* Main container for displaying all job info */
+.DisplayJobData-Container{
+    display: none;
+    row-gap: 10px;
+}
+
+.DisplayJobData-Container header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.DisplayJobData-Container header aside{
+    display:  flex;
+    align-items: center;
+    column-gap: 10px;
+    
+}
+
+.DisplayJobData-Container section{
+    padding: 20px;
+    border-radius: 7px;
+    border: solid rgba(211, 211, 211, 0.633) 2px;
+
+}
+
+.DisplayJobData-Container section:first-of-type{
+  height: 50vh;
+
+}
