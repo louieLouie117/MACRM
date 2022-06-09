@@ -107,3 +107,7 @@ button{
 
 }
 
+.Span2Columns{
+    grid-row: auto;
+    grid-column: 1/3;
+}

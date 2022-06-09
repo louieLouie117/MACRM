@@ -209,7 +209,12 @@ body{
     border: solid rgb(208, 206, 206) 1px;
 }
 
-.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar {
+.AllJobs-Container>header ul li main{
+    display: grid;
+    row-gap: 3px;
+}
+
+.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar, .DisplayJobData-Container section::-webkit-scrollbar {
     display: none;
     width: 0;
 }
@@ -432,14 +437,40 @@ body{
     
 }
 
+
+
 .DisplayJobData-Container section{
+    font: 1em sans-serif;
     padding: 20px;
     border-radius: 7px;
     border: solid rgba(211, 211, 211, 0.633) 2px;
+    overflow: scroll;
 
 }
 
 .DisplayJobData-Container section:first-of-type{
   height: 50vh;
+
+}
+.DisplayJobData-Container section h1{
+    cursor: pointer;
+}
+
+.DisplayJobData-Container section h2{
+    font: 1em sans-serif;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.DisplayJobData-Container section h3{
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+.Service-Container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: flex-start;
 
 }
