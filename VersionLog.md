@@ -121,6 +121,9 @@ During lunch, I was able to reach the database and update the jobs service advoc
 This morning, I completed the behavior and logic of the assigned user feature. SA users can now be assigned after pre-screening. This will increase productivity. I was also able to filter out any job that has a status of unassigned. Afterwork I was able to get the start coding the layout for where the job data will be displayed. Tomorrow I will working on the behavior.
 
 
+## Thursday Jun 09 2022
+This morning I was able to get the new layout for reading all the job information completed. The focus was to make it readable so that the user could quickly get to the data needed. The project is now ready for testing.
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.
