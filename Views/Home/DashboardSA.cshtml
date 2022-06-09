@@ -114,34 +114,68 @@
 
         if (e.target.id === "ServiceSection") {
             document.getElementById("ServiceContainer").style.height = "50vh";
+
             document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSectionP").style.display = "none";
+
+
             document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySectionP").style.display = "none";
+
+
             document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSectionP").style.display = "none";
+
+            return
 
         }
 
         if (e.target.id === "PartsSection") {
             document.getElementById("ServiceContainer").style.height = "25px";
+
             document.getElementById("PartsSection").style.height = "50vh";
+            document.getElementById("PartsSectionP").style.display = "block";
+
             document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySectionP").style.display = "none";
+
             document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSectionP").style.display = "none";
+            return
+
 
         }
 
 
         if (e.target.id === "StatusHistorySection") {
             document.getElementById("ServiceContainer").style.height = "25px";
+
             document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSectionP").style.display = "none";
+
             document.getElementById("StatusHistorySection").style.height = "50vh";
+            document.getElementById("StatusHistorySectionP").style.display = "block";
+
             document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSectionP").style.display = "none";
+
+            return
 
         }
 
         if (e.target.id === "EscalationSection") {
             document.getElementById("ServiceContainer").style.height = "25px";
+
             document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSectionP").style.display = "none";
+
             document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySectionP").style.display = "none";
+
             document.getElementById("EscalationSection").style.height = "50vh";
+            document.getElementById("EscalationSectionP").style.display = "block";
+
+            return
 
         }
     }
@@ -203,18 +237,18 @@
 
                 <section>
                     <h1  id="PartsSection" onclick="SelectedSectionHandler(event)">Parts</h1>
-                    <p>render parts data related to the SNWQ or 416 number</p>
+                    <p id="PartsSectionP" class="hidden">render parts data related to the SNWQ or 416 number</p>
                 </section>
 
                 <section>
                     <h1  id="StatusHistorySection" onclick="SelectedSectionHandler(event)">Status History</h1>
-                    <p>render job status history data related to the SNWQ</p>
+                    <p id="StatusHistorySectionP" class="hidden">render job status history data related to the SNWQ</p>
 
                 </section>
 
                 <section>
                     <h1  id="EscalationSection" onclick="SelectedSectionHandler(event)">Escalation Team</h1>
-                    <p>render escalation status data related to the SNWQ</p>
+                    <p id="EscalationSectionP" class="hidden">render escalation status data related to the SNWQ</p>
                 </section>
 
 
