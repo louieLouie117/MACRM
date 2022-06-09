@@ -43,11 +43,11 @@
                     <h2 id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
 
                     <h2 id="SelectedName${v.jobStatusId}"> ${v.name}</h2>
+                    <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
                     <h2 id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
 
                     <h2 id="SelectedServicesAdvocate${v.jobStatusId}"> ${v.serviceAdvocateName}</h2>
 
-                    <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
                     <h2 class="hidden" id="SelectedAptDate${v.jobStatusId}"> ${v.appointmentDay}</h2>
                     <h2 class="hidden" id="SelectedAptWindow${v.jobStatusId}"> ${v.appointmentWindow}</h2>
 
@@ -109,6 +109,43 @@
         return
     }
 
+    const SelectedSectionHandler = (e) => {
+        console.log(e.target.id);
+
+        if (e.target.id === "ServiceSection") {
+            document.getElementById("ServiceContainer").style.height = "50vh";
+            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "25px";
+
+        }
+
+        if (e.target.id === "PartsSection") {
+            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "50vh";
+            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "25px";
+
+        }
+
+
+        if (e.target.id === "StatusHistorySection") {
+            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "50vh";
+            document.getElementById("EscalationSection").style.height = "25px";
+
+        }
+
+        if (e.target.id === "EscalationSection") {
+            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "50vh";
+
+        }
+    }
+
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
@@ -150,7 +187,7 @@
                 </header>
 
                 <section class="Service-Container" id="ServiceContainer">
-                    <h1 class="Span2Columns">Service</h1>
+                    <h1 class="Span2Columns" id="ServiceSection" onclick="SelectedSectionHandler(event)">Service</h1>
 
                     <h2 class="Span2Columns">Customer</h2>
                     <h3 id="DisplayName"></h3>
@@ -165,15 +202,19 @@
                 </section>
 
                 <section>
-                    <h1>Parts</h1>
+                    <h1  id="PartsSection" onclick="SelectedSectionHandler(event)">Parts</h1>
+                    <p>render parts data related to the SNWQ or 416 number</p>
                 </section>
 
                 <section>
-                    <h1>Status History</h1>
+                    <h1  id="StatusHistorySection" onclick="SelectedSectionHandler(event)">Status History</h1>
+                    <p>render job status history data related to the SNWQ</p>
+
                 </section>
 
                 <section>
-                    <h1>Escalation Team</h1>
+                    <h1  id="EscalationSection" onclick="SelectedSectionHandler(event)">Escalation Team</h1>
+                    <p>render escalation status data related to the SNWQ</p>
                 </section>
 
 
