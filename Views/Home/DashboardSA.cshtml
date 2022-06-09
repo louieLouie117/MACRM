@@ -16,6 +16,7 @@
 
     });
 
+
     const NewJobMethodSuccess = (result) => {
         console.log("call back result", result);
         RenderNewJobResult(result);
@@ -39,11 +40,18 @@
                     <h1 id="SelectedJobStatus${v.jobStatusId}">${v.jobStatus}</h1>
                 </header>
                 <main>
-                    <h2 id="SelectedName${v.jobStatusId}"> ${v.name}</h2>
-                    <h2 id="${v.jobStatusId}"> ${v.phoneNumber}</h2>
-                    <h2 id="${v.jobStatusId}"> ${v.address}</h2>
                     <h2 id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
-                    <h2 id="${v.jobStatusId}"> ${v.serviceAdvocateName}</h2>
+
+                    <h2 id="SelectedName${v.jobStatusId}"> ${v.name}</h2>
+                    <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
+                    <h2 id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
+
+                    <h2 id="SelectedServicesAdvocate${v.jobStatusId}"> ${v.serviceAdvocateName}</h2>
+
+                    <h2 class="hidden" id="SelectedAptDate${v.jobStatusId}"> ${v.appointmentDay}</h2>
+                    <h2 class="hidden" id="SelectedAptWindow${v.jobStatusId}"> ${v.appointmentWindow}</h2>
+
+                <h2 class="hidden" id="SelectedSpecialInstructions${v.jobStatusId}"> ${v.specialInstructions}</h2>
 
 
                 </main>
@@ -101,6 +109,77 @@
         return
     }
 
+    const SelectedSectionHandler = (e) => {
+        console.log(e.target.id);
+
+        if (e.target.id === "ServiceSection") {
+            document.getElementById("ServiceContainer").style.height = "50vh";
+
+            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSectionP").style.display = "none";
+
+
+            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySectionP").style.display = "none";
+
+
+            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSectionP").style.display = "none";
+
+            return
+
+        }
+
+        if (e.target.id === "PartsSection") {
+            document.getElementById("ServiceContainer").style.height = "25px";
+
+            document.getElementById("PartsSection").style.height = "50vh";
+            document.getElementById("PartsSectionP").style.display = "block";
+
+            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySectionP").style.display = "none";
+
+            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSectionP").style.display = "none";
+            return
+
+
+        }
+
+
+        if (e.target.id === "StatusHistorySection") {
+            document.getElementById("ServiceContainer").style.height = "25px";
+
+            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSectionP").style.display = "none";
+
+            document.getElementById("StatusHistorySection").style.height = "50vh";
+            document.getElementById("StatusHistorySectionP").style.display = "block";
+
+            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSectionP").style.display = "none";
+
+            return
+
+        }
+
+        if (e.target.id === "EscalationSection") {
+            document.getElementById("ServiceContainer").style.height = "25px";
+
+            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSectionP").style.display = "none";
+
+            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySectionP").style.display = "none";
+
+            document.getElementById("EscalationSection").style.height = "50vh";
+            document.getElementById("EscalationSectionP").style.display = "block";
+
+            return
+
+        }
+    }
+
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
@@ -141,21 +220,35 @@
                     <h2 id="DisplayServiceJobNumber"></h2>
                 </header>
 
-                <section>
-                    <h1>Service</h1>
-                    <h2 id="DisplayName"></h2>
+                <section class="Service-Container" id="ServiceContainer">
+                    <h1 class="Span2Columns" id="ServiceSection" onclick="SelectedSectionHandler(event)">Service</h1>
+
+                    <h2 class="Span2Columns">Customer</h2>
+                    <h3 id="DisplayName"></h3>
+                    <h3 id="DisplayPhoneNumber"></h3>
+
+                    <h3 class="Span2Columns" id="DisplayAddress"></h3>
+                    <h3 id="DisplayAptDate"></h3>
+                    <h3 id="DisplayAptTime"></h3>
+
+                    <h2 class="Span2Columns">Special Instructions</h2>
+                    <textarea id="DisplaySpecialInstructions" class="Span2Columns" cols="30" rows="10"></textarea>
                 </section>
 
                 <section>
-                    <h1>Parts</h1>
+                    <h1  id="PartsSection" onclick="SelectedSectionHandler(event)">Parts</h1>
+                    <p id="PartsSectionP" class="hidden">render parts data related to the SNWQ or 416 number</p>
                 </section>
 
                 <section>
-                    <h1>Job Status History</h1>
+                    <h1  id="StatusHistorySection" onclick="SelectedSectionHandler(event)">Status History</h1>
+                    <p id="StatusHistorySectionP" class="hidden">render job status history data related to the SNWQ</p>
+
                 </section>
 
                 <section>
-                    <h1>escalation Team</h1>
+                    <h1  id="EscalationSection" onclick="SelectedSectionHandler(event)">Escalation Team</h1>
+                    <p id="EscalationSectionP" class="hidden">render escalation status data related to the SNWQ</p>
                 </section>
 
 
@@ -172,7 +265,19 @@
 
 
         document.getElementById("DisplayName").innerText = document.getElementById("SelectedName" + e.target.id).innerText;
-        document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById("SelectedServiceJobNumber" + e.target.id).innerText;
+
+        document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById
+            ("SelectedServiceJobNumber" + e.target.id).innerText;
+
+        document.getElementById("DisplayPhoneNumber").innerText = document.getElementById("SelectedPhoneNumber" + e.target.id).innerText;
+
+        document.getElementById("DisplayAddress").innerText = document.getElementById("SelectedAddress" + e.target.id).innerText;
+
+        document.getElementById("DisplayAptDate").innerText = document.getElementById("SelectedAptDate" + e.target.id).innerText;
+        document.getElementById("DisplayAptTime").innerText = document.getElementById("SelectedAptWindow" + e.target.id).innerText;
+
+        document.getElementById("DisplaySpecialInstructions").innerText = document.getElementById("SelectedSpecialInstructions" + e.target.id).innerText;
+
 
 
         document.getElementById("CommentBox").style.display = "block";
