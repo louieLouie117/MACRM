@@ -8,7 +8,7 @@
     <title>User in the market</title>
     <script>
 
-        const AssignUserToJobHandlerSuccess = (result) =>{
+        const AssignUserToJobHandlerSuccess = (result) => {
             console.log("User in market", result);
             document.getElementById("UserInMarketContainer").style.display = "none"
 
@@ -22,8 +22,8 @@
 
                 $(`
                     <li>
-                        <button  onclick="AssignUserToJobHandler(event)" id="${v.firstName}.${v.lastName}">Assign</button>
-                        <h2>${v.firstName} ${v.lastName}</h2>
+                        <button  onclick="AssignUserToJobHandler(event)" id="${v.userId}">Assign</button>
+                        <h2 id="${v.userId}AssignedUserName">${v.firstName} ${v.lastName}</h2>
                     </li>
 
 
@@ -32,19 +32,24 @@
         };
 
         const AssignUserToJobHandler = (e) => {
-            console.log("Assigned button was click", e.target.id);
+            console.log("Assigned user id", e.target.id);
 
-            let jsonData ={
-                serviceAdvocateName: e.target.id,
+            let AssignedUserName = document.getElementById(e.target.id + "AssignedUserName").innerText;
+            console.log("Assigned user name", AssignedUserName);
+
+
+            let jsonData = {
+                userId: e.target.id,
+                serviceAdvocateName: AssignedUserName,
             };
             console.log("JsonData Assigned user", jsonData);
 
             $.ajax({
-            type: "Post",
-            url: '@Url.Action("AssignUserToJobMethod", "Home")',
-            data: jsonData,
-            success: AssignUserToJobHandlerSuccess,
-        });
+                type: "Post",
+                url: '@Url.Action("AssignUserToJobMethod", "Home")',
+                data: jsonData,
+                success: AssignUserToJobHandlerSuccess,
+            });
 
         };
 
