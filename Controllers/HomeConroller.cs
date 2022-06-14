@@ -360,14 +360,18 @@ namespace KcPilot.Controllers
         public JsonResult AssignUserToJobMethod(Job UserInputData){
 
             int LastJobPreScreen = (int)HttpContext.Session.GetInt32("IdOfLastJobPreScreens");
-            System.Console.WriteLine($"Assign SA to a job {UserInputData.ServiceAdvocateName}");
+            System.Console.WriteLine($"Assign SA id{UserInputData.UserId}");
+            System.Console.WriteLine($"Assign SA name  {UserInputData.ServiceAdvocateName}");
             System.Console.WriteLine($"Last job prescreen {LastJobPreScreen}");
+
+            // var UserIdSelected = Int32.Parse(UserInputData.UserId);
 
             Job GetLastJobPreScreen = _context.Jobs
                 .FirstOrDefault(ljp => ljp.JobStatusId == LastJobPreScreen);
 
-
+            GetLastJobPreScreen.UserId = UserInputData.UserId;
             GetLastJobPreScreen.ServiceAdvocateName = UserInputData.ServiceAdvocateName;
+
             _context.SaveChanges();
 
 
@@ -387,11 +391,16 @@ namespace KcPilot.Controllers
             var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
             System.Console.WriteLine(UserMarketCodeInSession);
 
+            var UserNameInSession = HttpContext.Session.GetString("UserInSeesion");
+
+            System.Console.WriteLine($"This is the user in session", UserNameInSession);
+
 
             System.Console.WriteLine("You have reached the back end of AllJobListMethod");
             List<Job> JobList = _context.Jobs
             .Where(um => um.MarketCode == UserMarketCodeInSession)
             .Where(st => st.JobStatus != "unassigned")
+            .Where(us => us.UserId == UserIdInSession)
             .ToList();
 
 

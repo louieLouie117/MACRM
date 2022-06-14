@@ -124,6 +124,9 @@ This morning, I completed the behavior and logic of the assigned user feature. S
 ## Thursday Jun 09 2022
 This morning I was able to get the new layout for reading all the job information completed. The focus was to make it readable so that the user could quickly get to the data needed. The project is now ready for testing.
 
+## Tuesday Jun 14 2022
+This morning I started working on a feature that would assign a user after prescreen. After work, I was able to complete this feature. A user of the market can now be assigned after prescreening. This will help the scheduler never forget to assign SA to a job. 
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.
