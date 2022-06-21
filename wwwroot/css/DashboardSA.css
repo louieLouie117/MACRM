@@ -22,10 +22,36 @@ body{
     margin: 30px 30px 0px 30px;
     padding: 20px 40px;
     border-radius: 10px 10px  0 0;
+    overflow: scroll;
+
 }
 
 .hidden{
     display: none;
+}
+
+.PreOptions{
+    grid-template-rows: 50px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    row-gap: 10px;
+    height: 100vh;
+}
+
+.PreOptions aside{
+    display: grid;
+}
+
+.PreOptions aside p{
+    font: 1.3em sans-serif;
+}
+
+.PreOptions aside div button{
+    background: white;
+    width: 100px;
+    box-shadow: none;
+    border: solid grey 1px;
 }
 
 

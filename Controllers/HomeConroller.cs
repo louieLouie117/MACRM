@@ -587,6 +587,7 @@ namespace KcPilot.Controllers
             List<Job> JobList = _context.Jobs
             .Where(um => um.MarketCode == UserMarketCodeInSession)
             .Where(st => st.JobStatus != "unassigned")
+            .Where(us => us.UserId == UserIdInSession)
             .ToList();
 
 
@@ -601,7 +602,7 @@ namespace KcPilot.Controllers
             System.Console.WriteLine($"reach backend of filter {UserInputData.JobStatus}");
 
             // Session
-            // int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            int UserLoggedIn = (int)HttpContext.Session.GetInt32("UserId");
             var UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
 
 
@@ -609,6 +610,7 @@ namespace KcPilot.Controllers
             List<Job> JobFilterList = _context.Jobs
             .Where(f => f.JobStatus == UserInputData.JobStatus)
             .Where(um => um.MarketCode == UserMarketCodeInSession)
+            .Where(us => us.UserId == UserLoggedIn)
             .Where(st => st.JobStatus != "unassigned")
             .ToList();
 
