@@ -125,7 +125,18 @@ This morning, I completed the behavior and logic of the assigned user feature. S
 This morning I was able to get the new layout for reading all the job information completed. The focus was to make it readable so that the user could quickly get to the data needed. The project is now ready for testing.
 
 ## Tuesday Jun 14 2022
-This morning I started working on a feature that would assign a user after prescreen. After work, I was able to complete this feature. A user of the market can now be assigned after prescreening. This will help the scheduler never forget to assign SA to a job. 
+This morning I started working on a feature that would assign a user after prescreen. After work, I was able to complete this feature. A user of the market can now be assigned after prescreening. This will help the scheduler never forget to assign SA to a job.
+
+## Thursday Jun 23 2022 || Geo location and Search box
+I  can not explain how happy I am this morning. I got the search box to render an address a user enters. The search feature will allow the user to see where an address is relevant to other jobs visually. I also got the geolocation working. With the geolocation, we will be able to see the exact location of where the tech is.
+
+
+## Thursday Jun 23 2022 || Render Multiple Markers
+This morning was an incredible moment. I got multiple addresses to render on the Google Maps API. Being able to render various addresses will all us to visually display the jobs running the day of the apt. I am overwhelmed with happiness to see this feature come to fruition. All the code is on a testing repository and can not wait to implement this on the application.
+
+## Thursday Jun 30 2022 || Covert text format and Render Multiple Markers
+Today at lunch, I was able to finish developing the converter algorithm. With this algorithm, I can take a textual value address and convert it to longitude and latitude coordinates. After work, I create the algorithm that renders all the address's to the map. The code is currently in another repository, and I must bring the code to the application. Today was a fantastic day and a perfect way to end the month.
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022
