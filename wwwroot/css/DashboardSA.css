@@ -22,10 +22,36 @@ body{
     margin: 30px 30px 0px 30px;
     padding: 20px 40px;
     border-radius: 10px 10px  0 0;
+    overflow: scroll;
+
 }
 
 .hidden{
     display: none;
+}
+
+.PreOptions{
+    grid-template-rows: 50px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    row-gap: 10px;
+    height: 100vh;
+}
+
+.PreOptions aside{
+    display: grid;
+}
+
+.PreOptions aside p{
+    font: 1.3em sans-serif;
+}
+
+.PreOptions aside div button{
+    background: white;
+    width: 100px;
+    box-shadow: none;
+    border: solid grey 1px;
 }
 
 
@@ -157,6 +183,8 @@ body{
 
 .AllJobs-Container>main{
     display: grid;
+    height: 100vh;
+    overflow: scroll;
     row-gap: 5px;
     align-content: flex-start;
     background: white;
@@ -211,13 +239,15 @@ body{
 
 .AllJobs-Container>header ul li main{
     display: grid;
-    row-gap: 3px;
+    row-gap: 7px;
+    align-content: flex-start;
 }
 
-.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar, .DisplayJobData-Container section::-webkit-scrollbar {
+.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar, .DisplayJobData-Container section::-webkit-scrollbar, .AllJobs-Container>main::-webkit-scrollbar{
     display: none;
     width: 0;
 }
+
 
 
 .JobStatusDotIcon{
@@ -448,7 +478,7 @@ body{
 }
 
 .DisplayJobData-Container section:first-of-type{
-  height: 50vh;
+  height: 70vh;
 
 }
 .DisplayJobData-Container section h1{
