@@ -183,6 +183,12 @@
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
+        document.getElementById("mapMain").style.display = "none";
+        document.getElementById("JobMainInfo").style.display = "grid";
+        document.getElementById("JobCommitsContainer").style.display = "grid";
+
+
+
 
         CardClickedHandler(e.target.id);
 
@@ -345,12 +351,12 @@
             <partial name="components/JobStatusOptions" />
             @* </div> *@
 
+            <partial name="components/JobComments" />
 
         </main>
         <partial name="components/map" />
 
         <partial name="components/JobStatusFilter" />
-        <partial name="components/JobComments" />
         <partial name="components/UserInJobMarket" />
 
     </div>
