@@ -138,9 +138,8 @@ This morning was an incredible moment. I got multiple addresses to render on the
 Today at lunch, I was able to finish developing the converter algorithm. With this algorithm, I can take a textual value address and convert it to longitude and latitude coordinates. After work, I create the algorithm that renders all the address's to the map. The code is currently in another repository, and I must bring the code to the application. Today was a fantastic day and a perfect way to end the month.
 
 
-## Tuesday July 06 2022 || Map component and Behavior    
-
-
+## Tuesday July 06 2022 || Map component, Map Behavior, and Map Rendering
+Today marker a great day of accomplishment. I was able all the code that I have programed to render the map within the app. User can now use the map and search address. I am excited on the progress and how the app is coming along. 
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

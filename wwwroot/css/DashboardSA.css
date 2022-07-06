@@ -505,3 +505,18 @@ body{
     align-content: flex-start;
 
 }
+
+
+.map-container{
+    grid-row: auto;
+    grid-column: 1/3;
+}
+
+.map-container form {
+    display: flex;
+}
+
+#map {
+    height: 85vh;
+    width: 100%;
+}
