@@ -183,6 +183,12 @@
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
+        document.getElementById("mapMain").style.display = "none";
+        document.getElementById("JobMainInfo").style.display = "grid";
+        document.getElementById("JobCommitsContainer").style.display = "grid";
+
+
+
 
         CardClickedHandler(e.target.id);
 
@@ -322,6 +328,8 @@
     <nav class="NavOptions-Container">
         <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
         <button onclick="GetFiltertHandler(event)">Filter</button>
+        <button onclick="MapHandler(event)">Map</button>
+
 
     </nav>
 
@@ -334,7 +342,7 @@
 
         </header>
 
-        <main>
+        <main id="JobMainInfo">
 
             @* <div id="JobContentContainer"> *@
             <div class="DisplayJobData-Container" id="DisplayJobData">
@@ -343,10 +351,12 @@
             <partial name="components/JobStatusOptions" />
             @* </div> *@
 
+            <partial name="components/JobComments" />
 
         </main>
+        <partial name="components/map" />
+
         <partial name="components/JobStatusFilter" />
-        <partial name="components/JobComments" />
         <partial name="components/UserInJobMarket" />
 
     </div>

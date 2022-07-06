@@ -23,3 +23,11 @@ const InWarrantyHandler = (e)=>{
     
     
 };
+
+const MapHandler =(e)=>{
+    document.getElementById("JobMainInfo").style.display = "none";
+    document.getElementById("JobCommitsContainer").style.display = "none";
+    document.getElementById("mapMain").style.display = "grid";
+    
+
+}

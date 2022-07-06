@@ -173,7 +173,7 @@ body{
 
 .AllJobs-Container{
     display: grid;
-    grid-template-columns: 24em 2fr 1.1fr;
+    grid-template-columns: 24em 1fr;
 }
 
 
@@ -183,6 +183,8 @@ body{
 
 .AllJobs-Container>main{
     display: grid;
+    grid-template-columns: 1fr .5fr;
+    column-gap: 20px;
     height: 100vh;
     overflow: scroll;
     row-gap: 5px;
@@ -318,21 +320,21 @@ body{
 
 
 
-.AllJobs-Container>aside form textarea{
+#JobCommitsContainer form textarea{
     height: 20px;
     align-self: flex-start;
     padding: 7px;
     display: none;
 }
 
-.AllJobs-Container>aside form footer{
+#JobCommitsContainer form footer{
     display: flex;
     column-gap: 3px;
   
 }
 
 
-.AllJobs-Container>aside form footer button:first-of-type {
+#JobCommitsContainer form footer button:first-of-type {
     color: #1c8c9b;
     /* background: linear-gradient(to right, #9062AF,#1C8C9B); */
     width: 120px;
@@ -341,13 +343,13 @@ body{
     color: white;
 }
 
-.AllJobs-Container>aside form footer button:last-of-type{
+#JobCommitsContainer form footer button:last-of-type{
     background: none;
     box-shadow: none;
     color: gray;
 }
 
-.AllJobs-Container>aside ul {
+#JobCommitsContainer ul {
     display: grid;
     row-gap: 3px;
     align-content: flex-start;
@@ -358,7 +360,7 @@ body{
     height: 85vh;
 }
 
-.AllJobs-Container>aside ul li{
+#JobCommitsContainer ul li{
     background: white;
     padding-bottom: 20px;
     /* min-height: 150px;
@@ -367,32 +369,32 @@ body{
 
 }
 
-.AllJobs-Container>aside ul li header{
+#JobCommitsContainer ul li header{
     border-bottom: solid 1px rgb(144, 144, 144);
     margin-bottom: 5px;
 }
-.AllJobs-Container>aside ul li header h1{
+#JobCommitsContainer ul li header h1{
     font: 1em sans-serif;
     color: black;
     /* text-decoration: underline; */
 }
-.AllJobs-Container>aside ul li main{
+#JobCommitsContainer ul li main{
     row-gap: 3px;
 }
 
-.AllJobs-Container>aside ul li main p{
+#JobCommitsContainer ul li main p{
     font: 1em sans-serif;
     line-height: 20px;
 }
 
-.AllJobs-Container>aside ul li main i{
+#JobCommitsContainer ul li main i{
     font: .8em sans-serif;
     cursor: pointer;
     color: grey;
     
 }
 
-.AllJobs-Container>aside ul li footer h1{
+#JobCommitsContainer ul li footer h1{
     font: 1em sans-serif;
     font-weight: 100;
 }
