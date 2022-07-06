@@ -322,6 +322,8 @@
     <nav class="NavOptions-Container">
         <button onclick="GetUnassignedListHandler(event)">Unassigned</button>
         <button onclick="GetFiltertHandler(event)">Filter</button>
+        <button onclick="MapHandler(event)">Map</button>
+
 
     </nav>
 
@@ -334,7 +336,7 @@
 
         </header>
 
-        <main>
+        <main id="JobMainInfo">
 
             @* <div id="JobContentContainer"> *@
             <div class="DisplayJobData-Container" id="DisplayJobData">
@@ -345,6 +347,8 @@
 
 
         </main>
+        <partial name="components/map" />
+
         <partial name="components/JobStatusFilter" />
         <partial name="components/JobComments" />
         <partial name="components/UserInJobMarket" />
