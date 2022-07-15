@@ -53,8 +53,8 @@
                     <h2 class="hidden" id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
 
                     <sectino>
-                        <h2 id="SelectedServicesAdvocate${v.jobStatusId}">SA: <a href=""> ${v.serviceAdvocateName}</a></h2>
-                        <h2 id="SelectedTechName${v.jobStatusId}">Tech: <a href=""> ${v.techName} </a></h2>
+                        <h2 id="SelectedServicesAdvocate${v.jobStatusId}">SA: ${v.serviceAdvocateName}</h2>
+                        <h2 id="SelectedTechName${v.jobStatusId}">Tech: ${v.techName} </h2>
 
                     </sectino>
 
@@ -123,17 +123,17 @@
         console.log(e.target.id);
 
         if (e.target.id === "ServiceSection") {
-            document.getElementById("ServiceContainer").style.height = "50vh";
+            document.getElementById("ServiceContainer").style.height = "70vh";
 
-            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "30px";
             document.getElementById("PartsSectionP").style.display = "none";
 
 
-            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "30px";
             document.getElementById("StatusHistorySectionP").style.display = "none";
 
 
-            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "30px";
             document.getElementById("EscalationSectionP").style.display = "none";
 
             return
@@ -141,15 +141,15 @@
         }
 
         if (e.target.id === "PartsSection") {
-            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("ServiceContainer").style.height = "30px";
 
             document.getElementById("PartsSection").style.height = "70vh";
             document.getElementById("PartsSectionP").style.display = "block";
 
-            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "30px";
             document.getElementById("StatusHistorySectionP").style.display = "none";
 
-            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "30px";
             document.getElementById("EscalationSectionP").style.display = "none";
             return
 
@@ -158,15 +158,15 @@
 
 
         if (e.target.id === "StatusHistorySection") {
-            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("ServiceContainer").style.height = "30px";
 
-            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "30px";
             document.getElementById("PartsSectionP").style.display = "none";
 
             document.getElementById("StatusHistorySection").style.height = "70vh";
             document.getElementById("StatusHistorySectionP").style.display = "block";
 
-            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "30px";
             document.getElementById("EscalationSectionP").style.display = "none";
 
             return
@@ -174,12 +174,12 @@
         }
 
         if (e.target.id === "EscalationSection") {
-            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("ServiceContainer").style.height = "30px";
 
-            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "30px";
             document.getElementById("PartsSectionP").style.display = "none";
 
-            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "30px";
             document.getElementById("StatusHistorySectionP").style.display = "none";
 
             document.getElementById("EscalationSection").style.height = "70vh";
@@ -235,54 +235,62 @@
                     </aside>
                 </header>
 
-                <section class="Service-Container" id="ServiceContainer">
-                    <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Service</h1>
-                    <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Accepted</h1>
-
-                    <header  class="Span2Columns">
-                        <h2>Customer</h2>
-                        <button>edit</button>
-                    </header>
-                    <h3 id="DisplayName"></h3>
-                    <h3 id="DisplayPhoneNumber"></h3>
-                    <h3 class="Span2Columns" id="DisplayAddress"></h3>
-
-                     <header  class="Span2Columns">
-                        <h2>Appoiment Details</h2>
-                        <button>edit</button>
+                <main class="Service-Container" id="ServiceContainer">
+                    <header>
+                        <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Service Accepted</h1>
                     </header>
 
-                    <h3 id="DisplayAptDate"></h3>
-                    <h3 id="DisplayAptTime"></h3>
+                    <section>
+                        <header  class="Span2Columns">
+                            <h2>Customer</h2>
+                            <button>edit</button>
+                        </header>
+                        <h3 id="DisplayName"></h3>
+                        <h3 id="DisplayPhoneNumber"></h3>
+                        <h3 class="Span2Columns" id="DisplayAddress"></h3>
+                    </section>
 
-                     <header  class="Span2Columns">
-                        <h2>Job Details</h2>
-                        <button>edit</button>
-                    </header>
-                    <h3>In Warrnty</h3>
-                    <h3>41687923</h3>
-                    <h3 id="DisplayServiceJobNumber"></h3>
+                    <section>
+                        <header  class="Span2Columns">
+                            <h2>Appoiment Details</h2>
+                            <button>edit</button>
+                        </header>
 
+                        <h3 id="DisplayAptDate"></h3>
+                        <h3 id="DisplayAptTime"></h3>
+                    </section>
 
-                    <h2 class="Span2Columns">Special Instructions</h2>
-                    <textarea id="DisplaySpecialInstructions" class="Span2Columns" cols="30" rows="10"></textarea>
-                </section>
+                    <section>
+                        <header class="Span2Columns">
+                            <h2>Job Details</h2>
+                            <button>edit</button>
+                        </header>
+                        <h3>In Warrnty</h3>
+                        <h3>41687923</h3>
+                        <h3 id="DisplayServiceJobNumber"></h3>
+                    </section>
 
-                <section>
+                    <section>
+                        <h2 class="Span2Columns">Special Instructions</h2>
+                        <textarea id="DisplaySpecialInstructions" class="Span2Columns" cols="30" rows="10"></textarea>
+                    </section>
+                </main>
+
+                <main>
                     <h1  id="PartsSection" onclick="SelectedSectionHandler(event)">Parts</h1>
                     <p id="PartsSectionP" class="hidden">render parts data related to the SNWQ or 416 number</p>
-                </section>
+                </main>
 
-                <section>
+                <main>
                     <h1  id="StatusHistorySection" onclick="SelectedSectionHandler(event)">Status History</h1>
                     <p id="StatusHistorySectionP" class="hidden">render job status history data related to the SNWQ</p>
 
-                </section>
+                </main>
 
-                <section>
+                <main>
                     <h1  id="EscalationSection" onclick="SelectedSectionHandler(event)">Escalation Team</h1>
                     <p id="EscalationSectionP" class="hidden">render escalation status data related to the SNWQ</p>
-                </section>
+                </main>
 
 
                 `).prependTo("#DisplayJobData");
