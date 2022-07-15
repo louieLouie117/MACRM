@@ -33,7 +33,7 @@
             console.log(i, v.name);
 
             $(`
-            <li id="CardItemContainer${v.jobStatusId}">
+            <li id="CardItemContainer${v.jobStatusId}" class="JobCardItem-Container">
                 <header>
                     <div class="JobStatusDotIcon" style="background-color: #${v.jobStatusColor};"></div>
                     <p  id="SelectedJobStatusColor${v.jobStatusId}">${v.jobStatusColor}</p>
@@ -42,11 +42,20 @@
                 <main>
                     <h2 class="hidden" id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
 
-                    <h2 id="SelectedName${v.jobStatusId}"> ${v.name}</h2>
-                    <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
-                    <h2 id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
+                    <sectino>
+                        <h1 id="SelectedName${v.jobStatusId}">${v.name}</h1>
+                        <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
+                        <h2 id="SelectedProductLine${v.jobStatusId}"> ${v.productLine} - ${v.serviceStatus}</h2>
 
-                    <h2 id="SelectedServicesAdvocate${v.jobStatusId}">Assigned to: ${v.serviceAdvocateName}</h2>
+                    </sectino>
+
+                    <h2 class="hidden" id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
+
+                    <sectino>
+                        <h2 id="SelectedServicesAdvocate${v.jobStatusId}">SA: ${v.serviceAdvocateName}</h2>
+                        <h2 id="SelectedTechName${v.jobStatusId}">Tech: ${v.techName} </h2>
+
+                    </sectino>
 
                     <h2 class="hidden" id="SelectedAptDate${v.jobStatusId}"> ${v.appointmentDay}</h2>
                     <h2 class="hidden" id="SelectedAptWindow${v.jobStatusId}"> ${v.appointmentWindow}</h2>
@@ -94,7 +103,7 @@
 
         document.cookie = "lastcardSelected" + "=" + ItemSelected + ";";
 
-        document.getElementById("CardItemContainer" + lastcardSelected).style.width = "300px";
+        document.getElementById("CardItemContainer" + lastcardSelected).style.width = "250px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + lastcardSelected).style.borderRadius = "0px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".3s";
@@ -113,17 +122,17 @@
         console.log(e.target.id);
 
         if (e.target.id === "ServiceSection") {
-            document.getElementById("ServiceContainer").style.height = "50vh";
+            document.getElementById("ServiceContainer").style.height = "70vh";
 
-            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "30px";
             document.getElementById("PartsSectionP").style.display = "none";
 
 
-            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "30px";
             document.getElementById("StatusHistorySectionP").style.display = "none";
 
 
-            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "30px";
             document.getElementById("EscalationSectionP").style.display = "none";
 
             return
@@ -131,15 +140,15 @@
         }
 
         if (e.target.id === "PartsSection") {
-            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("ServiceContainer").style.height = "30px";
 
             document.getElementById("PartsSection").style.height = "70vh";
             document.getElementById("PartsSectionP").style.display = "block";
 
-            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "30px";
             document.getElementById("StatusHistorySectionP").style.display = "none";
 
-            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "30px";
             document.getElementById("EscalationSectionP").style.display = "none";
             return
 
@@ -148,15 +157,15 @@
 
 
         if (e.target.id === "StatusHistorySection") {
-            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("ServiceContainer").style.height = "30px";
 
-            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "30px";
             document.getElementById("PartsSectionP").style.display = "none";
 
             document.getElementById("StatusHistorySection").style.height = "70vh";
             document.getElementById("StatusHistorySectionP").style.display = "block";
 
-            document.getElementById("EscalationSection").style.height = "25px";
+            document.getElementById("EscalationSection").style.height = "30px";
             document.getElementById("EscalationSectionP").style.display = "none";
 
             return
@@ -164,12 +173,12 @@
         }
 
         if (e.target.id === "EscalationSection") {
-            document.getElementById("ServiceContainer").style.height = "25px";
+            document.getElementById("ServiceContainer").style.height = "30px";
 
-            document.getElementById("PartsSection").style.height = "25px";
+            document.getElementById("PartsSection").style.height = "30px";
             document.getElementById("PartsSectionP").style.display = "none";
 
-            document.getElementById("StatusHistorySection").style.height = "25px";
+            document.getElementById("StatusHistorySection").style.height = "30px";
             document.getElementById("StatusHistorySectionP").style.display = "none";
 
             document.getElementById("EscalationSection").style.height = "70vh";
@@ -180,15 +189,25 @@
         }
     }
 
+    const ServiceEdiHandler = (e) => {
+        if (e.target.id === "CustomerEdit") {
+            console.log("CustomerEdit id")
+        }
+
+        if (e.target.id === "AppoimentDetailsEdit") {
+            console.log("AppoimentDetailsEdit id")
+        }
+        if (e.target.innerText === "JobDetailsEdit") {
+            console.log("JobDetailsEdit id")
+        }
+    }
+
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
         document.getElementById("mapMain").style.display = "none";
         document.getElementById("JobMainInfo").style.display = "grid";
         document.getElementById("JobCommitsContainer").style.display = "grid";
-
-
-
 
         CardClickedHandler(e.target.id);
 
@@ -214,6 +233,8 @@
             return
         }
 
+
+
         document.getElementById("DisplayJobData").style.display = "grid";
         $('#DisplayJobData').empty();
         $(`
@@ -225,45 +246,62 @@
                     </aside>
                 </header>
 
-                <section class="Service-Container" id="ServiceContainer">
-                    <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Service</h1>
-                    <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Accepted</h1>
+                <main class="Service-Container" id="ServiceContainer">
+                    <header>
+                        <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Service Accepted</h1>
+                    </header>
 
+                    <section>
+                        <header  class="Span2Columns">
+                            <h2>Customer</h2>
+                            <button id="CustomerEdit"  onclick="ServiceEdiHandler(event)">Edit</button>
+                        </header>
+                        <h3 id="DisplayName"></h3>
+                        <h3 id="DisplayPhoneNumber"></h3>
+                        <h3 class="Span2Columns" id="DisplayAddress"></h3>
+                    </section>
 
-                    <h2 class="Span2Columns">Customer</h2>
-                    <h3 id="DisplayName"></h3>
-                    <h3 id="DisplayPhoneNumber"></h3>
-                    <h3 class="Span2Columns" id="DisplayAddress"></h3>
+                    <section>
+                        <header  class="Span2Columns">
+                            <h2>Appoiment Details</h2>
+                            <button id="AppoimentDetailsEdit"  onclick="ServiceEdiHandler(event)">Edit</button>
+                        </header>
 
-                    <h2 class="Span2Columns">Appoiment Details</h2>
-                    <h3 id="DisplayAptDate"></h3>
-                    <h3 id="DisplayAptTime"></h3>
+                        <h3 id="DisplayAptDate"></h3>
+                        <h3 id="DisplayAptTime"></h3>
+                    </section>
 
-                    <h2 class="Span2Columns">Job Details</h2>
-                    <h3>In Warrnty</h3>
-                    <h3>41687923</h3>
-                    <h3 id="DisplayServiceJobNumber"></h3>
+                    <section>
+                        <header class="Span2Columns">
+                            <h2>Job Details</h2>
+                            <button id="JobDetailsEdit" onclick="ServiceEdiHandler(event)">Edit</button>
+                        </header>
+                        <h3>In Warrnty</h3>
+                        <h3>41687923</h3>
+                        <h3 id="DisplayServiceJobNumber"></h3>
+                    </section>
 
+                    <section>
+                        <h2 class="Span2Columns">Special Instructions</h2>
+                        <textarea id="DisplaySpecialInstructions" class="Span2Columns" cols="30" rows="10"></textarea>
+                    </section>
+                </main>
 
-                    <h2 class="Span2Columns">Special Instructions</h2>
-                    <textarea id="DisplaySpecialInstructions" class="Span2Columns" cols="30" rows="10"></textarea>
-                </section>
-
-                <section>
+                <main>
                     <h1  id="PartsSection" onclick="SelectedSectionHandler(event)">Parts</h1>
                     <p id="PartsSectionP" class="hidden">render parts data related to the SNWQ or 416 number</p>
-                </section>
+                </main>
 
-                <section>
+                <main>
                     <h1  id="StatusHistorySection" onclick="SelectedSectionHandler(event)">Status History</h1>
                     <p id="StatusHistorySectionP" class="hidden">render job status history data related to the SNWQ</p>
 
-                </section>
+                </main>
 
-                <section>
+                <main>
                     <h1  id="EscalationSection" onclick="SelectedSectionHandler(event)">Escalation Team</h1>
                     <p id="EscalationSectionP" class="hidden">render escalation status data related to the SNWQ</p>
-                </section>
+                </main>
 
 
                 `).prependTo("#DisplayJobData");

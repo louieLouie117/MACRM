@@ -173,7 +173,7 @@ body{
 
 .AllJobs-Container{
     display: grid;
-    grid-template-columns: 24em 1fr;
+    grid-template-columns: 20em 1fr;
 }
 
 
@@ -233,8 +233,8 @@ body{
     background: white;
     /* border-radius: 7px 0 0 7PX; */
     padding: 15px;
-    width: 300px;
-    min-height: 150px;
+    width: 250px;
+    /* min-height: 150px; */
     align-content: flex-start;
     border: solid rgb(208, 206, 206) 1px;
 }
@@ -245,7 +245,7 @@ body{
     align-content: flex-start;
 }
 
-.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar, .DisplayJobData-Container section::-webkit-scrollbar, .AllJobs-Container>main::-webkit-scrollbar{
+.AllJobs-Container ul::-webkit-scrollbar, .AllJobs-Container aside::-webkit-scrollbar, .DisplayJobData-Container section::-webkit-scrollbar, .AllJobs-Container>main::-webkit-scrollbar, .Service-Container::-webkit-scrollbar, .DisplayJobData-Container main::-webkit-scrollbar{
     display: none;
     width: 0;
 }
@@ -253,20 +253,23 @@ body{
 
 
 .JobStatusDotIcon{
-    height: 15px;
-    width: 15px;
+    height: 13px;
+    width: 13px;
     border-radius: 15px;
 }
 
 .AllJobs-Container>header ul li header{
     display: flex;
     column-gap: 10px;
-    border-bottom: 1px solid grey;
+    /* border-bottom: 1px solid grey; */
     margin-bottom: 10px;
     grid-row: 1/2;
     grid-column: 1/2;
+    align-items: center;
     
 }
+
+
 
 .AllJobs-Container>header ul li header p{
     display: none;
@@ -283,15 +286,19 @@ body{
 }
 
 .AllJobs-Container>header ul li main{
+    display: grid;
+    row-gap: 10px;
     /* background: gold; */
     height: 120px;
     grid-row: 2/3;
     grid-column: 1/2;
 }
 
+
+
+
 .AllJobs-Container>header ul li h1{
     font: 1em sans-serif;
-    padding-bottom: 5px;
 
 }
 
@@ -299,6 +306,7 @@ body{
     font: 1em sans-serif;
 
 }
+
 
 /* comments container */
 
@@ -316,6 +324,7 @@ body{
     margin-top: -35px;
     padding-right: 40px;
 }
+
 
 
 
@@ -471,39 +480,84 @@ body{
 
 
 
-.DisplayJobData-Container section{
+.DisplayJobData-Container main{
     font: 1em sans-serif;
-    padding: 20px;
+    padding: 10px 30px;
     border-radius: 7px;
     border: solid rgba(211, 211, 211, 0.633) 2px;
     overflow: scroll;
 }
 
-.DisplayJobData-Container section:first-of-type{
+.DisplayJobData-Container main:first-of-type{
   height: 70vh;
 
 }
-.DisplayJobData-Container section h1{
+.DisplayJobData-Container main h1{
     cursor: pointer;
+    font: 1.7em sans-serif;
 }
 
-.DisplayJobData-Container section h2{
+.DisplayJobData-Container main h2{
     font: 1em sans-serif;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
-.DisplayJobData-Container section h3{
+.DisplayJobData-Container main h3{
     font-size: 1.1em;
     font-weight: normal;
 }
 
+
 .Service-Container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
     align-content: flex-start;
+    align-items: center;
+    row-gap: 3px;
 
+}
+
+.Service-Container>header{
+    margin-bottom: 10px;
+}
+
+.Service-Container>header h1{
+    font: 1.7em sans-serif;
+}
+
+
+.Service-Container section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 30px;
+    border-top: 1px dashed rgb(190, 190, 190);
+
+}
+
+
+
+.Service-Container button{
+    font: .8em sans-serif;
+    height: 20px;
+    width: 40px;
+    padding: 0;
+    box-shadow: none;
+    background-color: white;
+    color: #1c8c9b;
+    border: solid 1px #1c8c9b;
+    border-radius: 5px;
+}
+
+.Service-Container header{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+
+.Service-Container header h2{
+    margin-top: 10px;
 }
 
 
@@ -519,4 +573,12 @@ body{
 #map {
     height: 85vh;
     width: 100%;
+}
+
+
+
+
+.Commit-Container {
+    background: white;
+    display: block;
 }
