@@ -173,7 +173,7 @@ body{
 
 .AllJobs-Container{
     display: grid;
-    grid-template-columns: 24em 1fr;
+    grid-template-columns: 20em 1fr;
 }
 
 
@@ -233,8 +233,8 @@ body{
     background: white;
     /* border-radius: 7px 0 0 7PX; */
     padding: 15px;
-    width: 300px;
-    min-height: 150px;
+    width: 250px;
+    /* min-height: 150px; */
     align-content: flex-start;
     border: solid rgb(208, 206, 206) 1px;
 }
@@ -253,20 +253,22 @@ body{
 
 
 .JobStatusDotIcon{
-    height: 15px;
-    width: 15px;
+    height: 13px;
+    width: 13px;
     border-radius: 15px;
 }
 
 .AllJobs-Container>header ul li header{
     display: flex;
     column-gap: 10px;
-    border-bottom: 1px solid grey;
-    margin-bottom: 10px;
+    /* border-bottom: 1px solid grey; */
+    /* margin-bottom: 10px; */
     grid-row: 1/2;
     grid-column: 1/2;
     
 }
+
+
 
 .AllJobs-Container>header ul li header p{
     display: none;
@@ -283,15 +285,19 @@ body{
 }
 
 .AllJobs-Container>header ul li main{
+    display: grid;
+    row-gap: 10px;
     /* background: gold; */
     height: 120px;
     grid-row: 2/3;
     grid-column: 1/2;
 }
 
+
+
+
 .AllJobs-Container>header ul li h1{
     font: 1em sans-serif;
-    padding-bottom: 5px;
 
 }
 
@@ -299,6 +305,7 @@ body{
     font: 1em sans-serif;
 
 }
+
 
 /* comments container */
 
@@ -316,6 +323,7 @@ body{
     margin-top: -35px;
     padding-right: 40px;
 }
+
 
 
 
@@ -503,7 +511,26 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: flex-start;
+    align-items: center;
 
+}
+
+.Service-Container button{
+    height: 20px;
+    width: 70px;
+    padding: 0;
+    box-shadow: none;
+}
+
+.Service-Container header{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+
+.Service-Container header h2{
+    margin-top: 10px;
 }
 
 
@@ -519,4 +546,12 @@ body{
 #map {
     height: 85vh;
     width: 100%;
+}
+
+
+
+
+.Commit-Container {
+    background: white;
+    display: block;
 }

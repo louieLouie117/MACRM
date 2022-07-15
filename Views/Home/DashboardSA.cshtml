@@ -33,20 +33,30 @@
             console.log(i, v.name);
 
             $(`
-            <li id="CardItemContainer${v.jobStatusId}">
+            <li id="CardItemContainer${v.jobStatusId}" class="JobCardItem-Container">
                 <header>
                     <div class="JobStatusDotIcon" style="background-color: #${v.jobStatusColor};"></div>
                     <p  id="SelectedJobStatusColor${v.jobStatusId}">${v.jobStatusColor}</p>
                     <h1 id="SelectedJobStatus${v.jobStatusId}">${v.jobStatus}</h1>
                 </header>
                 <main>
+                    <sectino></sectino>
                     <h2 class="hidden" id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
 
-                    <h2 id="SelectedName${v.jobStatusId}"> ${v.name}</h2>
-                    <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
-                    <h2 id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
+                    <sectino>
+                        <h1 id="SelectedName${v.jobStatusId}">${v.name}</h1>
+                        <h2 id="SelectedAddress${v.jobStatusId}">${v.address}</h2>
+                        <h2 id="SelectedProductLine${v.jobStatusId}"> ${v.productLine} - ${v.serviceStatus}</h2>
 
-                    <h2 id="SelectedServicesAdvocate${v.jobStatusId}">Assigned to: ${v.serviceAdvocateName}</h2>
+                    </sectino>
+
+                    <h2 class="hidden" id="SelectedPhoneNumber${v.jobStatusId}"> ${v.phoneNumber}</h2>
+
+                    <sectino>
+                        <h2 id="SelectedServicesAdvocate${v.jobStatusId}">SA: <a href=""> ${v.serviceAdvocateName}</a></h2>
+                        <h2 id="SelectedTechName${v.jobStatusId}">Tech: <a href=""> ${v.techName} </a></h2>
+
+                    </sectino>
 
                     <h2 class="hidden" id="SelectedAptDate${v.jobStatusId}"> ${v.appointmentDay}</h2>
                     <h2 class="hidden" id="SelectedAptWindow${v.jobStatusId}"> ${v.appointmentWindow}</h2>
@@ -94,7 +104,7 @@
 
         document.cookie = "lastcardSelected" + "=" + ItemSelected + ";";
 
-        document.getElementById("CardItemContainer" + lastcardSelected).style.width = "300px";
+        document.getElementById("CardItemContainer" + lastcardSelected).style.width = "250px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transform = "ease-in-out";
         document.getElementById("CardItemContainer" + lastcardSelected).style.borderRadius = "0px";
         document.getElementById("CardItemContainer" + lastcardSelected).style.transition = ".3s";
@@ -229,17 +239,26 @@
                     <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Service</h1>
                     <h1 id="ServiceSection" onclick="SelectedSectionHandler(event)">Accepted</h1>
 
-
-                    <h2 class="Span2Columns">Customer</h2>
+                    <header  class="Span2Columns">
+                        <h2>Customer</h2>
+                        <button>edit</button>
+                    </header>
                     <h3 id="DisplayName"></h3>
                     <h3 id="DisplayPhoneNumber"></h3>
                     <h3 class="Span2Columns" id="DisplayAddress"></h3>
 
-                    <h2 class="Span2Columns">Appoiment Details</h2>
+                     <header  class="Span2Columns">
+                        <h2>Appoiment Details</h2>
+                        <button>edit</button>
+                    </header>
+
                     <h3 id="DisplayAptDate"></h3>
                     <h3 id="DisplayAptTime"></h3>
 
-                    <h2 class="Span2Columns">Job Details</h2>
+                     <header  class="Span2Columns">
+                        <h2>Job Details</h2>
+                        <button>edit</button>
+                    </header>
                     <h3>In Warrnty</h3>
                     <h3>41687923</h3>
                     <h3 id="DisplayServiceJobNumber"></h3>
