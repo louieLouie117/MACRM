@@ -262,7 +262,7 @@ body{
     display: flex;
     column-gap: 10px;
     /* border-bottom: 1px solid grey; */
-    /* margin-bottom: 10px; */
+    margin-bottom: 10px;
     grid-row: 1/2;
     grid-column: 1/2;
     align-items: center;
@@ -531,15 +531,22 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding-bottom: 30px;
-    border-bottom: 1px dashed rgb(190, 190, 190);
+    border-top: 1px dashed rgb(190, 190, 190);
 
 }
 
+
+
 .Service-Container button{
+    font: .8em sans-serif;
     height: 20px;
-    width: 70px;
+    width: 40px;
     padding: 0;
     box-shadow: none;
+    background-color: white;
+    color: #1c8c9b;
+    border: solid 1px #1c8c9b;
+    border-radius: 5px;
 }
 
 .Service-Container header{

@@ -40,7 +40,6 @@
                     <h1 id="SelectedJobStatus${v.jobStatusId}">${v.jobStatus}</h1>
                 </header>
                 <main>
-                    <sectino></sectino>
                     <h2 class="hidden" id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
 
                     <sectino>
@@ -190,15 +189,25 @@
         }
     }
 
+    const ServiceEdiHandler = (e) => {
+        if (e.target.id === "CustomerEdit") {
+            console.log("CustomerEdit id")
+        }
+
+        if (e.target.id === "AppoimentDetailsEdit") {
+            console.log("AppoimentDetailsEdit id")
+        }
+        if (e.target.innerText === "JobDetailsEdit") {
+            console.log("JobDetailsEdit id")
+        }
+    }
+
     const JobSelectedHandler = (e) => {
         console.log("JobSelectedHandler was called")
         console.log("SelectedJobStatus" + e.target.id)
         document.getElementById("mapMain").style.display = "none";
         document.getElementById("JobMainInfo").style.display = "grid";
         document.getElementById("JobCommitsContainer").style.display = "grid";
-
-
-
 
         CardClickedHandler(e.target.id);
 
@@ -224,6 +233,8 @@
             return
         }
 
+
+
         document.getElementById("DisplayJobData").style.display = "grid";
         $('#DisplayJobData').empty();
         $(`
@@ -243,7 +254,7 @@
                     <section>
                         <header  class="Span2Columns">
                             <h2>Customer</h2>
-                            <button>edit</button>
+                            <button id="CustomerEdit"  onclick="ServiceEdiHandler(event)">Edit</button>
                         </header>
                         <h3 id="DisplayName"></h3>
                         <h3 id="DisplayPhoneNumber"></h3>
@@ -253,7 +264,7 @@
                     <section>
                         <header  class="Span2Columns">
                             <h2>Appoiment Details</h2>
-                            <button>edit</button>
+                            <button id="AppoimentDetailsEdit"  onclick="ServiceEdiHandler(event)">Edit</button>
                         </header>
 
                         <h3 id="DisplayAptDate"></h3>
@@ -263,7 +274,7 @@
                     <section>
                         <header class="Span2Columns">
                             <h2>Job Details</h2>
-                            <button>edit</button>
+                            <button id="JobDetailsEdit" onclick="ServiceEdiHandler(event)">Edit</button>
                         </header>
                         <h3>In Warrnty</h3>
                         <h3>41687923</h3>
