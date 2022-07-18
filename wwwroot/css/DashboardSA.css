@@ -544,16 +544,27 @@ body{
     padding: 0;
     box-shadow: none;
     background-color: white;
-    color: #1c8c9b;
-    border: solid 1px #1c8c9b;
+    color: white;
+    background: #18707c;
+    border: solid 1px #18707c;
     border-radius: 5px;
 }
+
+#CustomerSave, #AppointmentDetailsSave, #JobDetailsSave{
+    display: none;
+}
+
 
 .Service-Container header{
     display: flex;
     align-items: center;
     justify-content: left;
 
+}
+
+.Service-Container input {
+    border: none;
+    
 }
 
 .Service-Container header h2{
