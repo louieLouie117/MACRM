@@ -141,6 +141,11 @@ Today at lunch, I was able to finish developing the converter algorithm. With th
 ## Tuesday July 06 2022 || Map component, Map Behavior, and Map Rendering
 Today marker a great day of accomplishment. I was able all the code that I have programed to render the map within the app. User can now use the map and search address. I am excited on the progress and how the app is coming along. 
 
+
+## Tuesday July 15 2022 || Layout Readability Updated
+Today during my lunch brake I was able to create a new layout that increases readability for the user.
+
+
 # Deployment || Amazon Server
 ## Saturday April 17 2022
 This morning I was able to deploy the CRM to Amazon Web Server it is live in this [link](http://44.201.184.202/Dashboard). I am excited now that project is on a live sever I can push a new update to the server.

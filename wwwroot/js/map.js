@@ -4,20 +4,20 @@ let AddressEntered ="";
 let geocoder;
 let map;
 let DefaultAddress = "1101 Church St Nashville TN 37201";
-const AddressList = [
-  {address : "1101 Church St Nashville TN 37201"},
-  {address : "4881 Teakwood Dr Oakley Ca 94561"},
-  {address : "2900 Baby Ruth Ln TN 37013"}
-]
-console.log("AddressList", AddressList);
-const AddressLoop =(data)=>{
-    for (let index = 0; index < data.length; index++) {
-      const element = data[index].address;
+// const AddressList = [
+//   {address : "1101 Church St Nashville TN 37201"},
+//   {address : "4881 Teakwood Dr Oakley Ca 94561"},
+//   {address : "2900 Baby Ruth Ln TN 37013"}
+// ]
+// console.log("AddressList", AddressList);
+// const AddressLoop =(data)=>{
+//     for (let index = 0; index < data.length; index++) {
+//       const element = data[index].address;
       
-      console.log(element)
+//       console.log(element)
       
-    }
-}
+//     }
+// }
 
 
 
@@ -38,7 +38,6 @@ const addressList = [
   {address: "3002 windgate ave 37211"},
 ]
 
-console.log(locations)
 function getLocation() {
   if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(showPosition);
@@ -72,11 +71,11 @@ function initialize() {
             geocoder = new google.maps.Geocoder();
             // console.log("geocoder", geocoder);
             geocoder.geocode({'address':element}, function(results, status) {
-                console.log("Here is the results", results)
+                console.log(" converted address results", results)
                 if (status === 'OK') {
                   count++
-                  console.log(element,"|| Coordinates || ", "lat:", results[0].geometry.bounds.wb.hi, "Long:", results[0].geometry.bounds.Ra.hi,)
-                  let latCoordinate =  results[0].geometry.bounds.wb.hi;
+                  console.log(element,"|| Coordinates || ", "lat:", results[0].geometry.bounds.vb.hi, "Long:", results[0].geometry.bounds.Ra.hi,)
+                  let latCoordinate =  results[0].geometry.bounds.vb.hi;
                   let longCoordinate = results[0].geometry.bounds.Ra.hi;
                   locations.push([element,latCoordinate, longCoordinate, 'Customers Info'])
                   // need to call in the loop
@@ -210,3 +209,4 @@ function initMap() {
   }
  
 }
+
