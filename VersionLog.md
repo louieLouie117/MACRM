@@ -145,6 +145,10 @@ Today marker a great day of accomplishment. I was able all the code that I have 
 ## Tuesday July 15 2022 || Layout Readability Updated
 Today during my lunch brake I was able to create a new layout that increases readability for the user.
 
+## Tuesday July 1 2022 || Updated Cx info
+Toady I was able to program a way for user to be able to update customer information.
+
+
 
 # Deployment || Amazon Server
 ## Saturday April 17 2022

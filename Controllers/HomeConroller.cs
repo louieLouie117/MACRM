@@ -643,13 +643,24 @@ namespace KcPilot.Controllers
             return Json(new {result = SearchResults});
         }
 
-        [HttpPost("CustomerSaveMethod")]
-        public JsonResult CustomerSaveMethod(Job UserInputData)
+        [HttpPost("CustomerInfoUpdateMethod")]
+        public JsonResult CustomerInfoUpdateMethod(Job UserInputData)
         {
 
-            System.Console.WriteLine("reach backend save services");
+            System.Console.WriteLine("reach backend to update customer info");
 
-            return Json(new {result = "reach backend save services"});
+            int CardJobInSession = (int)HttpContext.Session.GetInt32("CardJobSelectedInSession");
+            Job GetJob = _context.Jobs.SingleOrDefault(l => l.JobStatusId == CardJobInSession);
+
+            GetJob.Name = UserInputData.Name;
+            GetJob.Address = UserInputData.Address;
+            GetJob.PhoneNumber = UserInputData.PhoneNumber;
+
+            _context.SaveChanges();
+
+
+
+            return Json(new {result = "Customer Info has been updated"});
 
 
         }

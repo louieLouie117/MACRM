@@ -194,27 +194,39 @@
         }
     }
 
+
+   const SaveServiceSucess =(e)=>{
+        document.getElementById("CustomerSave").style.display = "none";
+
+
+    }
     const SaveServiceHandler = (e) => {
         if (e.target.id === "CustomerSave") {
             console.log("CustomerSave id")
 
-
-            @*
-                    let jsonData = {
-                    name: document.getElementById("DisplayName").value,
-                    name: document.getElementById("DisplayName").value,
-                    name: document.getElementById("DisplayName").value,
+            let Name = document.getElementById("DisplayName").value;
+            let PhoneNumber = document.getElementById("DisplayPhoneNumber").value;
+            let Address = document.getElementById("DisplayAddress").value;
 
 
-                    } *@
-                @* console.log(jsonData, "JsonData") *@
-                $.ajax({
-                    type: "POST",
-                    url: '@Url.Action("CustomerSaveMethod", "Home")',
-                    @* data: jsonData, *@
-                    @* success: RoleSucessHandler, *@
-                });
-    }
+
+            let jsonData = {
+                name: Name,
+                phoneNumber: PhoneNumber,
+                address: Address,
+
+            }
+
+            console.log("Cx info jsonData", jsonData)
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("CustomerInfoUpdateMethod", "Home")',
+                data: jsonData,
+                success: SaveServiceSucess,
+            });
+        }
+
 
     if (e.target.id === "AppointmentDetailsSave") {
         console.log("AppointmentDetailsSave id")
