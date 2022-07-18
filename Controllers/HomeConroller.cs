@@ -643,6 +643,17 @@ namespace KcPilot.Controllers
             return Json(new {result = SearchResults});
         }
 
+        [HttpPost("CustomerSaveMethod")]
+        public JsonResult CustomerSaveMethod(Job UserInputData)
+        {
+
+            System.Console.WriteLine("reach backend save services");
+
+            return Json(new {result = "reach backend save services"});
+
+
+        }
+
 
     }
 }

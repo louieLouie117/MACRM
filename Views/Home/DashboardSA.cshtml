@@ -194,24 +194,40 @@
         }
     }
 
-    const SaveHandler = (e) => {
+    const SaveServiceHandler = (e) => {
         if (e.target.id === "CustomerSave") {
             console.log("CustomerSave id")
-        }
 
-        if (e.target.id === "AppointmentDetailsSave") {
-            console.log("AppointmentDetailsSave id")
-        }
-        if (e.target.id === "JobDetailsSave") {
-            console.log("JobDetailsSave id")
-        }
+
+            @*
+                    let jsonData = {
+                    name: document.getElementById("DisplayName").value,
+                    name: document.getElementById("DisplayName").value,
+                    name: document.getElementById("DisplayName").value,
+
+
+                    } *@
+                @* console.log(jsonData, "JsonData") *@
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("CustomerSaveMethod", "Home")',
+                    @* data: jsonData, *@
+                    @* success: RoleSucessHandler, *@
+                });
+    }
+
+    if (e.target.id === "AppointmentDetailsSave") {
+        console.log("AppointmentDetailsSave id")
+    }
+    if (e.target.id === "JobDetailsSave") {
+        console.log("JobDetailsSave id")
+    }
     }
 
 
     const EditCustomerInfoHandler = (e) => {
         console.log("Edit cx info was chaged")
         document.getElementById("CustomerSave").style.display = "block";
-
 
     }
 
@@ -267,17 +283,17 @@
                     <section>
                         <header  class="Span2Columns">
                             <h2>Customer</h2>
-                            <button id="CustomerSave"  onclick="SaveHandler(event)">Save</button>
+                            <button id="CustomerSave"  onclick="SaveServiceHandler(event)">Save</button>
                         </header>
-                        <input id="DisplayName"></input>
-                        <input id="DisplayPhoneNumber"></input>
+                        <input id="DisplayName" onkeydown="EditCustomerInfoHandler(event)"></input>
+                        <input id="DisplayPhoneNumber" onkeydown="EditCustomerInfoHandler(event)"></input>
                         <input class="Span2Columns" id="DisplayAddress"  onkeydown="EditCustomerInfoHandler(event)"></input>
                     </section>
 
                     <section>
                         <header  class="Span2Columns">
                             <h2>Appoiment Details</h2>
-                            <button id="AppointmentDetailsSave"  onclick="SaveHandler(event)">Save</button>
+                            <button id="AppointmentDetailsSave"  onclick="SaveServiceHandler(event)">Save</button>
                         </header>
 
                         <input id="DisplayAptDate"></input>
@@ -288,7 +304,7 @@
                     <section>
                         <header class="Span2Columns">
                             <h2>Job Details</h2>
-                            <button id="JobDetailsSave" onclick="SaveHandler(event)">Save</button>
+                            <button id="JobDetailsSave" onclick="SaveServiceHandler(event)">Save</button>
                         </header>
                         <input id="DisplaySamsungJobNumber"></input>
                         <input id="DisplayServiceJobNumber"></input>
