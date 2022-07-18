@@ -40,7 +40,6 @@
                     <h1 id="SelectedJobStatus${v.jobStatusId}">${v.jobStatus}</h1>
                 </header>
                 <main>
-                    <h2 class="hidden" id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
 
                     <sectino>
                         <h1 id="SelectedName${v.jobStatusId}">${v.name}</h1>
@@ -54,11 +53,17 @@
                     <sectino>
                         <h2 id="SelectedServicesAdvocate${v.jobStatusId}">SA: ${v.serviceAdvocateName}</h2>
                         <h2 id="SelectedTechName${v.jobStatusId}">Tech: ${v.techName} </h2>
-
                     </sectino>
 
                     <h2 class="hidden" id="SelectedAptDate${v.jobStatusId}"> ${v.appointmentDay}</h2>
                     <h2 class="hidden" id="SelectedAptWindow${v.jobStatusId}"> ${v.appointmentWindow}</h2>
+
+                    @* JobDetails---- *@
+                    <h2 class="hidden" id="SelectedAptWindow${v.jobStatusId}"> ${v.appointmentWindow}</h2>
+                    <h2 class="hidden" id="SelectedServiceJobNumber${v.jobStatusId}"> ${v.serviceJobNumber}</h2>
+                    <h2 class="hidden" id="SelectedSamsungJobNumber${v.jobStatusId}"> ${v.samsungJobNumber}</h2>
+
+
 
                 <h2 class="hidden" id="SelectedSpecialInstructions${v.jobStatusId}"> ${v.specialInstructions}</h2>
 
@@ -189,17 +194,25 @@
         }
     }
 
-    const ServiceEdiHandler = (e) => {
-        if (e.target.id === "CustomerEdit") {
-            console.log("CustomerEdit id")
+    const SaveHandler = (e) => {
+        if (e.target.id === "CustomerSave") {
+            console.log("CustomerSave id")
         }
 
-        if (e.target.id === "AppoimentDetailsEdit") {
-            console.log("AppoimentDetailsEdit id")
+        if (e.target.id === "AppointmentDetailsSave") {
+            console.log("AppointmentDetailsSave id")
         }
-        if (e.target.innerText === "JobDetailsEdit") {
-            console.log("JobDetailsEdit id")
+        if (e.target.id === "JobDetailsSave") {
+            console.log("JobDetailsSave id")
         }
+    }
+
+
+    const EditCustomerInfoHandler = (e) => {
+        console.log("Edit cx info was chaged")
+        document.getElementById("CustomerSave").style.display = "block";
+
+
     }
 
     const JobSelectedHandler = (e) => {
@@ -254,31 +267,31 @@
                     <section>
                         <header  class="Span2Columns">
                             <h2>Customer</h2>
-                            <button id="CustomerEdit"  onclick="ServiceEdiHandler(event)">Edit</button>
+                            <button id="CustomerSave"  onclick="SaveHandler(event)">Save</button>
                         </header>
-                        <h3 id="DisplayName"></h3>
-                        <h3 id="DisplayPhoneNumber"></h3>
-                        <h3 class="Span2Columns" id="DisplayAddress"></h3>
+                        <input id="DisplayName"></input>
+                        <input id="DisplayPhoneNumber"></input>
+                        <input class="Span2Columns" id="DisplayAddress"  onkeydown="EditCustomerInfoHandler(event)"></input>
                     </section>
 
                     <section>
                         <header  class="Span2Columns">
                             <h2>Appoiment Details</h2>
-                            <button id="AppoimentDetailsEdit"  onclick="ServiceEdiHandler(event)">Edit</button>
+                            <button id="AppointmentDetailsSave"  onclick="SaveHandler(event)">Save</button>
                         </header>
 
-                        <h3 id="DisplayAptDate"></h3>
-                        <h3 id="DisplayAptTime"></h3>
+                        <input id="DisplayAptDate"></input>
+                        <input id="DisplayAptTime"></input>
                     </section>
 
+                    @* Job Deital--- *@
                     <section>
                         <header class="Span2Columns">
                             <h2>Job Details</h2>
-                            <button id="JobDetailsEdit" onclick="ServiceEdiHandler(event)">Edit</button>
+                            <button id="JobDetailsSave" onclick="SaveHandler(event)">Save</button>
                         </header>
-                        <h3>In Warrnty</h3>
-                        <h3>41687923</h3>
-                        <h3 id="DisplayServiceJobNumber"></h3>
+                        <input id="DisplaySamsungJobNumber"></input>
+                        <input id="DisplayServiceJobNumber"></input>
                     </section>
 
                     <section>
@@ -317,20 +330,21 @@
 
 
 
-        document.getElementById("DisplayName").innerText = document.getElementById("SelectedName" + e.target.id).innerText;
+        document.getElementById("DisplayName").value = document.getElementById("SelectedName" + e.target.id).innerText;
 
-        document.getElementById("DisplayServiceJobNumber").innerText = document.getElementById
+        document.getElementById("DisplayServiceJobNumber").value = document.getElementById
             ("SelectedServiceJobNumber" + e.target.id).innerText;
 
-        document.getElementById("DisplayPhoneNumber").innerText = document.getElementById("SelectedPhoneNumber" + e.target.id).innerText;
+        document.getElementById("DisplayPhoneNumber").value = document.getElementById("SelectedPhoneNumber" + e.target.id).innerText;
 
-        document.getElementById("DisplayAddress").innerText = document.getElementById("SelectedAddress" + e.target.id).innerText;
+        document.getElementById("DisplayAddress").value = document.getElementById("SelectedAddress" + e.target.id).innerText;
 
-        document.getElementById("DisplayAptDate").innerText = document.getElementById("SelectedAptDate" + e.target.id).innerText;
-        document.getElementById("DisplayAptTime").innerText = document.getElementById("SelectedAptWindow" + e.target.id).innerText;
+        document.getElementById("DisplayAptDate").value = document.getElementById("SelectedAptDate" + e.target.id).innerText;
+        document.getElementById("DisplayAptTime").value = document.getElementById("SelectedAptWindow" + e.target.id).innerText;
 
-        document.getElementById("DisplaySpecialInstructions").innerText = document.getElementById("SelectedSpecialInstructions" + e.target.id).innerText;
+        document.getElementById("DisplaySpecialInstructions").value = document.getElementById("SelectedSpecialInstructions" + e.target.id).innerText;
 
+        document.getElementById("DisplaySamsungJobNumber").value = document.getElementById("SelectedSamsungJobNumber" + e.target.id).innerText;
 
 
         document.getElementById("CommentBox").style.display = "block";

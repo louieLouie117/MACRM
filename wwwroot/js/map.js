@@ -195,7 +195,7 @@ function initMap() {
         console.log("Here is the results", results)
         if (status === 'OK') {
           map.setCenter(results[0].geometry.location);
-          console.log("results geometry",results[0].geometry)
+          console.log("geometry results",results[0].geometry)
           let marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
