@@ -104,8 +104,8 @@ function setMarkers(map,locations){
               map.setCenter(marker.getPosition())
 
           let content = "Loan Number: " + loan +  '</h3>' + "Address: " + add     
-    let infowindow = new google.maps.InfoWindow()
-    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+          let infowindow = new google.maps.InfoWindow()
+          google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
           return function() {
             infowindow.setContent(content);
             infowindow.open(map,marker);
@@ -136,10 +136,10 @@ function codeAddress(geocoder, map,) {
   
   geocoder.geocode({'address':AddressEntered}, function(results, status) {
     console.log("Search Results", results)
-    console.log("Here is lat", results[0].geometry.bounds.wb.hi)
+    console.log("Here is lat", results[0].geometry.bounds.vb.hi)
     console.log("Here is long", results[0].geometry.bounds.Ra.hi)
     console.log("lat: 36.04538027656666, log: -86.6387390442064");
-    locations.push(['Added address',results[0].geometry.bounds.wb.hi, results[0].geometry.bounds.Ra.hi, 'pushed'])
+    locations.push(['Added address',results[0].geometry.bounds.vb.hi, results[0].geometry.bounds.Ra.hi, 'pushed'])
     if (status === 'OK') {
       map.setCenter(results[0].geometry.location);
       console.log("results geometry",results[0].geometry)
@@ -194,7 +194,7 @@ function initMap() {
       geocoder.geocode({'address':DefaultAddress}, function(results, status) {
         console.log("Here is the results", results)
         if (status === 'OK') {
-          map.setCenter(results[0].geometry.location);
+          // map.setCenter(results[0].geometry.location);
           console.log("geometry results",results[0].geometry)
           let marker = new google.maps.Marker({
             map: map,
