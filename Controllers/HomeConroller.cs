@@ -639,6 +639,8 @@ namespace KcPilot.Controllers
             // .Where( sr => sr.PhoneNumber == UserInputData.PhoneNumber)
             // .ToList();
 
+            System.Console.WriteLine($"Search results {SearchResults}");
+
 
             return Json(new {result = SearchResults});
         }
