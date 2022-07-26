@@ -178,25 +178,60 @@
     <div id="PreScreenContainer" class="PreScreen-Container">
         <main>
             <div class="PreScreenLayout">
-                <section>
+                <main>
                     <h2 onclick="PreScreenHandler(event)">&#60; Job Details</h2>
                     <form action="">
+
+                        <section class="PreScreenHeader-Container">
+                            <div>
+                                <h3>Customer</h3>
+                                <input id="NamePSF" type="text">
+                            </div>
+
+                            <div>
+                                <h3>Product-Service</h3>
+                                <input id="ProductLinePSF" type="text">
+                            </div>
+
+                        </section>
+
+                        <section id="ConfirmAddress">
+                            <div class="Address-Container">
+                                <h3>Inform cx call maybe recorded for quality and training.</h3>
+                                <h3>Confirm Address</h3>
+                                <address>
+                                    <input id="AddressPSF" type="text">
+                                    <input id="CityPSF" type="text">
+                                    <input id="StatePSF" type="text">
+                                    <input id="ZipcodePSF" type="text">
+                                </address>
+                            </div>
+
+                        </section>
+
+                        <footer class="PreScreen-Actions">
+                            <p>Did the customer answer?</p>
+                            <div id="ActionOptions1" class="ActionOptions-Container">
+                                <button id="Action1" onclick="PreScreenActionsHandler(event)">no</button>
+                                <button id="Action2" onclick="PreScreenActionsHandler(event)">yes</button>
+                            </div>
+
+                            <div id="ActionOptions2" class="ActionOptions-Container">
+                                <button id="Action3" onclick="PreScreenActionsHandler(event)">back</button>
+                                <button id="Action4" onclick="PreScreenActionsHandler(event)">next</button>
+                            </div>
+                        </footer>
                         <h3>Service</h3>
                         <input id="ServiceJobNumberPSF" type="text">
                         <input id="SamsungJobNumberPSF" type="text">
                         <input id="InWarrantyPSF" type="text">
+                        <input id="MarketCodePSF" type="text">
 
-                        <h3>Customer Info</h3>
-                        <input id="NamePSF" type="text">
-                        <input id="AddressPSF" type="text">
-                        <input id="CityPSF" type="text">
-                        <input id="StatePSF" type="text">
-                        <input id="ZipcodePSF" type="text">
+
                         <input id="PhoneNumberPSF" type="text">
                         <input id="EmailPSF" type="text">
 
                         <h3>Product</h3>
-                        <input id="ProductLinePSF" type="text">
                         <input id="ModelNumberPSF" type="text">
                         <input id="SerialNumberPSF" type="text">
                         @* <div class="hidden"> *@
@@ -215,7 +250,6 @@
 
                         <h3>Market Info</h3>
                         <input id="MarketPSF" type="text">
-                        <input id="MarketCodePSF" type="text">
 
                         <h3>Market Info</h3>
                         <input id="ServiceStatusPSF" type="text">
@@ -227,40 +261,10 @@
                         @* </div> *@
                     </form>
 
-                </section>
+                </main>
 
-                <section class="PreOptions">
-                    <h2>Options</h2>
-                    <aside>
-                        <p>In warranty customer</p>
-                        <div>
-                            <button id="InWarrantyNo" onclick="InWarrantyHandler(event)">No</button>
-                            <button id="InWarrantyYes" onclick="InWarrantyHandler(event)">Yes</button>
-                        </div>
-                    </aside>
-
-                    <aside>
-                        <p>Did customer answer</p>
-                        <div>
-                            <button>No</button>
-                            <button>Yes</button>
-                        </div>
-                    </aside>
-
-                    <aside>
-                        <p>Two man job</p>
-                        <div>
-                            <button>No</button>
-                            <button>Yes</button>
-                        </div>
-                    </aside>
-
-
-
-                </section>
-
-                <section>
-                    <h2>Pre-screen</h2>
+                <aside>
+                    <h2>Progress</h2>
                     <div class="PreScreenQuestions">
                         <ul>
                             <li>
@@ -318,7 +322,7 @@
                         </ul>
                     </div>
 
-                </section>
+                </aside>
             </div>
 
         </main>

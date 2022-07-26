@@ -47,7 +47,7 @@ body{
     font: 1.3em sans-serif;
 }
 
-.PreOptions aside div button{
+.PreScreen-Actions div button{
     background: white;
     width: 100px;
     box-shadow: none;
@@ -103,12 +103,24 @@ body{
 .PreScreenLayout{
     height: 95vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1.5fr 1fr;
     column-gap: 20px;
+}
+
+.PreScreenLayout main section{
+    border: solid rgb(153, 153, 153) 2px;
+    padding: 20px;
+    border-radius: 7px;
 }
 
 .PreScreenLayout h2{
     padding-bottom: 20px;
+}
+
+.PreScreenLayout h3{
+    color: #6900D1;
+    font: 1em sans-serif;
+    padding-top: 10px;
 }
 .PreScreenLayout form{
     display: grid;
@@ -169,6 +181,18 @@ body{
 }
 
 
+
+.PreScreenHeader-Container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
+
+}
+
+
+#ActionOptions2, #ConfirmAddress{
+    display: none;
+}
 /* All jobs */
 
 .AllJobs-Container{

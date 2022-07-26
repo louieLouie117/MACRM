@@ -1,25 +1,36 @@
 
 console.log("dashboardSA.js for SA is running ")
 
-const InWarrantyHandler = (e)=>{
-    console.log("In warranty handler was click", e.target.innerText)
-        if(e.target.innerText == "Yes"){
-            document.getElementById("InWarrantyYes").style.background = "#6900D1";
-            document.getElementById("InWarrantyYes").style.color = "white";
+const PreScreenActionsHandler = (e)=>{
+    e.preventDefault();
+    console.log(e.target.id);
+    if(e.target.id === "Action1"){
+        console.log("Submit as pre-screen unsuccessful");
+        document.getElementById("JobStatusPSF").value = "Unsuccessful Pre-Screen";
+        document.getElementById("JobStatusColorPSF").value = "8E6C88";
+        document.getElementById("SpecialInstructionsPSF").value = "Unsuccessful Pre-Screen";
+        NewJobHandler(e);
+        return
 
-            document.getElementById("InWarrantyNo").style.background = "White";
-            document.getElementById("InWarrantyNo").style.color = "black";
-            return
 
-        }
-        if(e.target.innerText == "No"){
-            document.getElementById("InWarrantyYes").style.background = "white";
-            document.getElementById("InWarrantyYes").style.color = "black";
 
-            document.getElementById("InWarrantyNo").style.background = "#6900D1";
-            document.getElementById("InWarrantyNo").style.color = "white";
-            return
-        }
+    }
+    if(e.target.id === "Action2"){
+        document.getElementById("ConfirmAddress").style.display = "grid";
+        document.getElementById("ActionOptions1").style.display = "none";
+        document.getElementById("ActionOptions2").style.display = "flex";
+
+
+
+    }
+
+    if(e.target.id === "Action3"){
+        document.getElementById("ConfirmAddress").style.display = "none";
+        document.getElementById("ActionOptions1").style.display = "flex";
+        document.getElementById("ActionOptions2").style.display = "none";
+
+    }
+       
     
     
 };
