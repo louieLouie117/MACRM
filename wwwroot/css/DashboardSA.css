@@ -22,7 +22,7 @@ body{
     margin: 30px 30px 0px 30px;
     padding: 20px 40px;
     border-radius: 10px 10px  0 0;
-    overflow: scroll;
+    /* overflow: scroll; */
 
 }
 
@@ -105,6 +105,17 @@ body{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     column-gap: 20px;
+}
+
+.PreScreenLayout main{
+    overflow: scroll;
+    padding-bottom: 80px;
+
+}
+
+.PreScreenLayout main::-webkit-scrollbar{
+    display: none;
+
 }
 
 .PreScreenLayout main section{
@@ -190,8 +201,12 @@ body{
 }
 
 
-#ActionOptions2, #ConfirmAddress{
+#ActionOptions2, #ActionOptions3, #ActionOptions4,#ActionOptions5, #ConfirmAddress, #ModelSerialNumber, #ProvingQuestions, #AppointmentOutcome{
     display: none;
+}
+
+.ProvingQuestions-Container aside textarea{
+    width: 100%;
 }
 /* All jobs */
 

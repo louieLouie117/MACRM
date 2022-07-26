@@ -209,8 +209,41 @@
 
                         </section>
 
+
+                        <section id="ModelSerialNumber">
+                            <h3>Confirm warranty</h3>
+                            <input id="InWarrantyPSF" type="text">
+
+                            <h3>Confirm model number and serial number</h3>
+                            <input id="ModelNumberPSF" type="text">
+                            <input id="SerialNumberPSF" type="text">
+
+                        </section>
+
+                        <section id="ProvingQuestions" class="ProvingQuestions-Container">
+                            <h3>Asked proving questions.</h3>
+                            <aside>
+                                <textarea id="SpecialInstructionsPSF" type="text" cols="30" rows="10"></textarea>
+                            </aside>
+                        </section>
+
+                        <section id="AppointmentOutcome">
+
+                            <h3>Set an appointment date.</h3>
+                            <input type="date" onchange="NewAptDateHandler(event)">
+                            <h3>Outcome</h3>
+
+                            <select name="" id="" onchange="PreScreenOutcomeHandler(event)">
+                                <option value="SelectOutcome">Select Outcome</option>
+                                <option value="OnsiteDiagnoses">Onsite Diagnoses</option>
+                                <option value="UnsuccessfulPreScreen">Unsuccessful Pre-Screen</option>
+                                <option value="OrderParts">Order Parts</option>
+                                <option value="SentToTriage">Sent To Triage</option>
+                            </select>
+                        </section>
+
                         <footer class="PreScreen-Actions">
-                            <p>Did the customer answer?</p>
+                            <p id="DidCxAnswer">Did the customer answer?</p>
                             <div id="ActionOptions1" class="ActionOptions-Container">
                                 <button id="Action1" onclick="PreScreenActionsHandler(event)">no</button>
                                 <button id="Action2" onclick="PreScreenActionsHandler(event)">yes</button>
@@ -220,43 +253,61 @@
                                 <button id="Action3" onclick="PreScreenActionsHandler(event)">back</button>
                                 <button id="Action4" onclick="PreScreenActionsHandler(event)">next</button>
                             </div>
+
+
+                            <div id="ActionOptions3" class="ActionOptions-Container">
+                                <button id="Action5" onclick="PreScreenActionsHandler(event)">back</button>
+                                <button id="Action6" onclick="PreScreenActionsHandler(event)">next</button>
+                            </div>
+
+
+                            <div id="ActionOptions4" class="ActionOptions-Container">
+                                <button id="Action7" onclick="PreScreenActionsHandler(event)">back</button>
+                                <button id="Action8" onclick="PreScreenActionsHandler(event)">next</button>
+                            </div>
+
+
+                            <div id="ActionOptions5" class="ActionOptions-Container">
+                                <button id="Action9" onclick="PreScreenActionsHandler(event)">back</button>
+                                @* <button id="Action10" onclick="PreScreenActionsHandler(event)">Submit</button> *@
+                                <button onclick="NewJobHandler(event)">Submit</button>
+
+                            </div>
                         </footer>
-                        <h3>Service</h3>
-                        <input id="ServiceJobNumberPSF" type="text">
-                        <input id="SamsungJobNumberPSF" type="text">
-                        <input id="InWarrantyPSF" type="text">
-                        <input id="MarketCodePSF" type="text">
 
 
-                        <input id="PhoneNumberPSF" type="text">
-                        <input id="EmailPSF" type="text">
+                        <input class="hidden" id="ServiceJobNumberPSF" type="text">
+                        <input class="hidden" id="SamsungJobNumberPSF" type="text">
+                        <input class="hidden" id="MarketCodePSF" type="text">
 
-                        <h3>Product</h3>
-                        <input id="ModelNumberPSF" type="text">
-                        <input id="SerialNumberPSF" type="text">
+
+                        <input class="hidden" id="PhoneNumberPSF" type="text">
+                        <input class="hidden" id="EmailPSF" type="text">
+
+
                         @* <div class="hidden"> *@
-                        <h3>User Assigned</h3>
-                        <input id="TwoManJobPSF" type="text">
-                        <input id="TechNamePSF" type="text">
-                        <input id="SANamePSF" type="text">
-                        <input id="SecondPersonNamePSF" type="text">
+                        <h3 class="hidden">User Assigned</h3>
+                        <input class="hidden" id="TwoManJobPSF" type="text">
+                        <input class="hidden" id="TechNamePSF" type="text">
+                        <input class="hidden" id="SANamePSF" type="text">
+                        <input class="hidden" id="SecondPersonNamePSF" type="text">
 
-                        <h3>Appoinment Info</h3>
-                        <input id="AppointmentDayPSF" type="text">
-                        <input id="AppointmentTimePSF" type="text">
-                        <input id="AppointmentWindowPSF" type="text">
-                        <input id="NumberOfContactMadePSF" type="text">
-                        <input id="NumberOfTimesReschedualPSF" type="text">
+                        <h3 class="hidden">Appoinment Info</h3>
+                        <input class="hidden" id="AppointmentDayPSF" type="text">
+                        <input class="hidden" id="AppointmentTimePSF" type="text">
+                        <input class="hidden" id="AppointmentWindowPSF" type="text">
+                        <input class="hidden" id="NumberOfContactMadePSF" type="text">
+                        <input class="hidden" id="NumberOfTimesReschedualPSF" type="text">
 
-                        <h3>Market Info</h3>
-                        <input id="MarketPSF" type="text">
+                        <h3 class="hidden">Market Info</h3>
+                        <input class="hidden" id="MarketPSF" type="text">
 
-                        <h3>Market Info</h3>
-                        <input id="ServiceStatusPSF" type="text">
-                        <input id="JobStatusPSF" type="text">
-                        <input id="JobStatusColorPSF" type="text">
-                        <input id="ReworkPSF" type="text">
-                        <input id="ForceBookPSF" type="text">
+                        <h3 class="hidden">Market Info</h3>
+                        <input class="hidden" id="ServiceStatusPSF" type="text">
+                        <input class="hidden" id="JobStatusPSF" type="text">
+                        <input class="hidden" id="JobStatusColorPSF" type="text">
+                        <input class="hidden" id="ReworkPSF" type="text">
+                        <input class="hidden" id="ForceBookPSF" type="text">
 
                         @* </div> *@
                     </form>
@@ -269,7 +320,7 @@
                         <ul>
                             <li>
                                 <input type="checkbox">
-                                <h3>Greeted the customer.</h3>
+                                <h3>Greeted the customer and confirm appliance.</h3>
 
                             </li>
                             <li>
@@ -282,43 +333,24 @@
                             </li>
                             <li>
                                 <input type="checkbox">
-                                <h3>Confirm customer appliance and warranty .</h3>
+                                <h3>Confirm customer warranty .</h3>
+                            </li>
+
+                            <li>
+                                <input type="checkbox">
+                                <h3>Confirm Model and serial #.</h3>
                             </li>
                             <li>
                                 <input type="checkbox">
                                 <h3>Asked proving questions.</h3>
                             </li>
-                            <aside>
-                                <textarea id="SpecialInstructionsPSF" type="text" cols="30" rows="10"></textarea>
-
-                            </aside>
-                            <li>
-                                <input type="checkbox">
-                                <h3>Confirm Model and serial #.</h3>
-                            </li>
-
 
                             <li>
                                 <input type="checkbox">
-                                <h3>Set an appointment date. <input type="date" onchange="NewAptDateHandler(event)">
-                                </h3>
-
-
+                                <h3>Set an appointment date.</h3>
                             </li>
 
-                            <footer>
-                                <select name="" id="" onchange="PreScreenOutcomeHandler(event)">
 
-                                    <option value="SelectOutcome">Select Outcome</option>
-                                    <option value="OnsiteDiagnoses">Onsite Diagnoses</option>
-                                    <option value="UnsuccessfulPreScreen">Unsuccessful Pre-Screen</option>
-                                    <option value="OrderParts">Order Parts</option>
-                                    <option value="SentToTriage">Sent To Triage</option>
-                                </select>
-
-                                <button onclick="NewJobHandler(event)">Submit</button>
-
-                            </footer>
                         </ul>
                     </div>
 

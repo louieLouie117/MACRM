@@ -19,6 +19,7 @@ const PreScreenActionsHandler = (e)=>{
         document.getElementById("ConfirmAddress").style.display = "grid";
         document.getElementById("ActionOptions1").style.display = "none";
         document.getElementById("ActionOptions2").style.display = "flex";
+        document.getElementById("DidCxAnswer").innerText = " ";
 
 
 
@@ -28,7 +29,55 @@ const PreScreenActionsHandler = (e)=>{
         document.getElementById("ConfirmAddress").style.display = "none";
         document.getElementById("ActionOptions1").style.display = "flex";
         document.getElementById("ActionOptions2").style.display = "none";
+        document.getElementById("DidCxAnswer").innerText = "Did the customer answer?";
+    }
 
+    if(e.target.id === "Action4"){
+        document.getElementById("ActionOptions1").style.display = "none";
+        document.getElementById("ActionOptions2").style.display = "none";
+        document.getElementById("ActionOptions3").style.display = "flex";
+
+        document.getElementById("ModelSerialNumber").style.display = "grid";
+    }
+
+    if(e.target.id === "Action5"){
+        document.getElementById("ActionOptions1").style.display = "none";
+        document.getElementById("ActionOptions2").style.display = "flex";
+        document.getElementById("ActionOptions3").style.display = "none";
+
+        document.getElementById("ModelSerialNumber").style.display = "none";
+    }
+
+    if(e.target.id === "Action6"){
+        document.getElementById("ActionOptions1").style.display = "none";
+        document.getElementById("ActionOptions2").style.display = "none";
+        document.getElementById("ActionOptions3").style.display = "none";
+        document.getElementById("ActionOptions4").style.display = "flex";
+
+        document.getElementById("ProvingQuestions").style.display = "grid";
+    }
+
+    
+    if(e.target.id === "Action7"){
+        document.getElementById("ActionOptions1").style.display = "none";
+        document.getElementById("ActionOptions2").style.display = "none";
+        document.getElementById("ActionOptions3").style.display = "flex";
+        document.getElementById("ActionOptions4").style.display = "none";
+
+        document.getElementById("ProvingQuestions").style.display = "none";
+    }
+
+
+       
+    if(e.target.id === "Action8"){
+        document.getElementById("ActionOptions1").style.display = "none";
+        document.getElementById("ActionOptions2").style.display = "none";
+        document.getElementById("ActionOptions3").style.display = "non";
+        document.getElementById("ActionOptions4").style.display = "none";
+        document.getElementById("ActionOptions5").style.display = "flex";
+
+
+        document.getElementById("AppointmentOutcome").style.display = "grid";
     }
        
     
