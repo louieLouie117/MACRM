@@ -256,6 +256,7 @@ namespace KcPilot.Controllers
         {
             System.Console.WriteLine("You have reached the back end of DataGenerator Method");
 
+
             string UserMarketCodeInSession = HttpContext.Session.GetString("MarketCode");
 
             List<Job> UnassignedList = _context.Jobs
@@ -314,6 +315,8 @@ namespace KcPilot.Controllers
             System.Console.WriteLine($"Job Color: {UserInputData.JobStatusColor}");
             System.Console.WriteLine($"Market in session: {UserMarketCodeInSession}");
             System.Console.WriteLine($"job in session: {PreScreenJobInSession}");
+            System.Console.WriteLine($"special instructions: {UserInputData.SpecialInstructions}");
+
 
             Job GetJob = _context.Jobs.SingleOrDefault(id => id.JobStatusId == PreScreenJobInSession);
 
@@ -322,6 +325,8 @@ namespace KcPilot.Controllers
             GetJob.JobStatusId = PreScreenJobInSession;
             GetJob.JobStatus = UserInputData.JobStatus;
             GetJob.JobStatusColor = UserInputData.JobStatusColor;
+            GetJob.SpecialInstructions = UserInputData.SpecialInstructions;
+
 
 
             // _context.Update(Entry);
@@ -330,6 +335,7 @@ namespace KcPilot.Controllers
             List<Job> JobList = _context.Jobs
             .Where(ul => ul.MarketCode == UserMarketCodeInSession)
             .Where(st => st.JobStatus != "unassigned")
+            .Where(us => us.UserId == UserIdInSession)
             .ToList();
 
             // JobID needs to go into session.

@@ -119,6 +119,30 @@ button{
 
 .JobCardItem-Container{
     display: grid;
-    background: red;
 }
 
+.Address-Container{
+    display: grid;
+    column-gap: 5px;
+    grid-column: 1/3;
+    grid-row: auto;
+}
+
+.ActionOptions-Container{
+    display: flex;
+    column-gap: 5px;
+}
+
+.Address-Container address{
+    display: flex;
+    width: 300px;
+    width: 100%;
+
+   
+}
+
+
+.Address-Container address input{
+    width: 150px;
+
+}

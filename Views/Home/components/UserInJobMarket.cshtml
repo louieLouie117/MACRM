@@ -12,6 +12,14 @@
             console.log("User in market", result);
             document.getElementById("UserInMarketContainer").style.display = "none"
 
+            document.getElementById("UnassignedContainer").style.display = "grid";
+            document.getElementById("PreScreenContainer").style.display = "none"
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("UnassignedMethod", "Home")',
+                success: APIDataMethodSuccess,
+            });
+
         };
         const RenderUserInMarket = (data) => {
             console.log("This is the user in market that will be reanding", data.result);

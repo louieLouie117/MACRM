@@ -74,7 +74,7 @@ function initialize() {
                 console.log(" converted address results", results)
                 if (status === 'OK') {
                   count++
-                  console.log(element,"|| Coordinates || ", "lat:", results[0].geometry.bounds.vb.hi, "Long:", results[0].geometry.bounds.Ra.hi,)
+                  // console.log(element,"|| Coordinates || ", "lat:", results[0].geometry.bounds.vb.hi, "Long:", results[0].geometry.bounds.Ra.hi,)
                   let latCoordinate =  results[0].geometry.bounds.vb.hi;
                   let longCoordinate = results[0].geometry.bounds.Ra.hi;
                   locations.push([element,latCoordinate, longCoordinate, 'Customers Info'])
@@ -194,7 +194,7 @@ function initMap() {
       geocoder.geocode({'address':DefaultAddress}, function(results, status) {
         console.log("Here is the results", results)
         if (status === 'OK') {
-          // map.setCenter(results[0].geometry.location);
+          // map.setCenter(results[0].geometry.location);d
           console.log("geometry results",results[0].geometry)
           let marker = new google.maps.Marker({
             map: map,
