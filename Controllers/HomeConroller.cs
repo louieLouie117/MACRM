@@ -315,6 +315,8 @@ namespace KcPilot.Controllers
             System.Console.WriteLine($"Job Color: {UserInputData.JobStatusColor}");
             System.Console.WriteLine($"Market in session: {UserMarketCodeInSession}");
             System.Console.WriteLine($"job in session: {PreScreenJobInSession}");
+            System.Console.WriteLine($"special instructions: {UserInputData.SpecialInstructions}");
+
 
             Job GetJob = _context.Jobs.SingleOrDefault(id => id.JobStatusId == PreScreenJobInSession);
 
@@ -323,6 +325,8 @@ namespace KcPilot.Controllers
             GetJob.JobStatusId = PreScreenJobInSession;
             GetJob.JobStatus = UserInputData.JobStatus;
             GetJob.JobStatusColor = UserInputData.JobStatusColor;
+            GetJob.SpecialInstructions = UserInputData.SpecialInstructions;
+
 
 
             // _context.Update(Entry);
